@@ -67,7 +67,7 @@ style="width: 200px" onkeyup="javascript:autosuggest('proyectos','buscador','bus
                     <ul>
 
                     	<li><a href="editprofile.html">Editar cuenta</a></li>
-                        <li><a href="index.html">Cerrar sesión</a></li>
+                        <li><a href="<?php echo base_url();?>auth/logout">Cerrar sesión</a></li>
 
                     </ul>
 
