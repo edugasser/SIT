@@ -5,7 +5,7 @@
 
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/> 
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>Login Page | Amanda Admin Template</title>
+<title>Igovern - ISO 38500</title>
  
  
 <link rel="stylesheet" href="<?php echo base_url();?>assets/css/style.default.css" type="text/css" />
