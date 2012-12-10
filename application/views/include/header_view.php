@@ -1,0 +1,196 @@
+<div class="topheader">
+
+<div class="left">
+
+<h1 class="logo"><img width="100" src="<?php echo base_url();?>assets/images/logo.png"></h1>
+
+<span class="slogan">PANEL CONTROL</span>
+
+
+
+<div class="chatsearch">   
+<input   value="Buscador de proyectos" 
+onfocus="if (this.value == 'Buscador de proyectos') this.value = '';" onblur="if (this.value == '')
+this.value = 'Buscador de proyectos';" name="proyectos-q" id="proyectos-q" type="text" 
+style="width: 200px" onkeyup="javascript:autosuggest('proyectos','buscador','buscador')"/>
+<div class="autosuggest"  id="proyectos"></div> 
+</div><!--search-->
+ 
+   
+
+           
+
+            
+
+            <br clear="all" />
+
+            
+
+        </div><!--left-->
+
+        
+
+        <div class="right">
+
+        	<div class="notification">
+
+                <a class="count" href="ajax/notifications.html"><span>9</span></a>
+
+        	</div>
+
+            <div class="userinfo">
+
+            	<img width="20"src="<?php echo base_url();?>assets/foto_perfil/496.jpg" alt="" />
+
+                <span>Eduardo Andrés Gasser</span>
+
+            </div><!--userinfo-->
+
+            
+
+            <div class="userinfodrop">
+
+            	<div class="avatar">
+
+                	<a href="#"><img src="<?php echo base_url();?>assets	/foto_perfil/496.jpg" alt="" /></a>
+
+                     
+
+                </div><!--avatar-->
+
+                <div class="userdata">
+
+                	<h4>Eduardo Andrés Gasser</h4>
+
+                    <span class="email">edugasser@gmail.com</span>
+
+                    <ul>
+
+                    	<li><a href="editprofile.html">Editar cuenta</a></li>
+                        <li><a href="index.html">Cerrar sesión</a></li>
+
+                    </ul>
+
+                </div><!--userdata-->
+
+            </div><!--userinfodrop-->
+
+        </div><!--right-->
+
+    </div><!--topheader-->
+
+    
+
+    
+
+    <div class="header">
+
+    	<ul class="headermenu">
+
+        	<li class="current"><a href="<?php echo base_url();?>panel"><span class="icon icon-flatscreen"></span>Panel de control</a></li>
+   
+
+       
+       
+        </ul>
+
+        
+
+        <div class="headerwidget">
+
+        	<div class="earnings">
+
+            	<div class="one_half">
+
+                	<h4>PROJECTES</h4>
+
+                    <h2>4</h2>
+
+                </div><!--one_half-->
+
+                <div class="one_half last alignright">
+
+                	<h4>%</h4>
+
+                    <h2>53%</h2>
+
+                </div><!--one_half last-->
+
+            </div><!--earnings-->
+
+        </div><!--headerwidget-->
+
+        
+
+        
+
+    </div><!--header-->
+
+    
+
+    <div class="vernav2 iconmenu">
+
+    	<ul>
+		<li><a href="#propuesta" class="editor">Propostes</a>
+			<span class="arrow"></span>
+			<ul id="propuesta">
+				<li><a href="<?php echo base_url();?>proposta/gestion">Listar</a></li>
+				<li><a href="<?php echo base_url();?>proposta/add">Crear</a></li>	 
+			</ul>
+         </li>
+		 <li><a href="#objectius_estrategics" class="editor">Objectius estratègics</a>
+			<span class="arrow"></span>
+			<ul id="objectius_estrategics">
+				<li><a href="<?php echo base_url();?>objectius_estrategics/gestion">Listar</a></li>
+				<li><a href="<?php echo base_url();?>objectius_estrategics/add">Crear</a></li>	 
+			</ul>
+        </li>
+			 <li><a href="#objectius_tactics" class="editor">Objectius tàctics</a>
+			<span class="arrow"></span>
+			<ul id="objectius_tactics">
+				<li><a href="<?php echo base_url();?>objectius_tactics/gestion">Listar</a></li>
+				<li><a href="<?php echo base_url();?>objectius_tactics/add">Crear</a></li>	 
+			</ul>
+        </li>
+        <li><a href="#formsub" class="editor">Projectes</a>
+			<span class="arrow"></span>
+			<ul id="formsub">
+				<li><a href="<?php echo base_url();?>proyecto/gestion">Listar</a></li>
+				<li><a href="<?php echo base_url();?>proyecto/add">Crear</a></li>					
+			</ul>
+        </li>
+		  <li><a href="#tipus_projectes" class="editor">Tipus projectes</a>
+			<span class="arrow"></span>
+			<ul id="tipus_projectes">
+				<li><a href="<?php echo base_url();?>tipus_projectes/gestion">Listar</a></li>
+				<li><a href="<?php echo base_url();?>tipus_projectes/add">Crear</a></li>					
+			</ul>
+        </li>
+		<li><a href="#persones" class="editor">Persones</a>
+			<span class="arrow"></span>
+			<ul id="persones">
+				<li><a href="<?php echo base_url();?>persona/gestion">Listar</a></li>
+				<li><a href="<?php echo base_url();?>persona/add">Registrar</a></li>	 
+			</ul>
+        </li>
+		<li><a href="#departament" class="editor">Departaments</a>
+			<span class="arrow"></span>
+			<ul id="departament">
+				<li><a href="<?php echo base_url();?>departament/gestion">Listar</a></li>
+				<li><a href="<?php echo base_url();?>departament/add">Crear</a></li>	 
+			</ul>
+        </li>
+		<li><a href="#operacio" class="editor">Operació</a>
+			<span class="arrow"></span>
+			<ul id="operacio">
+				<li><a href="<?php echo base_url();?>operacio/gestion">Listar</a></li>
+				<li><a href="<?php echo base_url();?>operacio/add">Crear</a></li>	 
+			</ul>
+        </li>
+        <a class="togglemenu"></a>
+
+        <br /><br />
+
+    </div><!--leftmenu-->
+
+        
