@@ -126,11 +126,10 @@ style="width: 200px" onkeyup="javascript:autosuggest('proyectos','buscador','bus
 
     </div><!--header-->
 
-    
-
     <div class="vernav2 iconmenu">
 
     	<ul>
+		<?php if ($this->session->userdata('Propostes') == 1){ ?>
 		<li><a href="#propuesta" class="editor">Propostes</a>
 			<span class="arrow"></span>
 			<ul id="propuesta">
@@ -138,6 +137,7 @@ style="width: 200px" onkeyup="javascript:autosuggest('proyectos','buscador','bus
 				<li><a href="<?php echo base_url();?>proposta/add">Crear</a></li>	 
 			</ul>
          </li>
+		<?php } if ($this->session->userdata('Objectius') == 1){ ?>
 		 <li><a href="#objectius_estrategics" class="editor">Objectius estratègics</a>
 			<span class="arrow"></span>
 			<ul id="objectius_estrategics">
@@ -145,13 +145,15 @@ style="width: 200px" onkeyup="javascript:autosuggest('proyectos','buscador','bus
 				<li><a href="<?php echo base_url();?>objectius_estrategics/add">Crear</a></li>	 
 			</ul>
         </li>
-			 <li><a href="#objectius_tactics" class="editor">Objectius tàctics</a>
+		<?php } if ($this->session->userdata('Objectius') == 1){ ?>
+		<li><a href="#objectius_tactics" class="editor">Objectius tàctics</a>
 			<span class="arrow"></span>
 			<ul id="objectius_tactics">
 				<li><a href="<?php echo base_url();?>objectius_tactics/gestion">Listar</a></li>
 				<li><a href="<?php echo base_url();?>objectius_tactics/add">Crear</a></li>	 
 			</ul>
         </li>
+		 <?php } if ($this->session->userdata('Projectes') == 1){ ?>
         <li><a href="#formsub" class="editor">Projectes</a>
 			<span class="arrow"></span>
 			<ul id="formsub">
@@ -159,6 +161,7 @@ style="width: 200px" onkeyup="javascript:autosuggest('proyectos','buscador','bus
 				<li><a href="<?php echo base_url();?>proyecto/add">Crear</a></li>					
 			</ul>
         </li>
+		 <?php } if ($this->session->userdata('Projectes') == 1){ ?>
 		  <li><a href="#tipus_projectes" class="editor">Tipus projectes</a>
 			<span class="arrow"></span>
 			<ul id="tipus_projectes">
@@ -166,6 +169,7 @@ style="width: 200px" onkeyup="javascript:autosuggest('proyectos','buscador','bus
 				<li><a href="<?php echo base_url();?>tipus_projectes/add">Crear</a></li>					
 			</ul>
         </li>
+		<?php } if ($this->session->userdata('Persones') == 1){ ?>
 		<li><a href="#persones" class="editor">Persones</a>
 			<span class="arrow"></span>
 			<ul id="persones">
@@ -173,6 +177,7 @@ style="width: 200px" onkeyup="javascript:autosuggest('proyectos','buscador','bus
 				<li><a href="<?php echo base_url();?>persona/add">Registrar</a></li>	 
 			</ul>
         </li>
+		<?php } if ($this->session->userdata('Departaments') == 1){?>
 		<li><a href="#departament" class="editor">Departaments</a>
 			<span class="arrow"></span>
 			<ul id="departament">
@@ -180,6 +185,7 @@ style="width: 200px" onkeyup="javascript:autosuggest('proyectos','buscador','bus
 				<li><a href="<?php echo base_url();?>departament/add">Crear</a></li>	 
 			</ul>
         </li>
+		<?php } if (($this->session->userdata('Operacio')) == 1){ ?>
 		<li><a href="#operacio" class="editor">Operació</a>
 			<span class="arrow"></span>
 			<ul id="operacio">
@@ -187,6 +193,16 @@ style="width: 200px" onkeyup="javascript:autosuggest('proyectos','buscador','bus
 				<li><a href="<?php echo base_url();?>operacio/add">Crear</a></li>	 
 			</ul>
         </li>
+		<?php } if (($this->session->userdata('Usuaris'))== 1){?>
+		<li><a href="#usuarios" class="editor">Usuaris</a>
+			<span class="arrow"></span>
+			<ul id="usuarios">
+				<li><a href="<?php echo base_url();?>usuaris">Usuaris</a></li>
+				<li><a href="<?php echo base_url();?>usuaris/perfils">Perfils</a></li>
+				<li><a href="<?php echo base_url();?>usuaris/perfil_permisos">Permisos</a></li>	
+			</ul>
+        </li>
+		<?php } ?>
         <a class="togglemenu"></a>
 
         <br /><br />

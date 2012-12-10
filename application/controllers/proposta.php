@@ -23,6 +23,7 @@ class proposta extends CI_Controller {
 		parent::__construct();
 		$this->load->helper('url');
 		$this->load->model('mi_model');
+		$this->load->library('Tank_auth');
 	}
 
 	public function index()
@@ -33,49 +34,23 @@ class proposta extends CI_Controller {
 	}
 	public function add()
 	{ 
-		$data['contenido'] =  "proposta/add_view";
-		$this->load->view('page_view', $data);
+		if ($this->tank_auth->is_logged_in()) {		
+			$data['contenido'] =  "proposta/add_view";
+			$this->load->view('page_view', $data);
+		}else{
+			redirect('auth/');
+		}
 	
 	}
 	public function gestion($success=null){
-		
-		$data['success'] = isset($success);
-		$sql = "SELECT *,DATE_FORMAT(data, '%d-%m-%Y') as data FROM proposta";
-		$data['data'] = $this->mi_model->get_sql($sql);
- 
-		$data['contenido'] =  "proposta/gestion_view";
-		 
-		$this->load->view('page_view', $data);
+		if ($this->tank_auth->is_logged_in()) {		
+			$data['contenido'] =  "proposta/gestion_view";
+			$this->load->view('page_view', $data);
+		}else{
+			redirect('auth/');
+		}
 	}
-  
-	 
-	public function delete($id){
-		//eliminamos
-		$this->mi_model->delete("proposta","id",$id);
- 
-		// where to redirect to
-		redirect('/proposta/gestion/','refresh');		
-	}
- 
- 
-	 
-	public function delete_all(){
-		$ids=$_POST['id'];
-		$i=0;$error=false;
-		//ELIMINAMOS TODOS LOS CHECKBOX SELECCIONADOS
-		//FALTA COMPROBACION TRIGGER CUANDO KEY FOREANEA UTILIZADA
-		while ($i<count($ids)){	
-		 
-		 	if (isset($_POST[$i])){ 	
-				$this->mi_model->delete("projecte","id",$_POST['id'][$i]);	
-			}	 
-	    	$i++;   
-	    }
-		// where to redirect to
-		redirect('/proyecto/gestion/','refresh');	
-
-	}
-	 
+   
 
 }
 

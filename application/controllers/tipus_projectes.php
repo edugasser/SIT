@@ -23,6 +23,7 @@ class tipus_projectes extends CI_Controller {
 		parent::__construct();
 		$this->load->helper('url');
 		$this->load->model('mi_model');
+		$this->load->library('Tank_auth');
 	}
 
 	public function index()
@@ -33,16 +34,23 @@ class tipus_projectes extends CI_Controller {
 	}
 	public function add()
 	{ 
+		if ($this->tank_auth->is_logged_in()) {		
 		$data['contenido'] =  "tipus_projectes/add_view";
 		$this->load->view('page_view', $data);
+		}else{
+			redirect('auth/');
+		}
 	
 	}
 	public function gestion($success=null){
-		
+		if ($this->tank_auth->is_logged_in()) {		
  
 		$data['contenido'] =  "tipus_projectes/gestion_view";
 		 
 		$this->load->view('page_view', $data);
+		}else{
+			redirect('auth/');
+		}
 	}
   
 	 
