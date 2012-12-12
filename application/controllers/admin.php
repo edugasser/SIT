@@ -29,6 +29,22 @@ class Admin extends CI_Controller {
 	{
 		$this->_example_output((object)array('output' => '' , 'js_files' => array() , 'css_files' => array()));
 	}
+	function serveis()
+	{
+		try{
+			$crud = new grocery_CRUD();
+
+			$crud->set_theme('datatables');
+			$crud->set_table('servicis');
+			$crud->set_subject('Serveis');
+		 
+			$output = $crud->render();
+			$this->_example_output($output);
+			
+		}catch(Exception $e){
+			show_error($e->getMessage().' --- '.$e->getTraceAsString());
+		}
+	}	
 	function perfil_permisos()
 	{
 		try{
@@ -239,7 +255,8 @@ class Admin extends CI_Controller {
 			$crud->set_theme('datatables');
 			$crud->set_table('proposta');
 			$crud->set_subject('Propostes');
-			$crud->set_relation('tipus_projecte_id','tipus_projecte','id'); 
+			$crud->set_relation('tipus_projecte_id','tipus_projecte','tipus'); 
+			 $crud->columns('titol','acceptat','tipus_projecte_id','data');
 			//GESTION PERMISOS
 			if (($this->session->userdata('Editar')) != 1){
 				$crud->unset_edit(); 
@@ -265,7 +282,7 @@ class Admin extends CI_Controller {
 			$crud->set_theme('datatables');
 			$crud->set_table('persones');
 			$crud->set_subject('Persones');
-			$crud->set_relation('departaments_id','departaments','id'); 
+			$crud->set_relation('departaments_id','departaments','dept'); 
 			//GESTION PERMISOS
 			if (($this->session->userdata('Editar')) != 1){
 				$crud->unset_edit(); 
@@ -293,7 +310,7 @@ class Admin extends CI_Controller {
 			$crud->set_subject('Projectes');
 			$crud->set_relation('Proposta_id','Proposta','id'); 
 			$crud->set_relation('Seguiment_projecte_id','Seguiment_projecte','id');
-			$crud->columns('titol','data_inici','data_entrega');
+			$crud->columns('titol','data_inici','data_entrega','estat_projecte');
 			//GESTION PERMISOS
 			 
 			if ($this->session->userdata('Editar') != 1){

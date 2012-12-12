@@ -23,6 +23,7 @@ class objectius_tactics extends CI_Controller {
 		parent::__construct();
 		$this->load->helper('url');
 		$this->load->model('mi_model');
+		$this->load->library('Tank_auth');
 	}
 
 	public function index()

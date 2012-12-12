@@ -23,6 +23,8 @@ class operacio extends CI_Controller {
 		parent::__construct();
 		$this->load->helper('url');
 		$this->load->model('mi_model');
+		
+		$this->load->library('Tank_auth');
 	}
 
 	public function index()
@@ -38,43 +40,11 @@ class operacio extends CI_Controller {
 	
 	}
 	public function gestion($success=null){
-		
-		$data['success'] = isset($success);
-		$sql = "SELECT *,projecte.titol as nom_projecte FROM operacio LEFT JOIN  PROJECTE ON operacio.projecte_id = projecte.id";
-		$data['data'] = $this->mi_model->get_sql($sql);
- 
-		$data['contenido'] =  "operacio/gestion_view";
-		 
+	if ($this->tank_auth->is_logged_in()) {	
+		$data['contenido'] =  "operacio/gestion_view";		 
 		$this->load->view('page_view', $data);
 	}
   
-	 
-	public function delete($id){
-		//eliminamos
-		$this->mi_model->delete("operacio","id",$id);
- 
-		// where to redirect to
-		redirect('/operacio/gestion/','refresh');		
-	}
- 
- 
-	 
-	public function delete_all(){
-		$ids=$_POST['id'];
-		$i=0;$error=false;
-		//ELIMINAMOS TODOS LOS CHECKBOX SELECCIONADOS
-		//FALTA COMPROBACION TRIGGER CUANDO KEY FOREANEA UTILIZADA
-		while ($i<count($ids)){	
-		 
-		 	if (isset($_POST[$i])){ 	
-				$this->mi_model->delete("projecte","id",$_POST['id'][$i]);	
-			}	 
-	    	$i++;   
-	    }
-		// where to redirect to
-		redirect('/proyecto/gestion/','refresh');	
-
-	}
 	 
 
 }

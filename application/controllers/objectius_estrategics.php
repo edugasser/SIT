@@ -23,6 +23,7 @@ class objectius_estrategics extends CI_Controller {
 		parent::__construct();
 		$this->load->helper('url');
 		$this->load->model('mi_model');
+		$this->load->library('Tank_auth');
 	}
 
 	public function index()
@@ -33,21 +34,24 @@ class objectius_estrategics extends CI_Controller {
 	}
 	public function add()
 	{ 
+		if ($this->tank_auth->is_logged_in()) {	
+
 		$data['contenido'] =  "objectius_estrategics/add_view";
 		$this->load->view('page_view', $data);
+		}else{
+			redirect('auth/');
+		}
 	
 	}
 	public function gestion($success=null){
 		
-		$data['success'] = isset($success);
-		$sql = "SELECT * FROM departaments";
-		$data['data'] = $this->mi_model->get_sql($sql);
- 
-		$data['contenido'] =  "objectius_estrategics/gestion_view";
-		 
-		$this->load->view('page_view', $data);
+	if ($this->tank_auth->is_logged_in()) {		
+		$data['contenido'] =  "objectius_estrategics/gestion_view";		 
+		$this->load->view('page_view', $data);	
+	}else{
+		redirect('auth/');
 	}
-  
+  }
 	 
  
 

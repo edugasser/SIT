@@ -1,6 +1,6 @@
 <?php if ( ! defined('BASEPATH')) exit('No direct script access allowed');
 
-class proyecto extends CI_Controller {
+class serveis extends CI_Controller {
 
 	/**
 	 * Index Page for this controller.
@@ -17,7 +17,7 @@ class proyecto extends CI_Controller {
 	 * map to /index.php/welcome/<method_name>
 	 * @see http://codeigniter.com/user_guide/general/urls.html
 	 */
-	var $path = '/proyecto/gestion/';	
+ 
 	function __construct()
 	{
 		parent::__construct();
@@ -28,14 +28,16 @@ class proyecto extends CI_Controller {
 
 	public function index()
 	{ 
-		$data['contenido'] =  "proyecto/index_view";
+		$data['contenido'] =  "servicis/index_view";
 		$this->load->view('page_view', $data);
 	
 	}
 	public function add()
 	{ 
 		if ($this->tank_auth->is_logged_in()) {		
-			$data['contenido'] =  "proyecto/add_view";
+		$sql  = "SELECT COUNT(*) as total FROM projecte";
+			$data['numpro'] = $this->mi_model->get_sql($sql);
+			$data['contenido'] =  "servicis/add_view";
 			$this->load->view('page_view', $data);
 		}else{
 			redirect('auth/');
@@ -43,17 +45,16 @@ class proyecto extends CI_Controller {
 	
 	}
 	public function gestion($success=null){
- 
-		if ($this->tank_auth->is_logged_in()) {	
-			
-			$data['contenido'] =  "proyecto/gestion_view"; 
+		$sql  = "SELECT COUNT(*) as total FROM projecte";
+			$data['numpro'] = $this->mi_model->get_sql($sql);
+		if ($this->tank_auth->is_logged_in()) {		
+			$data['contenido'] =  "servicis/gestion_view";
 			$this->load->view('page_view', $data);
 		}else{
 			redirect('auth/');
 		}
 	}
- 
-	 
+   
 
 }
 

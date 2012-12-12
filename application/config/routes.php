@@ -40,7 +40,7 @@
 |
 */
 
-$route['default_controller'] = "welcome";
+$route['default_controller'] = "proposta/gestion";
 $route['scaffolding_trigger'] = "";
 
 

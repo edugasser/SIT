@@ -7,14 +7,16 @@ if (!defined('BASEPATH')) exit('No direct script access allowed');
 
 function setup_history() {
     $ci = & get_instance();
-    $ci->load->library('history');
+    $ci->load->model('mi_model');
+	$sql  = "SELECT COUNT(*) as total FROM projecte";
+	$ci->numproyectos = $ci->mi_model->devolver_count("projecte");	
+     
+    
 }
 function push_history() {
     $ci = & get_instance();
 	
-	$ci->history->push($ci->uri->uri_string());
-	
-
+ 	 
 } 
 
 ?>

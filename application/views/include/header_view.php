@@ -31,16 +31,16 @@ style="width: 200px" onkeyup="javascript:autosuggest('proyectos','buscador','bus
         
 
         <div class="right">
-
+<!--
         	<div class="notification">
 
                 <a class="count" href="ajax/notifications.html"><span>9</span></a>
 
         	</div>
-
+-->
             <div class="userinfo">
 
-            	<img width="20"src="<?php echo base_url();?>assets/foto_perfil/496.jpg" alt="" />
+            	<!--<img width="20"src="<?php echo base_url();?>assets/foto_perfil/496.jpg" alt="" />-->
 
                 <span>Eduardo Andrés Gasser</span>
 
@@ -52,7 +52,7 @@ style="width: 200px" onkeyup="javascript:autosuggest('proyectos','buscador','bus
 
             	<div class="avatar">
 
-                	<a href="#"><img src="<?php echo base_url();?>assets	/foto_perfil/496.jpg" alt="" /></a>
+                	<!--<a href="#"><img src="<?php echo base_url();?>assets	/foto_perfil/496.jpg" alt="" /></a>-->
 
                      
 
@@ -87,7 +87,7 @@ style="width: 200px" onkeyup="javascript:autosuggest('proyectos','buscador','bus
 
     	<ul class="headermenu">
 
-        	<li class="current"><a href="<?php echo base_url();?>panel"><span class="icon icon-flatscreen"></span>Panel de control</a></li>
+        	<li class="current"><a href="<?php echo base_url();?>"><span class="icon icon-flatscreen"></span>Panel de control</a></li>
    
 
        
@@ -96,23 +96,25 @@ style="width: 200px" onkeyup="javascript:autosuggest('proyectos','buscador','bus
 
         
 
-        <div class="headerwidget">
+        <div class="headerwidget" >
 
-        	<div class="earnings">
+        	<div class="earnings" >
 
-            	<div class="one_half">
+            	<div class="one_half" >
 
-                	<h4>PROJECTES</h4>
+                	<h4>PROJECTES </h4>
 
-                    <h2>4</h2>
+                    <h2>
+                     <?php echo $this->numproyectos;?>
+                     </h2>
 
                 </div><!--one_half-->
 
                 <div class="one_half last alignright">
 
-                	<h4>%</h4>
+                	<h4></h4>
 
-                    <h2>53%</h2>
+                    <h2></h2>
 
                 </div><!--one_half last-->
 
@@ -158,15 +160,17 @@ style="width: 200px" onkeyup="javascript:autosuggest('proyectos','buscador','bus
 			<span class="arrow"></span>
 			<ul id="formsub">
 				<li><a href="<?php echo base_url();?>proyecto/gestion">Listar</a></li>
-				<li><a href="<?php echo base_url();?>proyecto/add">Crear</a></li>					
+				<li><a href="<?php echo base_url();?>proyecto/add">Crear</a></li>	
+				<li><a href="<?php echo base_url();?>tipus_projectes/gestion">Tipus projectes</a></li>				
 			</ul>
         </li>
-		 <?php } if ($this->session->userdata('Projectes') == 1){ ?>
-		  <li><a href="#tipus_projectes" class="editor">Tipus projectes</a>
+	 
+        <?php } if ($this->session->userdata('Serveis') == 1){ ?>
+		  <li><a href="#servicis" class="editor">Serveis</a>
 			<span class="arrow"></span>
-			<ul id="tipus_projectes">
-				<li><a href="<?php echo base_url();?>tipus_projectes/gestion">Listar</a></li>
-				<li><a href="<?php echo base_url();?>tipus_projectes/add">Crear</a></li>					
+			<ul id="servicis">
+				<li><a href="<?php echo base_url();?>serveis/gestion">Listar</a></li>
+				<li><a href="<?php echo base_url();?>serveis/add">Crear</a></li>					
 			</ul>
         </li>
 		<?php } if ($this->session->userdata('Persones') == 1){ ?>
