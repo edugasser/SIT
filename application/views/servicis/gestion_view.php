@@ -1,5 +1,4 @@
- 
-	<div class="pageheader">
+<div class="pageheader">
 <h1 class="pagetitle">Serveis</h1>
 <span class="pagedesc"></span>
 

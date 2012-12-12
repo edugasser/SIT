@@ -37,7 +37,7 @@ class Admin extends CI_Controller {
 			$crud->set_theme('datatables');
 			$crud->set_table('servicis');
 			$crud->set_subject('Serveis');
-		 
+		 $crud->set_relation('estat_servei','estat','estat');
 			$output = $crud->render();
 			$this->_example_output($output);
 			
@@ -153,7 +153,7 @@ class Admin extends CI_Controller {
 			$crud->set_table('objectius_tactics');
 			$crud->set_subject('Objectius tactics');
  
-			$crud->set_relation('Objectius_estrategics_id','objectius_estrategics','id'); 
+			$crud->set_relation('Objectius_estrategics_id','objectius_estrategics','objectiu'); 
 			$output = $crud->render();
 			//GESTION PERMISOS
 			if (($this->session->userdata('Editar'))!= 1){
@@ -256,7 +256,8 @@ class Admin extends CI_Controller {
 			$crud->set_table('proposta');
 			$crud->set_subject('Propostes');
 			$crud->set_relation('tipus_projecte_id','tipus_projecte','tipus'); 
-			 $crud->columns('titol','acceptat','tipus_projecte_id','data');
+			$crud->set_relation('estat_projecte','estat','estat');
+			 $crud->columns('titol','acceptat','tipus_projecte_id','data','estat_projecte');
 			//GESTION PERMISOS
 			if (($this->session->userdata('Editar')) != 1){
 				$crud->unset_edit(); 
@@ -310,6 +311,7 @@ class Admin extends CI_Controller {
 			$crud->set_subject('Projectes');
 			$crud->set_relation('Proposta_id','Proposta','id'); 
 			$crud->set_relation('Seguiment_projecte_id','Seguiment_projecte','id');
+			$crud->set_relation('estat_projecte','estat','estat');
 			$crud->columns('titol','data_inici','data_entrega','estat_projecte');
 			//GESTION PERMISOS
 			 

@@ -44,6 +44,7 @@ class operacio extends CI_Controller {
 		$data['contenido'] =  "operacio/gestion_view";		 
 		$this->load->view('page_view', $data);
 	}
+	}
   
 	 
 
