@@ -69,7 +69,7 @@ class Tank_auth
 
 					} else {
 						$id_perfil = $user->perfil;
-						$sql = "SELECT * FROM permiso JOIN perfil_permisos ON  permiso.id_permiso = perfil_permisos.id_permiso WHERE PERFIL_PERMISOS.id_perfil = '$id_perfil'";
+						$sql = "SELECT * FROM permiso JOIN perfil_permisos ON  permiso.id_permiso = perfil_permisos.id_permiso WHERE perfil_permisos.id_perfil = '$id_perfil'";
 						$permisos = $this->ci->mi_model->get_sql($sql);
 						$array = array(
 								'user_id'	=> $user->id,
