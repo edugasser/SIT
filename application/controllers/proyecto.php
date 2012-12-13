@@ -42,7 +42,7 @@ class proyecto extends CI_Controller {
 		}
 	
 	}
-	public function gestion($success=null){
+	public function gestion(){
  
 		if ($this->tank_auth->is_logged_in()) {	
 			
@@ -51,6 +51,27 @@ class proyecto extends CI_Controller {
 		}else{
 			redirect('auth/');
 		}
+	}
+		public function aceptar($id_proposta){
+		$array = array('estat_projecte' => 1);
+		$this->mi_model->update('projecte','id',$id_proposta,$array);
+		
+		
+		redirect('proyecto/gestion','refresh');
+	}
+	public function cancelar($id_proposta){
+		$array = array('estat_projecte' => 4);
+		$this->mi_model->update('projecte','id',$id_proposta,$array);
+		redirect('proyecto/gestion','refresh');
+	}
+		public function mio( ){
+ 
+			
+			$sql2 = "SELECT *,projecte.id as id_projecte,DATE_FORMAT(data_inici,'%Y-%m-%d') as data_inici,DATE_FORMAT(data_entrega,'%Y-%m-%d') as data_entrega FROM projecte JOIN estat ON estat.id_estat = projecte.estat_projecte JOIN persones ON persones.id_persona = projecte.id_responsable";
+			$data['data'] = $this->mi_model->get_sql($sql2);	 
+	
+			$this->load->view('proyecto/gestion_view2', $data);
+		 
 	}
  
 	 

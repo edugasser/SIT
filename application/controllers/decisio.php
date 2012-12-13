@@ -1,6 +1,6 @@
 <?php if ( ! defined('BASEPATH')) exit('No direct script access allowed');
 
-class persona extends CI_Controller {
+class decisio extends CI_Controller {
 
 	/**
 	 * Index Page for this controller.
@@ -17,43 +17,45 @@ class persona extends CI_Controller {
 	 * map to /index.php/welcome/<method_name>
 	 * @see http://codeigniter.com/user_guide/general/urls.html
 	 */
+	var $path = '/proyecto/gestion/';	
 	function __construct()
-    {
-        parent::__construct();
-        $this->load->helper('url');
+	{
+		parent::__construct();
+		$this->load->helper('url');
 		$this->load->model('mi_model');
-		 
-    }
+		$this->load->library('Tank_auth');
+	}
 
 	public function index()
-	{
+	{ 
+		$data['contenido'] =  "proyecto/index_view";
+		$this->load->view('page_view', $data);
+	
+	}
+	public function add()
+	{ 
+		if ($this->tank_auth->is_logged_in()) {		
+			$data['contenido'] =  "proyecto/add_view";
+			$this->load->view('page_view', $data);
+		}else{
+			redirect('auth/');
+		}
+	
+	}
+	public function gestion($success=null){
+ 
+		if ($this->tank_auth->is_logged_in()) {	
+			
+			$data['contenido'] =  "decisio/gestion_view"; 
+			$this->load->view('page_view', $data);
+		}else{
+			redirect('auth/');
+		}
+	}
+ 
 	 
-	
-	
-	}
-	function create(){
-		 
-	    $data['contenido'] =  "personas/ajax_view";
-		$this->load->view('page_view', $data);
- 
-    } 
- 
-	public function add(){
-		 
-		$data['contenido'] =  "personas/add_view";
-		$this->load->view('page_view', $data);
-	}
 
-	public function gestion(){
-	 
-		$data['contenido'] =  "personas/gestion_view";
-		$this->load->view('page_view', $data);
-	}
-	
-	
-	
-	 
-}	
+}
 
 /* End of file welcome.php */
 /* Location: ./application/controllers/welcome.php */

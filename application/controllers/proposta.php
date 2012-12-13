@@ -50,6 +50,27 @@ class proposta extends CI_Controller {
 			redirect('auth/');
 		}
 	}
+	public function aceptar($id_proposta){
+		$array = array('estat_projecte' => 1);
+		$this->mi_model->update('proposta','id',$id_proposta,$array);
+		
+		
+		redirect('proposta/gestion','refresh');
+	}
+	public function cancelar($id_proposta){
+		$array = array('estat_projecte' => 4);
+		$this->mi_model->update('proposta','id',$id_proposta,$array);
+		redirect('proposta/gestion','refresh');
+	}
+	public function mio($success=null){
+	 
+		$sql2 = "SELECT *,proposta.id as id_proposta,DATE_FORMAT(data,'%Y-%m-%d') as data_proposta FROM proposta JOIN estat ON estat.id_estat = proposta.estat_projecte JOIN tipus_projecte ON tipus_projecte.id = proposta.tipus_projecte_id";
+		$data['data'] = $this->mi_model->get_sql($sql2);	 
+
+		$data['contenido'] =  "proposta/gestion2_view";
+		$this->load->view('proposta/gestion2_view', $data);
+	 
+	}
    
 
 }

@@ -1,5 +1,6 @@
+
 <div class="pageheader">
-<h1 class="pagetitle">Propostes</h1>
+<h1 class="pagetitle">Principis</h1>
 <span class="pagedesc"></span>
 
 </div><!--pageheader-->
@@ -10,7 +11,5 @@
 <div class="contenttitle2">
     <h3>Nova proposta</h3>
 </div><!--contenttitle-->
-<iframe src="<?php echo base_url();?>admin/propostes/add" frameborder="0" width="100%" height="600">  </iframe>
- 
-
+<iframe src="<?php echo base_url();?>admin/principis/add" frameborder="0" width="100%" height="600">  </iframe>
  

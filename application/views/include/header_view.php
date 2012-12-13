@@ -136,9 +136,18 @@ style="width: 200px" onkeyup="javascript:autosuggest('proyectos','buscador','bus
 			<span class="arrow"></span>
 			<ul id="propuesta">
 				<li><a href="<?php echo base_url();?>proposta/gestion">Listar</a></li>
-				<li><a href="<?php echo base_url();?>proposta/add">Crear</a></li>	 
+				<li><a href="<?php echo base_url();?>proposta/add">Crear</a></li>
+				 	 
 			</ul>
          </li>
+         <?php } if ($this->session->userdata('Principis') == 1){ ?>
+		 <li><a href="#principis" class="editor">Principis</a>
+			<span class="arrow"></span>
+			<ul id="principis">
+				<li><a href="<?php echo base_url();?>principis/gestion">Listar</a></li>
+				<li><a href="<?php echo base_url();?>principis/add">Crear</a></li>	 
+			</ul>
+        </li>
 		<?php } if ($this->session->userdata('Objectius') == 1){ ?>
 		 <li><a href="#objectius_estrategics" class="editor">Objectius estratègics</a>
 			<span class="arrow"></span>

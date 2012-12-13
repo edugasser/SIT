@@ -118,6 +118,33 @@ class Admin extends CI_Controller {
 			show_error($e->getMessage().' --- '.$e->getTraceAsString());
 		}
 	}	
+	function decisio()
+	{
+		try{
+			$crud = new grocery_CRUD();
+
+			$crud->set_theme('datatables');
+			$crud->set_table('decisio');
+			$crud->set_subject('Decisions');
+			$crud->set_relation('id_proposta','proposta','titol');
+			
+			//GESTION PERMISOS
+			if (($this->session->userdata('Editar'))!= 1){
+				$crud->unset_edit(); 
+			}
+			if (($this->session->userdata('Eliminar'))!= 1){
+				$crud->unset_delete(); 
+			}
+			//FIN GESTION PERMISOS
+
+			$output = $crud->render();
+			
+			$this->_example_output($output);
+			
+		}catch(Exception $e){
+			show_error($e->getMessage().' --- '.$e->getTraceAsString());
+		}
+	}
 	function tipus_projectes()
 	{
 		try{
@@ -230,7 +257,7 @@ class Admin extends CI_Controller {
 			$crud->set_theme('datatables');
 			$crud->set_table('operacio');
 			$crud->set_subject('Operacions');
-			$crud->set_relation('Projecte_id','projecte','id'); 
+			$crud->set_relation('Projecte_id','projecte','titol'); 
 			//GESTION PERMISOS
 			if (($this->session->userdata('Editar'))!= 1){
 				$crud->unset_edit(); 
@@ -239,6 +266,62 @@ class Admin extends CI_Controller {
 				$crud->unset_delete(); 
 			}
 			//FIN GESTION PERMISOS
+			$output = $crud->render();
+			
+			$this->_example_output($output);
+			
+		}catch(Exception $e){
+			show_error($e->getMessage().' --- '.$e->getTraceAsString());
+		}
+	}
+	function principis()
+	{
+		try{
+			$crud = new grocery_CRUD();
+
+			$crud->set_theme('datatables');
+			$crud->set_table('principi');
+			$crud->set_subject('Principis');
+		 
+			//GESTION PERMISOS
+			if (($this->session->userdata('Editar')) != 1){
+				$crud->unset_edit(); 
+			}
+			if (($this->session->userdata('Eliminar')) != 1){
+				$crud->unset_delete(); 
+			}
+			//FIN GESTION PERMISOS
+
+			$output = $crud->render();
+			
+			$this->_example_output($output);
+			
+		}catch(Exception $e){
+			show_error($e->getMessage().' --- '.$e->getTraceAsString());
+		}
+	}
+	function propostes_decisio()
+	{
+		try{
+			$crud = new grocery_CRUD();
+
+			$crud->set_theme('datatables');
+			$crud->set_table('proposta');
+			$crud->set_subject('Propostes');
+			$crud->set_relation('tipus_projecte_id','tipus_projecte','tipus'); 
+			$crud->set_relation('estat_projecte','estat','estat');
+			$crud->columns('titol','estat','decisio');
+			$crud->edit_fields('decisio');
+
+			//GESTION PERMISOS
+			if (($this->session->userdata('Editar')) != 1){
+				$crud->unset_edit(); 
+			}
+			if (($this->session->userdata('Eliminar')) != 1){
+				$crud->unset_delete(); 
+			}
+			//FIN GESTION PERMISOS
+
 			$output = $crud->render();
 			
 			$this->_example_output($output);
@@ -257,7 +340,9 @@ class Admin extends CI_Controller {
 			$crud->set_subject('Propostes');
 			$crud->set_relation('tipus_projecte_id','tipus_projecte','tipus'); 
 			$crud->set_relation('estat_projecte','estat','estat');
-			 $crud->columns('titol','acceptat','tipus_projecte_id','data','estat_projecte');
+			$crud->columns('titol','tipus_projecte_id','data','estat_projecte');
+			$crud->edit_fields('titol','tipus_projecte_id','data');
+
 			//GESTION PERMISOS
 			if (($this->session->userdata('Editar')) != 1){
 				$crud->unset_edit(); 
@@ -309,12 +394,13 @@ class Admin extends CI_Controller {
 			$crud->set_theme('datatables');
 			$crud->set_table('projecte');
 			$crud->set_subject('Projectes');
-			$crud->set_relation('Proposta_id','Proposta','id'); 
-			$crud->set_relation('Seguiment_projecte_id','Seguiment_projecte','id');
+			$crud->set_relation('Proposta_id','Proposta','titol'); 
+			$crud->set_relation('id_responsable','persones','nom_complet');
 			$crud->set_relation('estat_projecte','estat','estat');
-			$crud->columns('titol','data_inici','data_entrega','estat_projecte');
+			$crud->set_relation('id_objectiu_tactic','objectius_tactics','objectiu');
+			$crud->columns('titol','data_inici','data_entrega','estat_projecte','id_responsable');
 			//GESTION PERMISOS
-			 
+			  $crud->display_as('id_responsable','Responsable');
 			if ($this->session->userdata('Editar') != 1){
 				$crud->unset_edit(); 
 			}
