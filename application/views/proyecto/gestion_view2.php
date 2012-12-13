@@ -87,11 +87,10 @@ a:hover
 							<th>Titol</th>
 							<th>Data inici</th>
 							<th>Data entrega</th>
-							<th>Estat projecte</th>
-							 
-							<th>Monotoritzacio</th>
-							 
-							<th class='actions'>Acciones</th>
+							<th>Presupost</th>
+							<th style="text-align:center;" >Obj. tàctic</th>
+							<th>Monotoritzacio</th> 
+							<th style="text-align:center;" class='actions'>Acciones</th>
 					</tr>
 	</thead>
 	<tbody>
@@ -99,50 +98,31 @@ a:hover
 		  <?php foreach($data as $row){ ?>
 
 		<tr id='row-0'>
-							<td><?php echo $row->titol;?></td>
-							<td><?php echo $row->data_inici;?></td>
-							<td><?php echo $row->data_entrega;?></td>
-							<td><?php echo $row->estat;?></td>
-						 
-							<td>
-							<img src="<?php echo base_url();?>assets/images/verde.png">
+							<td style="width:250px"><?php echo $row->titol;?></td>
+							<td style="width:90px"><?php echo $row->data_inici;?></td>
+							<td style="width:115px"><?php echo $row->data_entrega;?></td>
+							<td style="width:115px"><?php echo $row->pressupost_inicial;?>€</td>
+							<td style="text-align:center;width:150px">
+								<a  target="_parent" href="<?php echo base_url();?>proyecto/objectius_projecte/<?php echo $row->id;?>" class="edit_button ui-button ui-widget ui-state-default ui-corner-all ui-button-text-icon-primary" role="button">
+								<span class="ui-button-icon-primary ui-icon ui-document-b"></span>
+								<span class="ui-button-text">&nbsp;Ver</span>
+								</a>
+							</td>
+								<td style="width:80px">
+								<img src="<?php echo base_url();?>assets/images/verde.png">
 								<img src="<?php echo base_url();?>assets/images/amarillo.png">
 								<img src="<?php echo base_url();?>assets/images/rojo.png">
 							</td>
-							<td class='actions'>
-							<?php if ($row->estat  == 'Cancelat'){ ?>
-								<a target="_parent" href="<?php echo base_url();?>proyecto/aceptar/<?php echo $row->id_projecte;?>" class="edit_button ui-button ui-widget ui-state-default ui-corner-all ui-button-text-icon-primary" style="bgcolor:#000;?>role="button">
-								<span class="ui-button-icon-primary ui-icon ui-icon-check"></span>
-								<span class="ui-button-text">&nbsp;Aceptar</span>
-							</a>
-							<?php }else if ($row->estat == 'Acceptat'){ ?>
-							<a target="_parent" href="<?php echo base_url();?>proyecto/cancelar/<?php echo $row->id_projecte;?>" class="edit_button ui-button ui-widget ui-state-default ui-corner-all ui-button-text-icon-primary" role="button">
-								<span class="ui-button-icon-primary ui-icon ui-icon-closethick"></span>
-								<span class="ui-button-text">&nbsp;Cancelar</span>
-							</a>
-							<?php }else{ ?>
-								<a target="_parent" href="<?php echo base_url();?>proyecto/aceptar/<?php echo $row->id_projecte;?>" class="edit_button ui-button ui-widget ui-state-default ui-corner-all ui-button-text-icon-primary" style="bgcolor:#000;?>role="button">
-								<span class="ui-button-icon-primary ui-icon ui-icon-check"></span>
-								<span class="ui-button-text">&nbsp;Aceptar</span>
-							</a>
-							<a target="_parent" href="<?php echo base_url();?>proyecto/cancelar/<?php echo $row->id_projecte;?>" class="edit_button ui-button ui-widget ui-state-default ui-corner-all ui-button-text-icon-primary" role="button">
-								<span class="ui-button-icon-primary ui-icon ui-icon-closethick"></span>
-								<span class="ui-button-text">&nbsp;Cancelar</span>
-							</a>
-							<?php } ?>
-							<a href="http://localhost/igovern/admin/projectes/edit/2" class="edit_button ui-button ui-widget ui-state-default ui-corner-all ui-button-text-icon-primary" role="button">
-							<span class="ui-button-icon-primary ui-icon ui-document-b"></span>
-							<span class="ui-button-text">&nbsp;Objectiu tàctic</span>
-							</a>
-							<a href="http://localhost/igovern/admin/projectes/edit/2" class="edit_button ui-button ui-widget ui-state-default ui-corner-all ui-button-text-icon-primary" role="button">
-							<span class="ui-button-icon-primary ui-icon ui-icon-pencil"></span>
-							<span class="ui-button-text">&nbsp;Editar</span>
-							</a>
-							<a onclick = "javascript: return delete_row('http://localhost/igovern/admin/projectes/delete/2', '0')" 
-									href="javascript:void(0)" class="delete_button ui-button ui-widget ui-state-default ui-corner-all ui-button-text-icon-primary" role="button">
-									<span class="ui-button-icon-primary ui-icon ui-icon-circle-minus"></span>
-									<span class="ui-button-text">&nbsp;Borrar</span>
-							</a>
+							<td>
+								<a href="<?php echo base_url();?>proyecto/edit/<?php echo $row->id_projecte;?>" class="edit_button ui-button ui-widget ui-state-default ui-corner-all ui-button-text-icon-primary" role="button">
+								<span class="ui-button-icon-primary ui-icon ui-icon-pencil"></span>
+								<span class="ui-button-text">&nbsp;Editar</span>
+								</a>
+								<a onclick = "javascript: return delete_row('http://localhost/igovern/admin/projectes/delete/2', '0')" 
+										href="javascript:void(0)" class="delete_button ui-button ui-widget ui-state-default ui-corner-all ui-button-text-icon-primary" role="button">
+										<span class="ui-button-icon-primary ui-icon ui-icon-circle-minus"></span>
+										<span class="ui-button-text">&nbsp;Borrar</span>
+								</a>
 							</td>
 		</tr>
 		 <?php }} ?>
@@ -154,12 +134,12 @@ a:hover
 							<th><input type="text" name="data_entrega" placeholder="Buscar Data entrega" class="search_data_entrega" /></th>
 							<th><input type="text" name="s325ab8f0" placeholder="Buscar Estat projecte" class="search_s325ab8f0" /></th>
 							<th><input type="text" name="s017ef000" placeholder="Buscar Responsable" class="search_s017ef000" /></th>
-										<th>
-					<a href="javascript:void(0)" role="button" class="clear-filtering ui-button ui-widget ui-state-default ui-corner-all ui-button-text-icon-primary floatR">
-						<span class="ui-button-icon-primary ui-icon ui-icon-arrowrefresh-1-e"></span>
-						<span class="ui-button-text">Limpiar filtrados</span>
-					</a>
-				</th>
+							<th colspan="4">
+								<a href="javascript:void(0)" role="button" class="clear-filtering ui-button ui-widget ui-state-default ui-corner-all ui-button-text-icon-primary floatR">
+									<span class="ui-button-icon-primary ui-icon ui-icon-arrowrefresh-1-e"></span>
+									<span class="ui-button-text">Limpiar filtrados</span>
+								</a>
+							</th>
 					</tr>
 					
 	</tfoot>

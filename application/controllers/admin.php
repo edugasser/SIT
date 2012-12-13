@@ -388,6 +388,7 @@ class Admin extends CI_Controller {
 	}
 	function projectes()
 	{
+ 
 		try{
 			$crud = new grocery_CRUD();
 
@@ -396,9 +397,8 @@ class Admin extends CI_Controller {
 			$crud->set_subject('Projectes');
 			$crud->set_relation('Proposta_id','Proposta','titol'); 
 			$crud->set_relation('id_responsable','persones','nom_complet');
-			$crud->set_relation('estat_projecte','estat','estat');
-			$crud->set_relation('id_objectiu_tactic','objectius_tactics','objectiu');
-			$crud->columns('titol','data_inici','data_entrega','estat_projecte','id_responsable');
+			 
+			$crud->columns('titol','data_inici','data_entrega','id_responsable');
 			//GESTION PERMISOS
 			  $crud->display_as('id_responsable','Responsable');
 			if ($this->session->userdata('Editar') != 1){
@@ -408,7 +408,7 @@ class Admin extends CI_Controller {
 				$crud->unset_delete(); 
 			}
 			//FIN GESTION PERMISOS
-
+			$crud->unset_back_to_list();
 
 			
 			$output = $crud->render();
@@ -419,6 +419,39 @@ class Admin extends CI_Controller {
 			show_error($e->getMessage().' --- '.$e->getTraceAsString());
 		}
 	}
-	
+	function objectius_projecte($id=null)
+	{
+ 
+		try{
+			$crud = new grocery_CRUD();
+
+			$crud->set_theme('datatables');
+			$crud->set_table('objectius_tactics_has_projecte');
+			$crud->set_subject('Objectius tactics projecte');
+			$crud->where('Projecte_id = '.$id);
+			//$crud->set_relation('Proposta_id','Proposta','titol'); 
+			$crud->set_relation('Objectius_tactics_id','objectius_tactics','objectiu');
+			 
+			$crud->columns('Objectius_tactics_id');
+			//GESTION PERMISOS
+			  $crud->display_as('id_responsable','Responsable');
+			if ($this->session->userdata('Editar') != 1){
+				$crud->unset_edit(); 
+			}
+			if ($this->session->userdata('Eliminar') != 1){
+				$crud->unset_delete(); 
+			}
+			//FIN GESTION PERMISOS
+			$crud->unset_back_to_list();
+
+			
+			$output = $crud->render();
+			
+			$this->_example_output($output);
+			
+		}catch(Exception $e){
+			show_error($e->getMessage().' --- '.$e->getTraceAsString());
+		}
+	}
 	 
 }

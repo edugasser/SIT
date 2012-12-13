@@ -26,17 +26,46 @@ class proyecto extends CI_Controller {
 		$this->load->library('Tank_auth');
 	}
 
+	public function objectius_projecte($id_projecte)
+	{ 
+		$data['id_projecte'] = $id_projecte;
+		$data['contenido'] =  "objectius_tactics/objectius_projecte_view";
+		$this->load->view('page_view', $data);
+	
+	}
 	public function index()
 	{ 
 		$data['contenido'] =  "proyecto/index_view";
 		$this->load->view('page_view', $data);
 	
 	}
-	public function add()
+	public function edit($id)
 	{ 
 		if ($this->tank_auth->is_logged_in()) {		
-			$data['contenido'] =  "proyecto/add_view";
-			$this->load->view('page_view', $data);
+			$sql2 = "SELECT *,DATE_FORMAT(data_inici,'%Y-%m-%d') as data_inici FROM projecte WHERE id = '$id'";
+			$data['data'] = $this->mi_model->get_sql($sql2);	 
+			
+			$sql3 = "SELECT * FROM proposta";
+			$data['propostes'] = $this->mi_model->get_sql($sql3);
+
+			
+			$sql3 = "SELECT * FROM objectius_tactics  
+			left JOIN  objectius_tactics_has_projecte
+			ON  objectius_tactics.id = Objectius_tactics_id
+			WHERE objectius_tactics_has_projecte.projecte_id != '$id'
+			";
+			$data['objetivos_falta'] = $this->mi_model->get_sql($sql3);
+			
+			$sql3 = "SELECT * FROM objectius_tactics_has_projecte  
+			JOIN  objectius_tactics
+			ON  objectius_tactics.id = Objectius_tactics_id
+			WHERE objectius_tactics_has_projecte.projecte_id = '$id'
+			";
+			$data['objetivos_tengo'] = $this->mi_model->get_sql($sql3);
+			
+			$sql4 = "SELECT * FROM persones";
+			$data['responsable'] = $this->mi_model->get_sql($sql4);			
+			$this->load->view('proyecto/edit_view', $data);
 		}else{
 			redirect('auth/');
 		}
@@ -52,22 +81,12 @@ class proyecto extends CI_Controller {
 			redirect('auth/');
 		}
 	}
-		public function aceptar($id_proposta){
-		$array = array('estat_projecte' => 1);
-		$this->mi_model->update('projecte','id',$id_proposta,$array);
-		
-		
-		redirect('proyecto/gestion','refresh');
-	}
-	public function cancelar($id_proposta){
-		$array = array('estat_projecte' => 4);
-		$this->mi_model->update('projecte','id',$id_proposta,$array);
-		redirect('proyecto/gestion','refresh');
-	}
+	 
+	 
 		public function mio( ){
  
 			
-			$sql2 = "SELECT *,projecte.id as id_projecte,DATE_FORMAT(data_inici,'%Y-%m-%d') as data_inici,DATE_FORMAT(data_entrega,'%Y-%m-%d') as data_entrega FROM projecte JOIN estat ON estat.id_estat = projecte.estat_projecte JOIN persones ON persones.id_persona = projecte.id_responsable";
+			$sql2 = "SELECT *,projecte.id as id_projecte,DATE_FORMAT(data_inici,'%Y-%m-%d') as data_inici,DATE_FORMAT(data_entrega,'%Y-%m-%d') as data_entrega FROM projecte LEFT JOIN persones ON persones.id_persona = projecte.id_responsable";
 			$data['data'] = $this->mi_model->get_sql($sql2);	 
 	
 			$this->load->view('proyecto/gestion_view2', $data);
