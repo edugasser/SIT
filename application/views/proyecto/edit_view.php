@@ -68,8 +68,12 @@ var ajax_relation_url = '<?php echo base_url();?>admin/projectes/ajax_relation';
 <div class='form-content form-div'>
   <?php if(!empty($data)){ ?>
 		  <?php foreach($data as $row){ ?>
-	<form action="<?php echo base_url();?>admin/projectes/update/<?php echo $row->id;?>" method="post" id="crudForm" autocomplete="off" enctype="multipart/form-data" accept-charset="utf8">		<div>
-					<div class='form-field-box odd' id="titol_field_box">
+	<form action="<?php echo base_url();?>proyecto/add/<?php echo $row->id;?>" method="post" target="_parent" id="frmSelect" autocomplete="off" enctype="multipart/form-data" accept-charset="utf8">		<div>
+			<?php if (!empty($mono)){ ?>
+			<div style="display:none;"> 
+			
+			<?php }  ?>
+			<div class='form-field-box odd' id="titol_field_box">
 				<div class='form-display-as-box' id="titol_display_as_box">
 					Titol :
 				</div>
@@ -77,7 +81,7 @@ var ajax_relation_url = '<?php echo base_url();?>admin/projectes/ajax_relation';
 					<input id='field-titol' name='titol' type='text' value="<?php echo $row->titol;?>" maxlength='100' />				</div>
 				<div class='clear'></div>	
 			</div>
-					<div class='form-field-box even' id="descripcio_field_box">
+			<div class='form-field-box even' id="descripcio_field_box">
 				<div class='form-display-as-box' id="descripcio_display_as_box">
 					Descripcio :
 				</div>
@@ -85,16 +89,40 @@ var ajax_relation_url = '<?php echo base_url();?>admin/projectes/ajax_relation';
 					<textarea id='field-descripcio' name='descripcio' class='texteditor' ><?php echo trim(strip_tags($row->descripcio));?></textarea>				</div>
 				<div class='clear'></div>	
 			</div>
-					<div class='form-field-box odd' id="data_inici_field_box">
+			<div class='form-field-box even' id="descripcio_field_box">
+				<div class='form-display-as-box' id="descripcio_display_as_box">
+					Prioritat :
+				</div>
+				<div class='form-input-box' id="descripcio_input_box">
+					 
+					<select id="prioritat" name="prioritat">
+					<option><?php echo $row->prioritat;?></option>
+						<option>Alta</option>
+						<option>Mitjana</option>
+						<option>Baixa</option>
+					</select>
+					</div>
+				<div class='clear'></div>	
+			</div>
+			<div class='form-field-box odd' id="data_inici_field_box">
 				<div class='form-display-as-box' id="data_inici_display_as_box">
 					Data inici :
 				</div>
 				<div class='form-input-box' id="data_inici_input_box">
 					<input id='field-data_inici' name='data_inici' type='text' value='<?php echo $row->data_inici;?>' maxlength='10' class='datepicker-input' /> 
-		<a class='datepicker-input-clear' tabindex='-1'>Limpiar</a> (dd/mm/yyyy)				</div>
+				<a class='datepicker-input-clear' tabindex='-1'></a> (dd/mm/yyyy)				</div>
 				<div class='clear'></div>	
 			</div>
-					<div class='form-field-box even' id="pressupost_inicial_field_box">
+			<div class='form-field-box even' id="data_entrega_field_box">
+				<div class='form-display-as-box' id="data_entrega_display_as_box">
+					Data entrega :
+				</div>
+				<div class='form-input-box' id="data_entrega_input_box">
+					<input id='field-data_entrega' name='data_entrega' type='text' value='<?php echo $row->data_entrega;?>' maxlength='10' class='datepicker-input' /> 
+				<a class='datepicker-input-clear' tabindex='-1'></a> (dd/mm/yyyy)				</div>
+				<div class='clear'></div>	
+			</div>
+			<div class='form-field-box odd' id="pressupost_inicial_field_box">
 				<div class='form-display-as-box' id="pressupost_inicial_display_as_box">
 					Pressupost inicial :
 				</div>
@@ -102,7 +130,7 @@ var ajax_relation_url = '<?php echo base_url();?>admin/projectes/ajax_relation';
 					<input id='field-pressupost_inicial' name='pressupost_inicial' type='text' value="<?php echo $row->pressupost_inicial;?>" maxlength='45' />				</div>
 				<div class='clear'></div>	
 			</div>
-					<div class='form-field-box odd' id="pressupost_final_field_box">
+			<div class='form-field-box even' id="pressupost_final_field_box">
 				<div class='form-display-as-box' id="pressupost_final_display_as_box">
 					Pressupost final :
 				</div>
@@ -110,21 +138,13 @@ var ajax_relation_url = '<?php echo base_url();?>admin/projectes/ajax_relation';
 					<input id='field-pressupost_final' name='pressupost_final' type='text' value="<?php echo $row->pressupost_inicial;?>" maxlength='45' />				</div>
 				<div class='clear'></div>	
 			</div>
-					<div class='form-field-box even' id="data_entrega_field_box">
-				<div class='form-display-as-box' id="data_entrega_display_as_box">
-					Data entrega :
-				</div>
-				<div class='form-input-box' id="data_entrega_input_box">
-					<input id='field-data_entrega' name='data_entrega' type='text' value='<?php echo $row->pressupost_inicial;?>' maxlength='10' class='datepicker-input' /> 
-		<a class='datepicker-input-clear' tabindex='-1'>Limpiar</a> (dd/mm/yyyy)				</div>
-				<div class='clear'></div>	
-			</div>
-					<div class='form-field-box odd' id="Proposta_id_field_box">
+
+			<div class='form-field-box ' id="Proposta_id_field_box">
 				<div class='form-display-as-box' id="Proposta_id_display_as_box">
 					Proposta :
 				</div>
 				<div class='form-input-box' id="Proposta_id_input_box">
-				
+
 					<select id='field-Proposta_id'  name='Proposta_id' class='chosen-select' data-placeholder='Select Proposta id' style='width:300px'>
 					  <?php if(!empty($propostes)){ ?>
 						<?php foreach($propostes as $row2){ ?>
@@ -134,71 +154,135 @@ var ajax_relation_url = '<?php echo base_url();?>admin/projectes/ajax_relation';
 					</div>
 				<div class='clear'></div>	
 			</div>
-					 
-					<div class='form-field-box odd' id="id_responsable_field_box">
-				<div class='form-display-as-box' id="id_responsable_display_as_box">
-					Responsable :
-				</div>
-				<div class='form-input-box' id="id_responsable_input_box">
-					<select id='field-id_responsable'  name='id_responsable' class='chosen-select' data-placeholder='Select Responsable' style='width:300px'>
-					  <?php if(!empty($responsable)){ ?>
-						<?php foreach($responsable as $row2){ ?>
-					<option value=''></option><option value='<?php echo $row2->id;?>' selected='selected' ><?php echo $row2->nom_complet;?></option>
-					<?php }} ?>
-					</select>
-					</div>
-				<div class='clear'></div>	
-			</div>
-			
-			<div class='form-field-box odd' id="id_responsable_field_box">
-					<div class='form-display-as-box' id="id_responsable_display_as_box">
-						Obj. t&agrave;ctics:
-					</div>
-				<div class='form-input-box' id="id_responsable_input_box">
-				<div class="holder">
-				  <select multiple="multiple" id="select1" name="select1[]" class="multiple">
-				   <?php if(!empty($objetivos_falta)){ ?>
-						<?php foreach($objetivos_falta as $row2){ ?>
-					<option value="<?php echo $row2->id;?>"><?php echo $row2->objectiu;?></option>
-					<?php }}?>
-				  </select>
-				  <a href="javascript:;" id="add">afegir>></a>
-				</div>
-				<div class="holder">
-				  <select multiple="multiple" id="select2" name="select2[]" class="multiple">
 				 
-				   <?php if(!empty($objetivos_tengo)){ ?>
-						<?php foreach($objetivos_tengo as $row2){ ?>
-					<option value="<?php echo $row2->id;?>"><?php echo $row2->objectiu;?></option>
-					<?php }}?>
-				  </select>
-				  <a href="javascript:;" id="remove"><< quitar</a>
+			<div class='form-field-box even' id="id_responsable_field_box">
+			<div class='form-display-as-box' id="id_responsable_display_as_box">
+				Responsable :
+			</div>
+			<div class='form-input-box' id="id_responsable_input_box">
+				<select id='field-id_responsable'  name='id_responsable' class='chosen-select' data-placeholder='Select Responsable' style='width:300px'>
+				  <?php if(!empty($responsable)){ ?>
+					<?php foreach($responsable as $row2){ ?>
+				<option value=''></option><option value='<?php echo $row2->id_persona;?>' selected='selected' ><?php echo $row2->nom_complet;?></option>
+				<?php }} ?>
+				</select>
 				</div>
+			<div class='clear'></div>	
+			</div>
+
+			<div class='form-field-box odd' id="id_responsable_field_box">
+				<div class='form-display-as-box' id="id_responsable_display_as_box">
+					Obj. t&agrave;ctics:
+				</div>
+			<div class='form-input-box' id="id_responsable_input_box">
+			<div class="holder">
+			  <select multiple="multiple" id="select1" name="select1[]" class="multiple">
+			   <?php if(!empty($objetivos_falta)){ ?>
+					<?php foreach($objetivos_falta as $row2){ ?>
+				<option value="<?php echo $row2->id;?>"><?php echo $row2->objectiu;?></option>
+				<?php }}?>
+			  </select>
+			  <a href="javascript:;" id="add">afegir>></a>
+			</div>
+			<div class="holder">
+			  <select   id="select2" name="select2[]" multiple="true" class="multiple">
+			 
+			   <?php if(!empty($objetivos_tengo)){ ?>
+					<?php foreach($objetivos_tengo as $row2){ ?>
+				<option value="<?php echo $row2->id;?>"><?php echo $row2->objectiu;?></option>
+
+				<?php }}?>
+			  </select>
+			  <a href="javascript:;" id="remove"><< quitar</a>
+			</div>
+			</div>
+			<div class='clear'></div>
+			</div>
+			</div>
+			<?php if (empty($mono)){ ?>
+			<div style="display:none;"> 
+			
+			<?php }  ?>
+				<?php 
+				
+				function que_es($a){
+					if ($a == '1'){
+						return "Mala";
+					}else if ($a  == '2'){
+						return "Regural";
+					}else if ($a == '3'){
+						return "Bona";
+					}
+				}
+					
+				?>
+			<div class='form-field-box even' id="id_responsable_field_box">
+				<div class='form-display-as-box' id="id_responsable_display_as_box">
+					Monotoritzaci&oacute temps :
+				</div>
+				<div class='form-input-box' id="id_responsable_input_box">
+					<select id='field-id_responsable'  name='monotoritzacio_temps' class='chosen-select' data-placeholder='Select Responsable' style='width:300px'>
+						<option value="<?php echo $row->monotoritzacio_temps;?>"><?php echo que_es($row->monotoritzacio_temps);?></option>	
+						<option value="3">Bona</option>
+						<option value="2">Regular</option>
+						<option value="1">Mala</option>
+					</select>
 				</div>
 				<div class='clear'></div>	
 			</div>
+		
+			<div class='form-field-box odd' id="id_responsable_field_box">
+				<div class='form-display-as-box' id="id_responsable_display_as_box">
+					Monotoritzaci&oacute recursos :
+				</div>
+				<div class='form-input-box' id="id_responsable_input_box">
+					<select id='field-id_responsable'  name='monotoritzacio_recursos' class='chosen-select' data-placeholder='Select Responsable' style='width:300px'>
+						<option value="<?php echo $row->monotoritzacio_recursos;?>"><?php echo que_es($row->monotoritzacio_recursos);?></option>	
+						<option value="3">Bona</option>
+						<option value="2">Regular</option>
+						<option value="1">Mala</option>
+					</select>
+				</div>
+				<div class='clear'></div>	
+			</div>
+			<div class='form-field-box even' id="id_responsable_field_box">
+				<div class='form-display-as-box' id="id_responsable_display_as_box">
+					Monotoritzaci&oacute qualitat :
+				</div>
+				<div class='form-input-box' id="id_responsable_input_box">
+					<select id='field-id_responsable'  name='monotoritzacio_qualitat' class='chosen-select' data-placeholder='Select Responsable' style='width:300px'>
+						<option value="<?php echo $row->monotoritzacio_qualitat;?>"><?php echo que_es($row->monotoritzacio_qualitat);?></option>	
+						<option value="3">Bona</option>
+						<option value="2">Regular</option>
+						<option value="1">Mala</option>
+					</select>
+				</div>
+				<div class='clear'></div>	
+			</div>	
+			</div>
 			
-			
-					<!-- Start of hidden inputs -->
-							<!-- End of hidden inputs -->		
+				<!-- Start of hidden inputs -->
+						<!-- End of hidden inputs -->		
 			<div class='line-1px'></div>
 			<div id='report-error' class='report-div error'></div>
 			<div id='report-success' class='report-div success'></div>							
-		</div>	
-		<div class='buttons-box'>
+			</div>	
+			<div class='buttons-box'>
 			<div class='form-button-box'>
-				<input type='submit' value='Actualizar cambios' class='ui-input-button' />
+			<input type='submit' value='Crear projecte' onclick="excludeFirstOption(select2)"  class='ui-input-button' />
 			</div>
-				 		
+					
 			<div class='form-button-box'>
-				<a target="_parent" href="<?php echo base_url();?>proyecto/gestion"><< Volver atras</a>
+			<a target="_parent" href="<?php echo base_url();?>proyecto/gestion"><< Volver atras</a>
 			</div>
-						
+					
 			<div class='form-button-box loading-box'>
-				<div class='small-loading' id='FormLoading'>Cargando, actualizando cambios...</div>
+			<div class='small-loading' id='FormLoading'>Cargando, actualizando cambios...</div>
 			</div>
 			<div class='clear'></div>	
-		</div>
+			</div>
+			
+
 	</form>	
 	<?php }} ?>
 
@@ -235,7 +319,17 @@ var js_date_format = 'dd/mm/yy';
 				});
 			});
 		});
+function excludeFirstOption(select) {
+
+	 
+        for (var i=0; i<2; i++) {
+            $('select2').options[i].selected = true;
+			
+        }
+    //document.write($('select2').value);
+}
 	</script>
+	
     </div>
 </body>
 </html>

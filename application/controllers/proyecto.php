@@ -39,33 +39,128 @@ class proyecto extends CI_Controller {
 		$this->load->view('page_view', $data);
 	
 	}
-	public function edit($id)
+	public function nuevo(){
+		
+		$ex = explode('-',$_POST["data_inici"]);
+		$fecha_inicio = $ex[2]."-".$ex[1]."-".$ex[0];
+		$ex2 = explode('-',$_POST["data_entrega"]);
+		$data_entrega = $ex2[2]."-".$ex2[1]."-".$ex2[0];
+			$data = array(
+			'titol' => trim($_POST['titol']),
+			'descripcio' => trim($_POST['descripcio']),
+			'data_inici' => $fecha_inicio,
+			'pressupost_inicial' => $_POST["pressupost_inicial"],
+		 
+			
+			'pressupost_final' => $_POST["pressupost_final"],
+			'data_entrega' => $data_entrega,
+			'Proposta_id' => $_POST["Proposta_id"],
+			'id_responsable' => $_POST["id_responsable"],		
+			);
+		$this->mi_model->add("projecte",$data);
+		$id = mysql_insert_id();
+		 	$mySelected=$_POST['select2']; 
+  
+		foreach ($mySelected as $item){
+			$informe = array (
+				"Objectius_tactics_id" => $item, 
+				"Projecte_id" => $id, 
+				);
+			$this->mi_model->add("objectius_tactics_has_projecte",$informe);
+		}
+		redirect('proyecto/gestion','location');
+
+	}
+	public function add($id){
+		$this->mi_model->delete("objectius_tactics_has_projecte","Projecte_id", $id);
+		$mySelected=$_POST['select2']; 
+  
+		foreach ($mySelected as $item){
+			$informe = array (
+				"Objectius_tactics_id" => $item, 
+				"Projecte_id" => $id, 
+				);
+			$this->mi_model->add("objectius_tactics_has_projecte",$informe);
+		}
+		$ex = explode('-',$_POST["data_inici"]);
+		$fecha_inicio = $ex[2]."-".$ex[1]."-".$ex[0];
+		$ex2 = explode('-',$_POST["data_entrega"]);
+		$data_entrega = $ex2[2]."-".$ex2[1]."-".$ex2[0];
+			$data = array(
+			'titol' => trim($_POST['titol']),
+			'descripcio' => trim($_POST['descripcio']),
+			'data_inici' => $fecha_inicio,
+			'pressupost_inicial' => $_POST["pressupost_inicial"],
+			'monotoritzacio_temps' => $_POST["monotoritzacio_temps"],
+			'monotoritzacio_recursos' => $_POST["monotoritzacio_recursos"],
+			'monotoritzacio_qualitat' => $_POST["monotoritzacio_qualitat"],
+			
+			'pressupost_final' => $_POST["pressupost_final"],
+			'data_entrega' => $data_entrega,
+			'Proposta_id' => $_POST["Proposta_id"],
+			'id_responsable' => $_POST["id_responsable"],		
+			);
+		$this->mi_model->update("projecte","id",$id,$data);
+	 
+		redirect('proyecto/gestion','location');
+
+	}
+	public function edit($id,$mono=null)
 	{ 
 		if ($this->tank_auth->is_logged_in()) {		
-			$sql2 = "SELECT *,DATE_FORMAT(data_inici,'%Y-%m-%d') as data_inici FROM projecte WHERE id = '$id'";
+			$sql2 = "SELECT *,DATE_FORMAT(data_inici,'%d-%m-%Y') as data_inici,DATE_FORMAT(data_entrega,'%d-%m-%Y') as data_entrega FROM projecte WHERE id = '$id'";
 			$data['data'] = $this->mi_model->get_sql($sql2);	 
 			
 			$sql3 = "SELECT * FROM proposta";
 			$data['propostes'] = $this->mi_model->get_sql($sql3);
-
 			
-			$sql3 = "SELECT * FROM objectius_tactics  
-			left JOIN  objectius_tactics_has_projecte
-			ON  objectius_tactics.id = Objectius_tactics_id
-			WHERE objectius_tactics_has_projecte.projecte_id != '$id'
+			$data['mono'] = $mono;
+			$sql3 = "
+				SELECT  *
+				FROM    objectius_tactics l
+				WHERE   NOT EXISTS
+				(
+				SELECT  *
+				FROM    objectius_tactics_has_projecte r
+				WHERE   r.Objectius_tactics_id	 = l.id AND Projecte_id = '$id'
+				)
 			";
 			$data['objetivos_falta'] = $this->mi_model->get_sql($sql3);
 			
-			$sql3 = "SELECT * FROM objectius_tactics_has_projecte  
-			JOIN  objectius_tactics
-			ON  objectius_tactics.id = Objectius_tactics_id
-			WHERE objectius_tactics_has_projecte.projecte_id = '$id'
+			$sql3 = "
+				SELECT  *
+				FROM    objectius_tactics l
+				WHERE   EXISTS
+				(
+				SELECT  *
+				FROM    objectius_tactics_has_projecte r
+				WHERE   r.Objectius_tactics_id	 = l.id AND Projecte_id = '$id'
+				)
 			";
 			$data['objetivos_tengo'] = $this->mi_model->get_sql($sql3);
 			
 			$sql4 = "SELECT * FROM persones";
 			$data['responsable'] = $this->mi_model->get_sql($sql4);			
 			$this->load->view('proyecto/edit_view', $data);
+		}else{
+			redirect('auth/');
+		}
+	
+	}
+	public function create()
+	{ 
+		if ($this->tank_auth->is_logged_in()) {		
+			
+			$sql3 = "SELECT * FROM proposta";
+			$data['propostes'] = $this->mi_model->get_sql($sql3);
+			
+	 
+			$sql3 = "SELECT *FROM  objectius_tactics";
+			$data['objectius'] = $this->mi_model->get_sql($sql3);
+
+			$sql4 = "SELECT * FROM persones";
+			$data['responsable'] = $this->mi_model->get_sql($sql4);			
+			$this->load->view('proyecto/add_view', $data);
 		}else{
 			redirect('auth/');
 		}
@@ -83,10 +178,10 @@ class proyecto extends CI_Controller {
 	}
 	 
 	 
-		public function mio( ){
+	public function mio( ){
  
 			
-			$sql2 = "SELECT *,projecte.id as id_projecte,DATE_FORMAT(data_inici,'%Y-%m-%d') as data_inici,DATE_FORMAT(data_entrega,'%Y-%m-%d') as data_entrega FROM projecte LEFT JOIN persones ON persones.id_persona = projecte.id_responsable";
+			$sql2 = "SELECT *,projecte.id as id_projecte,DATE_FORMAT(data_inici,'%d-%m-%Y') as data_inici,DATE_FORMAT(data_entrega,'%d-%m-%Y') as data_entrega FROM projecte LEFT JOIN persones ON persones.id_persona = projecte.id_responsable";
 			$data['data'] = $this->mi_model->get_sql($sql2);	 
 	
 			$this->load->view('proyecto/gestion_view2', $data);

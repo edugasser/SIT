@@ -22,13 +22,18 @@ class panel extends CI_Controller {
         parent::__construct();
 		$this->load->helper('url');
 		$this->load->model('mi_model');
+		$this->load->library('Tank_auth');
     }
 
 	public function index()
 	{
+		if ($this->tank_auth->is_logged_in()) {	
 		$data['contenido'] =  "panel_control_view";
 		
 		$this->load->view('page_view', $data);
+		}else{
+			redirect('auth/');
+		}
 	}
 	public function ver(){
 

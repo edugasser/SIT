@@ -153,7 +153,7 @@ class Admin extends CI_Controller {
 			$crud->set_theme('datatables');
 			$crud->set_table('tipus_projecte');
 			$crud->set_subject('Tipus projectes');
- 
+		
 			//GESTION PERMISOS
 			if (($this->session->userdata('Editar'))!= 1){
 				$crud->unset_edit(); 
@@ -397,8 +397,9 @@ class Admin extends CI_Controller {
 			$crud->set_subject('Projectes');
 			$crud->set_relation('Proposta_id','Proposta','titol'); 
 			$crud->set_relation('id_responsable','persones','nom_complet');
-			 
+			 		
 			$crud->columns('titol','data_inici','data_entrega','id_responsable');
+			$crud->unset_add(); 
 			//GESTION PERMISOS
 			  $crud->display_as('id_responsable','Responsable');
 			if ($this->session->userdata('Editar') != 1){
