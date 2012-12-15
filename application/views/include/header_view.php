@@ -131,74 +131,48 @@ style="width: 200px" onkeyup="javascript:autosuggest('proyectos','buscador','bus
     <div class="vernav2 iconmenu">
 
     	<ul>
-		<?php if ($this->session->userdata('Propostes') == 1){ ?>
-		<li><a href="#propuesta" class="editor">Propostes</a>
+		<?php if ($this->session->userdata('Principis') == 1){ ?>
+		<li><a href="#propuesta" class="editor">Principis y objectius</a>
 			<span class="arrow"></span>
 			<ul id="propuesta">
-				<li><a href="<?php echo base_url();?>proposta/gestion">Listar</a></li>
-				<li><a href="<?php echo base_url();?>proposta/add">Crear</a></li>
+				<li><a href="<?php echo base_url();?>principis/gestion">Principis</a></li>
+				<li><a href="<?php echo base_url();?>objectius_estrategics/gestion">Objectius estratègics</a></li>
+				<li><a href="<?php echo base_url();?>objectius_tactics/gestion">Objectius tàctics</a></li>	 
 				 	 
 			</ul>
          </li>
-         <?php } if ($this->session->userdata('Principis') == 1){ ?>
-		 <li><a href="#principis" class="editor">Principis</a>
+         <?php } if ($this->session->userdata('Projectes') == 1){ ?>
+		 <li><a href="#principis" class="editor">Projectes</a>
 			<span class="arrow"></span>
 			<ul id="principis">
-				<li><a href="<?php echo base_url();?>principis/gestion">Listar</a></li>
-				<li><a href="<?php echo base_url();?>principis/add">Crear</a></li>	 
-			</ul>
-        </li>
-		<?php } if ($this->session->userdata('Objectius') == 1){ ?>
-		 <li><a href="#objectius_estrategics" class="editor">Objectius</a>
-			<span class="arrow"></span>
-			<ul id="objectius_estrategics">
-				<li><a href="<?php echo base_url();?>objectius_estrategics/gestion">Objectius estratègics</a></li>
-				<li><a href="<?php echo base_url();?>objectius_tactics/gestion">Objectius tàctics</a></li>	 
+				<li><a href="<?php echo base_url();?>proyecto/gestion">Projectes</a></li>
+				<li><a href="<?php echo base_url();?>proposta/gestion">Propostes</a></li>
+				<li><a href="<?php echo base_url();?>tipus_projectes/gestion">Tipus projectes</a></li>
+
 			</ul>
         </li>
 		 
-		 <?php } if ($this->session->userdata('Projectes') == 1){ ?>
-        <li><a href="#formsub" class="editor">Projectes</a>
-			<span class="arrow"></span>
-			<ul id="formsub">
-				<li><a href="<?php echo base_url();?>proyecto/gestion">Listar</a></li>
- 
-				<li><a href="<?php echo base_url();?>tipus_projectes/gestion">Tipus projectes</a></li>				
-			</ul>
-        </li>
+		 
+		 
 	 
         <?php } if ($this->session->userdata('Serveis') == 1){ ?>
 		  <li><a href="#servicis" class="editor">Serveis</a>
 			<span class="arrow"></span>
 			<ul id="servicis">
-				<li><a href="<?php echo base_url();?>serveis/gestion">Listar</a></li>
-				<li><a href="<?php echo base_url();?>serveis/add">Crear</a></li>					
+				<li><a href="<?php echo base_url();?>serveis/gestion">Serveis</a></li>
+								<li><a href="<?php echo base_url();?>operacio/gestion">Operacions</a></li>					
 			</ul>
         </li>
 		<?php } if ($this->session->userdata('Persones') == 1){ ?>
-		<li><a href="#persones" class="editor">Persones</a>
+		<li><a href="#persones" class="editor">Estructura</a>
 			<span class="arrow"></span>
 			<ul id="persones">
-				<li><a href="<?php echo base_url();?>persona/gestion">Listar</a></li>
-				<li><a href="<?php echo base_url();?>persona/add">Registrar</a></li>	 
+				<li><a href="<?php echo base_url();?>persona/gestion">Persones</a></li>
+				<li><a href="<?php echo base_url();?>departament/gestion">Departaments</a></li>	 
 			</ul>
         </li>
-		<?php } if ($this->session->userdata('Departaments') == 1){?>
-		<li><a href="#departament" class="editor">Departaments</a>
-			<span class="arrow"></span>
-			<ul id="departament">
-				<li><a href="<?php echo base_url();?>departament/gestion">Listar</a></li>
-				<li><a href="<?php echo base_url();?>departament/add">Crear</a></li>	 
-			</ul>
-        </li>
-		<?php } if (($this->session->userdata('Operacio')) == 1){ ?>
-		<li><a href="#operacio" class="editor">Operació</a>
-			<span class="arrow"></span>
-			<ul id="operacio">
-				<li><a href="<?php echo base_url();?>operacio/gestion">Listar</a></li>
-				<li><a href="<?php echo base_url();?>operacio/add">Crear</a></li>	 
-			</ul>
-        </li>
+ 
+		 
 		<?php } if (($this->session->userdata('Usuaris'))== 1){?>
 		<li><a href="#usuarios" class="editor">Usuaris</a>
 			<span class="arrow"></span>
