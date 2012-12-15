@@ -42,6 +42,26 @@ class principis extends CI_Controller {
 		}
 	
 	}
+	public function objectius_estrategics($id){
+			$sql4 = "SELECT *
+			FROM principi_oestrategics AS o1 
+			JOIN objectius_estrategics AS o2  
+			ON o1.id_objectius_estrategics = o2.id 
+			";
+			
+		
+			
+			$data['data'] = $this->mi_model->get_sql($sql4);	
+			$this->load->view('principis/obj_est_view', $data);
+	
+	}
+	public function mio(){
+		 $sql4 = "SELECT *,DATE_FORMAT(data,'%d-%m-%Y') as data FROM principi";
+			$data['data'] = $this->mi_model->get_sql($sql4);	
+
+			$this->load->view('principis/gestion2_view', $data);
+	 
+	}
 	public function gestion($success=null){
 		if ($this->tank_auth->is_logged_in()) {		
 			$data['contenido'] =  "principis/gestion_view";

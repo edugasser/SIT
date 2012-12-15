@@ -269,7 +269,7 @@ var ajax_relation_url = '<?php echo base_url();?>admin/projectes/ajax_relation';
 			</div>	
 			<div class='buttons-box'>
 			<div class='form-button-box'>
-			<input type='submit' value='Crear projecte' onclick="excludeFirstOption(select2)"  class='ui-input-button' />
+			<input type='submit' value='Actualitzar projecte' onclick="excludeFirstOption(select2)"  class='ui-input-button' />
 			</div>
 					
 			<div class='form-button-box'>

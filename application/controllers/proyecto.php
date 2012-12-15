@@ -71,6 +71,17 @@ class proyecto extends CI_Controller {
 		redirect('proyecto/gestion','location');
 
 	}
+	public function objectius_tactics($id){
+			$sql4 = "SELECT *,o3.objectiu as ob_es, o2.objectiu AS ob_tac,o2.id AS id_obtact FROM objectius_tactics_has_projecte AS o1 JOIN objectius_tactics AS o2  ON o1.Objectius_tactics_id = o2.id 
+			JOIN objectius_estrategics AS o3 ON o3.id = o2.Objectius_estrategics_id WHERE Projecte_id = '$id'";
+			$data['data'] = $this->mi_model->get_sql($sql4);	
+			$this->load->view('proyecto/obj_tac_view', $data);
+	
+	}
+	public function delete($id){
+		$this->mi_model->delete("projecte","id", $id);
+		redirect('proyecto/gestion');
+	}
 	public function add($id){
 		$this->mi_model->delete("objectius_tactics_has_projecte","Projecte_id", $id);
 		$mySelected=$_POST['select2']; 

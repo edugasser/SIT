@@ -149,27 +149,20 @@ style="width: 200px" onkeyup="javascript:autosuggest('proyectos','buscador','bus
 			</ul>
         </li>
 		<?php } if ($this->session->userdata('Objectius') == 1){ ?>
-		 <li><a href="#objectius_estrategics" class="editor">Objectius estratègics</a>
+		 <li><a href="#objectius_estrategics" class="editor">Objectius</a>
 			<span class="arrow"></span>
 			<ul id="objectius_estrategics">
-				<li><a href="<?php echo base_url();?>objectius_estrategics/gestion">Listar</a></li>
-				<li><a href="<?php echo base_url();?>objectius_estrategics/add">Crear</a></li>	 
+				<li><a href="<?php echo base_url();?>objectius_estrategics/gestion">Objectius estratègics</a></li>
+				<li><a href="<?php echo base_url();?>objectius_tactics/gestion">Objectius tàctics</a></li>	 
 			</ul>
         </li>
-		<?php } if ($this->session->userdata('Objectius') == 1){ ?>
-		<li><a href="#objectius_tactics" class="editor">Objectius tàctics</a>
-			<span class="arrow"></span>
-			<ul id="objectius_tactics">
-				<li><a href="<?php echo base_url();?>objectius_tactics/gestion">Listar</a></li>
-				<li><a href="<?php echo base_url();?>objectius_tactics/add">Crear</a></li>	 
-			</ul>
-        </li>
+		 
 		 <?php } if ($this->session->userdata('Projectes') == 1){ ?>
         <li><a href="#formsub" class="editor">Projectes</a>
 			<span class="arrow"></span>
 			<ul id="formsub">
 				<li><a href="<?php echo base_url();?>proyecto/gestion">Listar</a></li>
-				<li><a href="<?php echo base_url();?>proyecto/add">Crear</a></li>	
+ 
 				<li><a href="<?php echo base_url();?>tipus_projectes/gestion">Tipus projectes</a></li>				
 			</ul>
         </li>

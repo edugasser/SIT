@@ -3,21 +3,26 @@
 <html>
 <head>
 	<meta charset="utf-8" />
-	<link type="text/css" rel="stylesheet" href="http://localhost/igovern/assets/grocery_crud/themes/datatables/css/demo_table_jui.css" />
-	<link type="text/css" rel="stylesheet" href="http://localhost/igovern/assets/grocery_crud/css/ui/simple/jquery-ui-1.9.0.custom.min.css" />
-	<link type="text/css" rel="stylesheet" href="http://localhost/igovern/assets/grocery_crud/themes/datatables/css/datatables.css" />
-	<link type="text/css" rel="stylesheet" href="http://localhost/igovern/assets/grocery_crud/themes/datatables/css/jquery.dataTables.css" />
-	<link type="text/css" rel="stylesheet" href="http://localhost/igovern/assets/grocery_crud/themes/datatables/extras/TableTools/media/css/TableTools.css" />
-	<link type="text/css" rel="stylesheet" href="http://localhost/igovern/assets/grocery_crud/css/jquery_plugins/fancybox/jquery.fancybox.css" />
-	<script src="http://localhost/igovern/assets/grocery_crud/js/jquery-1.8.2.min.js"></script>
-	<script src="http://localhost/igovern/assets/grocery_crud/js/jquery_plugins/ui/jquery-ui-1.9.0.custom.min.js"></script>
-	<script src="http://localhost/igovern/assets/grocery_crud/themes/datatables/js/jquery.dataTables.min.js"></script>
-	<script src="http://localhost/igovern/assets/grocery_crud/themes/datatables/js/datatables-extras.js"></script>
-	<script src="http://localhost/igovern/assets/grocery_crud/themes/datatables/js/datatables.js"></script>
-	<script src="http://localhost/igovern/assets/grocery_crud/themes/datatables/extras/TableTools/media/js/ZeroClipboard.js"></script>
-	<script src="http://localhost/igovern/assets/grocery_crud/themes/datatables/extras/TableTools/media/js/TableTools.min.js"></script>
-	<script src="http://localhost/igovern/assets/grocery_crud/js/jquery_plugins/jquery.fancybox.pack.js"></script>
-	<script src="http://localhost/igovern/assets/grocery_crud/js/jquery_plugins/jquery.easing-1.3.pack.js"></script>
+
+
+	<link type="text/css" rel="stylesheet" href="<?php echo base_url();?>/assets/grocery_crud/themes/datatables/css/demo_table_jui.css" />
+	<link type="text/css" rel="stylesheet" href="<?php echo base_url();?>/assets/grocery_crud/css/ui/simple/jquery-ui-1.9.0.custom.min.css" />
+	<link type="text/css" rel="stylesheet" href="<?php echo base_url();?>/assets/grocery_crud/themes/datatables/css/datatables.css" />
+	<link type="text/css" rel="stylesheet" href="<?php echo base_url();?>/assets/grocery_crud/themes/datatables/css/jquery.dataTables.css" />
+	<link type="text/css" rel="stylesheet" href="<?php echo base_url();?>/assets/grocery_crud/themes/datatables/extras/TableTools/media/css/TableTools.css" />
+	<link type="text/css" rel="stylesheet" href="<?php echo base_url();?>/assets/grocery_crud/css/jquery_plugins/fancybox/jquery.fancybox.css" />
+	<script src="<?php echo base_url();?>/assets/grocery_crud/js/jquery-1.8.2.min.js"></script>
+	<script src="<?php echo base_url();?>/assets/grocery_crud/js/jquery_plugins/ui/jquery-ui-1.9.0.custom.min.js"></script>
+	<script src="<?php echo base_url();?>/assets/grocery_crud/themes/datatables/js/jquery.dataTables.min.js"></script>
+	<script src="<?php echo base_url();?>/assets/grocery_crud/themes/datatables/js/datatables-extras.js"></script>
+	<script src="<?php echo base_url();?>/assets/grocery_crud/themes/datatables/js/datatables.js"></script>
+	<script src="<?php echo base_url();?>/assets/grocery_crud/themes/datatables/extras/TableTools/media/js/ZeroClipboard.js"></script>
+	<script src="<?php echo base_url();?>/assets/grocery_crud/themes/datatables/extras/TableTools/media/js/TableTools.min.js"></script>
+	<script src="<?php echo base_url();?>/assets/grocery_crud/js/jquery_plugins/jquery.fancybox.pack.js"></script>
+	<script src="<?php echo base_url();?>/assets/grocery_crud/js/jquery_plugins/jquery.easing-1.3.pack.js"></script>
+ 
+ 
+
 <style type='text/css'>
 body
 {
@@ -35,11 +40,11 @@ a:hover
 }
 </style>
 </head>
-<body>
+<body >
  
     <div>
 		<script type='text/javascript'>
-	var base_url = 'http://localhost/igovern/';
+	var base_url = '<?php echo base_url();?>/';
 	var subject = 'Projectes';
 
 	var unique_hash = 'c564eadeffb3ff4818db55d591ff2ab4';
@@ -75,7 +80,7 @@ a:hover
 <div id='report-error' class='report-div error report-list'></div>
 <div id='report-success' class='report-div success report-list' ></div>	
 <div class="datatables-add-button">
-<a role="button" class="edit_button ui-button ui-widget ui-state-default ui-corner-all ui-button-text-icon-primary" href="<?php echo base_url();?>proyecto/create">
+<a role="button" class="edit_button ui-button ui-widget ui-state-default ui-corner-all ui-button-text-icon-primary" href="<?php echo base_url();?>admin/projectes/add">
 	<span class="ui-button-icon-primary ui-icon ui-icon-circle-plus"></span>
 	<span class="ui-button-text">Agregar Projectes</span>
 </a>
@@ -116,7 +121,7 @@ a:hover
 				<td style="width:115px"><?php echo $row->pressupost_inicial;?>€</td>
 				<td style="width:115px"><?php echo $row->prioritat;?></td>
 				<td style="text-align:center;width:150px">
-					<a  target="_parent" href="<?php echo base_url();?>proyecto/objectius_projecte/<?php echo $row->id;?>">
+					<a  href="<?php echo base_url();?>proyecto/objectius_tactics/<?php echo $row->id;?>">
 					<img width="20" src="<?php echo base_url();?>assets/images/info.png">
 					</a>
 				</td>
@@ -130,14 +135,15 @@ a:hover
 					<a href="<?php echo base_url();?>proyecto/edit/<?php echo $row->id_projecte;?>/monotoritzacio">
 						<img title="Qualitat" src="<?php echo base_url();?>assets/images/<?php echo semaforo($row->monotoritzacio_qualitat)?>.png">
 					</a>
+					
+
 				</td>
 				<td>
-					<a href="<?php echo base_url();?>proyecto/edit/<?php echo $row->id_projecte;?>" class="edit_button ui-button ui-widget ui-state-default ui-corner-all ui-button-text-icon-primary" role="button">
+					<a href="<?php echo base_url();?>admin/projectes/edit/<?php echo $row->id_projecte;?>" class="edit_button ui-button ui-widget ui-state-default ui-corner-all ui-button-text-icon-primary" role="button">
 					<span class="ui-button-icon-primary ui-icon ui-icon-pencil"></span>
 					<span class="ui-button-text">&nbsp;Editar</span>
 					</a>
-					<a onclick = "javascript: return delete_row('http://localhost/igovern/admin/projectes/delete/2', '0')" 
-							href="javascript:void(0)" class="delete_button ui-button ui-widget ui-state-default ui-corner-all ui-button-text-icon-primary" role="button">
+					<a target="_parent" href="<?php echo base_url();?>proyecto/delete/<?php echo $row->id;?>" class="delete_button ui-button ui-widget ui-state-default ui-corner-all ui-button-text-icon-primary" role="button">
 							<span class="ui-button-icon-primary ui-icon ui-icon-circle-minus"></span>
 							<span class="ui-button-text">&nbsp;Borrar</span>
 					</a>
@@ -162,13 +168,16 @@ a:hover
 					
 	</tfoot>
 </table><script type="text/javascript">
-	var default_javascript_path = 'http://localhost/igovern/assets/grocery_crud/js';
-	var default_css_path = 'http://localhost/igovern/assets/grocery_crud/css';
-	var default_texteditor_path = 'http://localhost/igovern/assets/grocery_crud/texteditor';
-	var default_theme_path = 'http://localhost/igovern/assets/grocery_crud/themes';
-	var base_url = 'http://localhost/igovern/';
+	var default_javascript_path = '<?php echo base_url();?>/assets/grocery_crud/js';
+	var default_css_path = '<?php echo base_url();?>/assets/grocery_crud/css';
+	var default_texteditor_path = '<?php echo base_url();?>/assets/grocery_crud/texteditor';
+	var default_theme_path = '<?php echo base_url();?>/assets/grocery_crud/themes';
+	var base_url = '<?php echo base_url();?>/';
 
 </script>
+ 
+
     </div>
 </body>
 </html>
+

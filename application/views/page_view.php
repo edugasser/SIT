@@ -18,8 +18,11 @@
 <script type="text/javascript" src="<?php echo base_url();?>assets/js/plugins/jquery.flot.min.js"></script>
 <script type="text/javascript" src="<?php echo base_url();?>assets/js/plugins/jquery.flot.resize.min.js"></script>
 <script type="text/javascript" src="<?php echo base_url();?>assets/js/plugins/jquery.slimscroll.js"></script>
-<script type="text/javascript" src="<?php echo base_url();?>assets/js/custom/general.js"></script>
+<script type="text/javascript" src="<?php echo base_url();?>assets/js/plugins/jquery.jgrowl.js"></script>
+<script type="text/javascript" src="<?php echo base_url();?>assets/js/plugins/jquery.alerts.js"></script>
 
+<script type="text/javascript" src="<?php echo base_url();?>assets/js/custom/general.js"></script>
+<script type="text/javascript" src="<?php echo base_url();?>/assets/js/custom/elements.js"></script>
 
 
 <!--[if IE 9]>
@@ -45,6 +48,7 @@
 
        <?php $this->load->view($contenido); ?><!-- body -->
       <br clear="all" />
+ 
 
   
 	</div><!-- centercontent -->

@@ -9,7 +9,7 @@
 <div class="contenttitle2">
 <h3>Listat principis</h3>
 </div><!--contenttitle-->
- <iframe src="<?php echo base_url();?>admin/principis" frameborder="0" width="100%" height="600">  </iframe>
+ <iframe src="<?php echo base_url();?>principis/mio" frameborder="0" width="100%" height="600">  </iframe>
  
 
  

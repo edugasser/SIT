@@ -283,6 +283,7 @@ class Admin extends CI_Controller {
 			$crud->set_table('principi');
 			$crud->set_subject('Principis');
 		 
+			$crud->set_relation_n_n('Objectius_estrategics', 'principi_oestrategics','objectius_estrategics', 'id_principi','id_objectius_estrategics', 'objectiu',null);
 			//GESTION PERMISOS
 			if (($this->session->userdata('Editar')) != 1){
 				$crud->unset_edit(); 
@@ -397,11 +398,16 @@ class Admin extends CI_Controller {
 			$crud->set_subject('Projectes');
 			$crud->set_relation('Proposta_id','Proposta','titol'); 
 			$crud->set_relation('id_responsable','persones','nom_complet');
-			 		
+				
 			$crud->columns('titol','data_inici','data_entrega','id_responsable');
-			$crud->unset_add(); 
+			$crud->set_relation_n_n('Objectius_tactics', 'objectius_tactics_has_projecte','objectius_tactics','Projecte_id','Objectius_tactics_id','objectiu',null);
+			$crud->unset_edit_fields('monotoritzacio_temps','monotoritzacio_recursos','monotoritzacio_qualitat');
+			$crud->unset_add_fields('monotoritzacio_temps','monotoritzacio_recursos','monotoritzacio_qualitat');
+			
+			$crud->field_type('prioritat','dropdown',
+            array('Alta' => 'Alta', 'Mitja' => 'Mitja','Baixa' => 'Baixa' ));
 			//GESTION PERMISOS
-			  $crud->display_as('id_responsable','Responsable');
+		    $crud->display_as('id_responsable','Responsable');
 			if ($this->session->userdata('Editar') != 1){
 				$crud->unset_edit(); 
 			}
@@ -429,11 +435,10 @@ class Admin extends CI_Controller {
 			$crud->set_theme('datatables');
 			$crud->set_table('objectius_tactics_has_projecte');
 			$crud->set_subject('Objectius tactics projecte');
-			$crud->where('Projecte_id = '.$id);
-			//$crud->set_relation('Proposta_id','Proposta','titol'); 
-			$crud->set_relation('Objectius_tactics_id','objectius_tactics','objectiu');
-			 
-			$crud->columns('Objectius_tactics_id');
+			$crud->set_relation('Projecte_id','projecte','titol'); 	
+			$crud->set_relation('Objectius_tactics_id','objectius_tactics','objectiu'); 	
+			$crud->display_as('Projecte_id','Projecte');
+			$crud->display_as('Objectius_tactics_id','Objectiu_tactic');
 			//GESTION PERMISOS
 			  $crud->display_as('id_responsable','Responsable');
 			if ($this->session->userdata('Editar') != 1){
@@ -454,5 +459,38 @@ class Admin extends CI_Controller {
 			show_error($e->getMessage().' --- '.$e->getTraceAsString());
 		}
 	}
-	 
+	function principis_estrategies($id = null)
+	{
+ 
+		try{
+			$crud = new grocery_CRUD();
+
+			$crud->set_theme('datatables');
+			$crud->set_table('principi_oestrategics');
+			$crud->set_subject('Objectius estrategics dels principis');
+			$crud->set_relation('id_principi','principi','titol'); 	
+			$crud->set_relation('id_objectius_estrategics','objectius_estrategics','objectiu'); 	
+			$crud->display_as('id_principi','Principi');
+			$crud->display_as('id_objectius_estrategics','Objectiu estrategics');
+			$crud->where('principi_oestrategics.id_principi',$id);
+			$crud->columns('id_objectius_estrategics');
+			$crud->unset_edit(); 
+			if ($this->session->userdata('Editar') != 1){
+				$crud->unset_edit(); 
+			}
+			if ($this->session->userdata('Eliminar') != 1){
+				$crud->unset_delete(); 
+			}
+			//FIN GESTION PERMISOS
+			$crud->unset_back_to_list();
+
+			
+			$output = $crud->render();
+			
+			$this->_example_output($output);
+			
+		}catch(Exception $e){
+			show_error($e->getMessage().' --- '.$e->getTraceAsString());
+		}
+	} 
 }

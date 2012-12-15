@@ -40,9 +40,9 @@ a:hover
     <div>
 		<script type='text/javascript'>
 	var base_url = '<?php echo base_url();?>';
-	var subject = 'Propostes';
+	var subject = 'Principis';
 
-	var unique_hash = '47f90ce8ba23eca2e36a562186974396';
+	var unique_hash = '49ca729315c2e1b315f3f0ad56f09154';
 	
 	var displaying_paging_string = "Mostrando _START_ a _END_ de _TOTAL_ registros";
 	var filtered_from_string 	= "(filtered de _MAX_ total entradas)";
@@ -75,71 +75,60 @@ a:hover
 <div id='report-error' class='report-div error report-list'></div>
 <div id='report-success' class='report-div success report-list' ></div>	
 <div class="datatables-add-button">
-<a role="button" class="edit_button ui-button ui-widget ui-state-default ui-corner-all ui-button-text-icon-primary" href="<?php echo base_url();?>admin/propostes/add">
+<a role="button" class="edit_button ui-button ui-widget ui-state-default ui-corner-all ui-button-text-icon-primary" href="<?php echo base_url();?>admin/principis/add">
 	<span class="ui-button-icon-primary ui-icon ui-icon-circle-plus"></span>
-	<span class="ui-button-text">Agregar Propostes</span>
+	<span class="ui-button-text">Agregar Principis</span>
 </a>
 </div>
 <div style='height:10px;'></div>
 <table cellpadding="0" cellspacing="0" border="0" class="display" id="groceryCrudTable">
 	<thead>
 		<tr>
-							<th>Titol</th>
-							<th>Tipus projecte</th>
-							<th>Data</th>
-							<th>Estat proposta</th>
-							<th>Decisió</th>
-							<th class='actions'>Acciones</th>
-					</tr>
+			<th>Titol</th>
+			<th>Descripcio</th>
+			<th>Data</th>
+			<th style="text-align:center;" >Obj. estrategics</th>
+			<th class='actions'>Acciones</th>
+		</tr>
 	</thead>
 	<tbody>
-		  <?php if(!empty($data)){ ?>
-		  <?php foreach($data as $row){ ?>
+	<?php if(!empty($data)){ ?>
+	<?php foreach($data as $row){ ?>
 		<tr id='row-0'>
-							<td><?php echo $row->titol;?></td>
-							<td><?php echo $row->tipus;?></td>
-							<td><?php echo $row->data_proposta;?></td>
-							<td><?php echo $row->estat;?></td>
-							
-							 <td >
-							<?php if ($row->estat  == 'Cancelat'){ ?>
-								<a target="_parent" href="<?php echo base_url();?>proposta/aceptar/<?php echo $row->id_proposta;?>" class="edit_button ui-button ui-widget ui-state-default ui-corner-all ui-button-text-icon-primary" style="bgcolor:#000;?>role="button">
-								<span class="ui-button-icon-primary ui-icon ui-icon-check"></span>
-								<span class="ui-button-text">&nbsp;Aceptar</span>
-							</a>
-							<?php }else if ($row->estat == 'Acceptat'){ ?>
-							<a target="_parent" href="<?php echo base_url();?>proposta/cancelar/<?php echo $row->id_proposta;?>" class="edit_button ui-button ui-widget ui-state-default ui-corner-all ui-button-text-icon-primary" role="button">
-								<span class="ui-button-icon-primary ui-icon ui-icon-closethick"></span>
-								<span class="ui-button-text">&nbsp;Cancelar</span>
-							</a>
-							<?php }else{ ?>
-								<a target="_parent" href="<?php echo base_url();?>proposta/aceptar/<?php echo $row->id_proposta;?>" class="edit_button ui-button ui-widget ui-state-default ui-corner-all ui-button-text-icon-primary" style="bgcolor:#000;?>role="button">
-								<span class="ui-button-icon-primary ui-icon ui-icon-check"></span>
-								<span class="ui-button-text">&nbsp;Aceptar</span>
-							</a>
-							<a target="_parent" href="<?php echo base_url();?>proposta/cancelar/<?php echo $row->id_proposta;?>" class="edit_button ui-button ui-widget ui-state-default ui-corner-all ui-button-text-icon-primary" role="button">
-								<span class="ui-button-icon-primary ui-icon ui-icon-closethick"></span>
-								<span class="ui-button-text">&nbsp;Cancelar</span>
-							</a>
-							<?php } ?>
-							 <a  href="<?php echo base_url();?>admin/propostes_decisio/edit/<?php echo $row->id_proposta;?>" class="edit_button ui-button ui-widget ui-state-default ui-corner-all ui-button-text-icon-primary" role="button">
-								<span class="ui-button-icon-primary ui-icon ui-icon-document-b"></span>
-								<span class="ui-button-text">&nbsp;Ver decisió</span>
-							</a>
-							 </td>
-							 <td class='actions'>
-							<a   href="<?php echo base_url();?>admin/propostes/edit/14" class="edit_button ui-button ui-widget ui-state-default ui-corner-all ui-button-text-icon-primary" role="button">
-								<span class="ui-button-icon-primary ui-icon ui-icon-pencil"></span>
-								<span class="ui-button-text">&nbsp;Editar</span>
-							</a>
-							<a onclick = "javascript: return delete_row('<?php echo base_url();?>admin/propostes/delete/14', '0')" 
-								href="javascript:void(0)" class="delete_button ui-button ui-widget ui-state-default ui-corner-all ui-button-text-icon-primary" role="button">
-								<span class="ui-button-icon-primary ui-icon ui-icon-circle-minus"></span>
-								<span class="ui-button-text">&nbsp;Borrar</span>
-							</a>
-					</td>
-					</tr>						 
-		 <?php }} ?>
+			<td><?php echo $row->titol;?></td>
+			<td><?php echo $row->descripcio;?></td>
+			<td><?php echo $row->data;?></td>
+			<td style="text-align:center;width:150px">
+					<a  href="<?php echo base_url();?>admin/principis_estrategies/<?php echo $row->id_principi;?>">
+					<img width="20" src="<?php echo base_url();?>assets/images/info.png">
+					</a>
+				</td>
+			<td class='actions'>
+			<a href="<?php echo base_url();?>admin/principis/edit/<?php echo $row->id_principi;?>" class="edit_button ui-button ui-widget ui-state-default ui-corner-all ui-button-text-icon-primary" role="button">
+				<span class="ui-button-icon-primary ui-icon ui-icon-pencil"></span>
+				<span class="ui-button-text">&nbsp;Editar</span>
+			</a>
+			<a onclick = "javascript: return delete_row('<?php echo base_url();?>admin/principis/delete/<?php echo $row->id_principi;?>', '0')" 
+				href="javascript:void(0)" class="delete_button ui-button ui-widget ui-state-default ui-corner-all ui-button-text-icon-primary" role="button">
+				<span class="ui-button-icon-primary ui-icon ui-icon-circle-minus"></span>
+				<span class="ui-button-text">&nbsp;Borrar</span>
+			</a>
+			</td>
+		</tr>
+	<?php }} ?>
+			</tbody>
+	<tfoot>
+		<tr>
+							<th><input type="text" name="titol" placeholder="Buscar Titol" class="search_titol" /></th>
+							<th><input type="text" name="descripcio" placeholder="Buscar Descripcio" class="search_descripcio" /></th>
+							<th><input type="text" name="data" placeholder="Buscar Data" class="search_data" /></th>
+										<th  colspan="4">
+					<a href="javascript:void(0)" role="button" class="clear-filtering ui-button ui-widget ui-state-default ui-corner-all ui-button-text-icon-primary floatR">
+						<span class="ui-button-icon-primary ui-icon ui-icon-arrowrefresh-1-e"></span>
+						<span class="ui-button-text">Limpiar filtrados</span>
+					</a>
+				</th>
+					</tr>
 	</tfoot>
 </table><script type="text/javascript">
 	var default_javascript_path = '<?php echo base_url();?>assets/grocery_crud/js';
