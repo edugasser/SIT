@@ -1,5 +1,5 @@
 <div class="pageheader">
-<h1 class="pagetitle">Departaments</h1>
+<h1 class="pagetitle">Estructures</h1>
 <span class="pagedesc"></span>
 
 </div><!--pageheader-->
@@ -7,9 +7,9 @@
 <div id="contentwrapper" class="contentwrapper">
 
 <div class="contenttitle2">
-<h3>LListat departaments</h3>
+<h3>LListat estructures</h3>
 </div><!--contenttitle-->
- <iframe src="<?php echo base_url();?>admin/departaments" frameborder="0" width="100%" height="600">  </iframe>
+ <iframe src="<?php echo base_url();?>admin/estructures" frameborder="0" width="100%" height="600">  </iframe>
  
 
  

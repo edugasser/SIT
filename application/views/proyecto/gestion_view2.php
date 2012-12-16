@@ -77,6 +77,7 @@ a:hover
 	var datatables_aaSorting = [[ 0, "asc" ]];
 	
 </script>
+
 <div id='report-error' class='report-div error report-list'></div>
 <div id='report-success' class='report-div success report-list' ></div>	
 <div class="datatables-add-button">
@@ -95,7 +96,9 @@ a:hover
 							<th>Presupost</th>
 							<th>Prioritat</th>
 							<th style="text-align:center;" >Obj. tàctic</th>
+							<th style="text-align:center;" >Personal</th>
 							<th>Monotoritzacio</th> 
+							<th style="text-align:center;" >PDF</th>
 							<th style="text-align:center;" class='actions'>Acciones</th>
 					</tr>
 	</thead>
@@ -120,9 +123,16 @@ a:hover
 				<td style="width:115px"><?php echo $row->data_entrega;?></td>
 				<td style="width:115px"><?php echo $row->pressupost_inicial;?>€</td>
 				<td style="width:115px"><?php echo $row->prioritat;?></td>
-				<td style="text-align:center;width:150px">
+				<td style="text-align:center; ">
 					<a  href="<?php echo base_url();?>proyecto/objectius_tactics/<?php echo $row->id;?>">
 					<img width="20" src="<?php echo base_url();?>assets/images/info.png">
+					</a>
+				</td>
+				<td style="text-align:center; ">
+					 
+					<a  href="<?php echo base_url();?>admin/persones_projecte/edit/<?php echo $row->id_projecte;?>">
+					 
+					<img width="30" src="<?php echo base_url();?>assets/images/icons/persona.png">
 					</a>
 				</td>
 					<td style="width:80px">
@@ -137,6 +147,13 @@ a:hover
 					</a>
 					
 
+				</td>
+				<td style="text-align:center; ">
+					 
+					<a target="_blank" href="<?php echo base_url();?>proyecto/pdf/<?php echo $row->id_projecte;?>">
+					 
+					<img width="30" src="<?php echo base_url();?>assets/images/icons/pdf-ico.png">
+					</a>
 				</td>
 				<td>
 					<a href="<?php echo base_url();?>admin/projectes/edit/<?php echo $row->id_projecte;?>" class="edit_button ui-button ui-widget ui-state-default ui-corner-all ui-button-text-icon-primary" role="button">
@@ -158,7 +175,7 @@ a:hover
 							<th><input type="text" name="data_entrega" placeholder="Buscar Data entrega" class="search_data_entrega" /></th>
 							<th><input type="text" name="s325ab8f0" placeholder="Buscar Estat projecte" class="search_s325ab8f0" /></th>
 							<th><input type="text" name="s017ef000" placeholder="Buscar Responsable" class="search_s017ef000" /></th>
-							<th colspan="4">
+							<th colspan="6">
 								<a href="javascript:void(0)" role="button" class="clear-filtering ui-button ui-widget ui-state-default ui-corner-all ui-button-text-icon-primary floatR">
 									<span class="ui-button-icon-primary ui-icon ui-icon-arrowrefresh-1-e"></span>
 									<span class="ui-button-text">Limpiar filtrados</span>

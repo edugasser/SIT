@@ -160,15 +160,16 @@ style="width: 200px" onkeyup="javascript:autosuggest('proyectos','buscador','bus
 			<span class="arrow"></span>
 			<ul id="servicis">
 				<li><a href="<?php echo base_url();?>serveis/gestion">Serveis</a></li>
-								<li><a href="<?php echo base_url();?>operacio/gestion">Operacions</a></li>					
+				<li><a href="<?php echo base_url();?>operacio/gestion">Operacions</a></li>					
 			</ul>
         </li>
 		<?php } if ($this->session->userdata('Persones') == 1){ ?>
-		<li><a href="#persones" class="editor">Estructura</a>
+		<li><a href="#persones" class="editor">Sesions</a>
 			<span class="arrow"></span>
 			<ul id="persones">
+				<li><a href="<?php echo base_url();?>reunions/gestion">Reunions</a></li>
 				<li><a href="<?php echo base_url();?>persona/gestion">Persones</a></li>
-				<li><a href="<?php echo base_url();?>departament/gestion">Departaments</a></li>	 
+				<li><a href="<?php echo base_url();?>estructures/gestion">Estructures</a></li>	 
 			</ul>
         </li>
  

@@ -51,11 +51,12 @@ class Admin extends CI_Controller {
 			$crud = new grocery_CRUD();
 
 			$crud->set_theme('datatables');
-			$crud->set_table('perfil_permisos');
-			$crud->set_subject('Permisos');
-			 
-			$crud->set_relation('id_perfil','perfil','nombre_perfil'); 
-			$crud->set_relation('id_permiso','permiso','nombre_permiso'); 
+			$crud->set_table('perfil');
+			$crud->set_subject('Permisos');	 
+			//$crud->set_relation('id_perfil','perfil','nombre_perfil'); 
+			//$crud->set_relation('id_permiso','permiso','nombre_permiso'); 
+			$crud->set_relation_n_n('usuarios','perfil_permisos','permiso','id_perfil','id_permiso','nombre_permiso',null);
+    
 	 
 			$output = $crud->render();
 			$this->_example_output($output);
@@ -118,33 +119,7 @@ class Admin extends CI_Controller {
 			show_error($e->getMessage().' --- '.$e->getTraceAsString());
 		}
 	}	
-	function decisio()
-	{
-		try{
-			$crud = new grocery_CRUD();
-
-			$crud->set_theme('datatables');
-			$crud->set_table('decisio');
-			$crud->set_subject('Decisions');
-			$crud->set_relation('id_proposta','proposta','titol');
-			
-			//GESTION PERMISOS
-			if (($this->session->userdata('Editar'))!= 1){
-				$crud->unset_edit(); 
-			}
-			if (($this->session->userdata('Eliminar'))!= 1){
-				$crud->unset_delete(); 
-			}
-			//FIN GESTION PERMISOS
-
-			$output = $crud->render();
-			
-			$this->_example_output($output);
-			
-		}catch(Exception $e){
-			show_error($e->getMessage().' --- '.$e->getTraceAsString());
-		}
-	}
+ 
 	function tipus_projectes()
 	{
 		try{
@@ -223,14 +198,14 @@ class Admin extends CI_Controller {
 			show_error($e->getMessage().' --- '.$e->getTraceAsString());
 		}
 	}	
-	function departaments()
+	function estructures()
 	{
 		try{
 			$crud = new grocery_CRUD();
 
 			$crud->set_theme('datatables');
-			$crud->set_table('departaments');
-			$crud->set_subject('Departaments');
+			$crud->set_table('estructures');
+			$crud->set_subject('Estructures');
  
 			//GESTION PERMISOS
 			if (($this->session->userdata('Editar'))!= 1){
@@ -361,6 +336,65 @@ class Admin extends CI_Controller {
 			show_error($e->getMessage().' --- '.$e->getTraceAsString());
 		}
 	}
+	function decisiones($id=null)
+	{
+		try{
+			$crud = new grocery_CRUD();
+
+			$crud->set_theme('datatables');
+			$crud->set_table('decision');
+			$crud->set_subject('Decisions');
+			$crud->set_relation('id_reunion','reunion','titol'); 
+			$crud->field_type('alineado','dropdown',
+            array('Principi' => 'Principi' ,'Objectiu estrategic' => 'Objectiu estrategic','Objectiu tactic' => 'Objectiu tactic','Projecte' => 'Projecte','Presupost' => 'Presupost' ));
+			if ($id!=null){
+			$crud->where('decision.id_reunion',$id);
+			}
+			$crud->unset_edit_fields('id_reunion');
+			//GESTION PERMISOS
+			if (($this->session->userdata('Editar')) != 1){
+				$crud->unset_edit(); 
+			}
+			if (($this->session->userdata('Eliminar')) != 1){
+				$crud->unset_delete(); 
+			}
+			//FIN GESTION PERMISOS
+
+			$output = $crud->render();
+			
+			$this->_example_output($output);
+			
+		}catch(Exception $e){
+			show_error($e->getMessage().' --- '.$e->getTraceAsString());
+		}
+	}
+	function reuniones()
+	{
+		try{
+			$crud = new grocery_CRUD();
+
+			$crud->set_theme('datatables');
+			$crud->set_table('reunion');
+			$crud->set_subject('Reunions');
+			$crud->set_relation_n_n('Asistents','reunion_estructura', 'estructures','id_reunion','id_estructura','dept',null);
+			 
+			//GESTION PERMISOS
+			if (($this->session->userdata('Editar')) != 1){
+				$crud->unset_edit(); 
+			}
+			if (($this->session->userdata('Eliminar')) != 1){
+				$crud->unset_delete(); 
+			}
+			//FIN GESTION PERMISOS
+
+			$output = $crud->render();
+			
+			$this->_example_output($output);
+			
+		}catch(Exception $e){
+			show_error($e->getMessage().' --- '.$e->getTraceAsString());
+		}
+	}
 	function persones()
 	{
 		try{
@@ -369,7 +403,38 @@ class Admin extends CI_Controller {
 			$crud->set_theme('datatables');
 			$crud->set_table('persones');
 			$crud->set_subject('Persones');
-			$crud->set_relation('departaments_id','departaments','dept'); 
+			$crud->set_relation('estructures_id','estructures','dept'); 
+			//GESTION PERMISOS
+			if (($this->session->userdata('Editar')) != 1){
+				$crud->unset_edit(); 
+			}
+			if (($this->session->userdata('Eliminar')) != 1){
+				$crud->unset_delete(); 
+			}
+			//FIN GESTION PERMISOS
+
+			$output = $crud->render();
+			
+			$this->_example_output($output);
+			
+		}catch(Exception $e){
+			show_error($e->getMessage().' --- '.$e->getTraceAsString());
+		}
+	}
+	function persones_projecte()
+	{
+		try{
+			$crud = new grocery_CRUD();
+
+			$crud->set_theme('datatables');
+			$crud->set_table('projecte');
+			$crud->set_subject('Persones');
+			
+			$crud->set_relation_n_n('Persones_projecte', 'persona_projecte', 'persones', 'id_projecte','id_persona','nom_complet',null);
+			$crud->columns('titol','Persones_projecte'); 
+			 
+			$crud->edit_fields('titol','Persones_projecte');
+			$crud->add_fields('titol','Persones_projecte');
 			//GESTION PERMISOS
 			if (($this->session->userdata('Editar')) != 1){
 				$crud->unset_edit(); 
@@ -401,6 +466,9 @@ class Admin extends CI_Controller {
 				
 			$crud->columns('titol','data_inici','data_entrega','id_responsable');
 			$crud->set_relation_n_n('Objectius_tactics', 'objectius_tactics_has_projecte','objectius_tactics','Projecte_id','Objectius_tactics_id','objectiu',null);
+			
+
+			
 			$crud->unset_edit_fields('monotoritzacio_temps','monotoritzacio_recursos','monotoritzacio_qualitat');
 			$crud->unset_add_fields('monotoritzacio_temps','monotoritzacio_recursos','monotoritzacio_qualitat');
 			

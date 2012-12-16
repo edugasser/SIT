@@ -177,11 +177,12 @@ class proyecto extends CI_Controller {
 		}
 	
 	}
-	public function gestion(){
+	public function gestion($seccion=null,$id=null){
  
 		if ($this->tank_auth->is_logged_in()) {	
 			
 			$data['contenido'] =  "proyecto/gestion_view"; 
+			
 			$this->load->view('page_view', $data);
 		}else{
 			redirect('auth/');
@@ -192,14 +193,102 @@ class proyecto extends CI_Controller {
 	public function mio( ){
  
 			
-			$sql2 = "SELECT *,projecte.id as id_projecte,DATE_FORMAT(data_inici,'%d-%m-%Y') as data_inici,DATE_FORMAT(data_entrega,'%d-%m-%Y') as data_entrega FROM projecte LEFT JOIN persones ON persones.id_persona = projecte.id_responsable";
+			$sql2 = "SELECT *,projecte.id as id_projecte,DATE_FORMAT(data_inici,'%d-%m-%Y') as data_inici,DATE_FORMAT(data_entrega,'%d-%m-%Y') as data_entrega FROM projecte LEFT JOIN persones ON persones.id_persona = projecte.id_responsable
+			";
 			$data['data'] = $this->mi_model->get_sql($sql2);	 
 	
 			$this->load->view('proyecto/gestion_view2', $data);
 		 
 	}
  
-	 
+	function pdf($id){
+	$this->load->library('pdf');
+	
+		$sql2 = "SELECT *,projecte.id as id_projecte,DATE_FORMAT(data_inici,'%d-%m-%Y') as data_inici,
+		DATE_FORMAT(data_entrega,'%d-%m-%Y') as data_entrega
+		FROM projecte LEFT JOIN persones ON persones.id_persona = projecte.id_responsable
+		WHERE projecte.id = $id
+			";
+		$data =  $this->mi_model->get_sql($sql2);
+		
+		$sql = "SELECT * FROM objectius_tactics_has_projecte 
+		JOIN objectius_tactics ON Objectius_tactics_id= objectius_tactics.id WHERE Projecte_id = '$id'";
+		$objectius =  $this->mi_model->get_sql($sql);
+	// set document information
+	$this->pdf->SetSubject('Fitxa projecte');
+
+
+	// set font
+	$this->pdf->SetFont('helvetica', '', 16);
+
+	// add a page
+	$this->pdf->AddPage();
+	foreach ($data as $row) {
+	// print a line using Cell()
+	$this->pdf->SetXY(20, 25);
+	$this->pdf->Cell(150, 0, 'Projecte '.utf8_decode($row->titol), 0, 1, 'C');
+
+	$this->pdf->SetFont('helvetica', '', 11);
+	$this->pdf->setCellPaddings(1, 1, 1, 1);
+	
+	$this->pdf->SetXY(15, 39);
+	$this->pdf->Cell(35, 0, 'Projecte', 1, 1, 'C', 0, '', 0);
+
+	$this->pdf->SetXY(50, 39);
+	$this->pdf->Cell(100, 0, utf8_decode($row->titol), 1, 1, 'C', 0, '', 0); 
+	$y = 39;
+			$y = $y + 8;
+	$this->pdf->SetXY(15, $y);
+	$this->pdf->Cell(35, 0, 'Responsable', 1, 1, 'C', 0, '', 0);
+	$this->pdf->SetXY(50,  $y);
+	$this->pdf->Cell(100, 0, utf8_decode($row->nom_complet), 1, 1, 'C', 0, '', 0);	
+	$y = $y + 8;
+	$this->pdf->SetXY(15, $y);
+	$this->pdf->Cell(35, 0, 'Data inici', 1, 1, 'C', 0, '', 0);
+	$this->pdf->SetXY(50,  $y);
+	$this->pdf->Cell(100, 0, $row->data_inici, 1, 1, 'C', 0, '', 0);
+	
+
+
+	
+	$y = $y + 8;
+	$this->pdf->SetXY(15, $y);
+	$this->pdf->Cell(35, 0, 'Data entrega', 1, 1, 'C', 0, '', 0);
+	$this->pdf->SetXY(50,  $y);
+	$this->pdf->Cell(100, 0, $row->data_entrega, 1, 1, 'C', 0, '', 0);
+	
+	$y = $y + 8;
+	$this->pdf->SetXY(15, $y);
+	$this->pdf->Cell(35, 0, 'Pressupost', 1, 1, 'C', 0, '', 0);
+	$this->pdf->SetXY(50,  $y);
+	$this->pdf->Cell(100, 0, $row->pressupost_inicial, 1, 1, 'C', 0, '', 0);
+	
+	$y = $y + 8;
+	$this->pdf->SetXY(15, $y);
+	$this->pdf->Cell(35, 0, 'Prioritat', 1, 1, 'C', 0, '', 0);
+	$this->pdf->SetXY(50,  $y);
+	$this->pdf->Cell(100, 0, $row->prioritat, 1, 1, 'C', 0, '', 0);
+	
+	}
+	$first=true;
+	if (!empty($objectius)){ 
+	foreach ($objectius as $row) {
+		$y = $y + 8;
+	if ($first){
+		
+		$titulo = "Objectius tàctics";
+		$this->pdf->SetXY(15, $y);
+		$this->pdf->Cell(35, 0, $titulo, 1, 1, 'C', 0, '', 0);
+	} 
+	}
+	$first=false;
+
+
+	$this->pdf->SetXY(50,  $y);
+	$this->pdf->Cell(100, 0, utf8_decode($row->objectiu), 1, 1, 'C', 0, '', 0);
+	}
+	$this->pdf->Output("ficha_tesoreria.pdf", 'i');
+	}
 
 }
 

@@ -51,7 +51,7 @@ class panel extends CI_Controller {
 			//TOTALES//
 			$data['total_proyectos'] = $this->mi_model->devolver_count("projecte");
 			$data['total_servicios'] = $this->mi_model->devolver_count("servicis");
-			$data['total_departament'] = $this->mi_model->devolver_count("departaments");
+			$data['total_departament'] = $this->mi_model->devolver_count("estructures");
 			$data['total_persones'] = $this->mi_model->devolver_count("persones");
 			$data['total_propostes'] = $this->mi_model->devolver_count("proposta");
 			$data['total_principis'] = $this->mi_model->devolver_count("principi");
@@ -59,7 +59,7 @@ class panel extends CI_Controller {
 			$data['total_ot'] = $this->mi_model->devolver_count("objectius_tactics");
 			//PROYECTOS
 			$hoy = date('Y-m-d');
-			$sql4 = "SELECT * FROM projecte WHERE data_inici <= '$hoy' ORDER BY data_entrega ASC";
+			$sql4 = "SELECT * FROM projecte WHERE data_inici <= '$hoy' OR data_entrega < '$hoy' ORDER BY data_entrega ASC";
 			$data['proyectos'] = $this->mi_model->get_sql($sql4);	
 			//ALERTAS
 			$sql5 = "
@@ -99,6 +99,18 @@ class panel extends CI_Controller {
 				SELECT  * FROM proposta WHERE estat_projecte = '2'
 			";
 			$data['alerta_propostes'] = $this->mi_model->get_sql($sql7);
+			
+			$sql9 = "
+				SELECT  *
+					FROM    projecte l
+					WHERE   NOT EXISTS
+					(
+					SELECT  *
+					FROM    persona_projecte r
+					WHERE   id_projecte = l.id
+					)
+			";
+			$data['alerta_persona_projecte'] = $this->mi_model->get_sql($sql9);
 			
 			$data['contenido'] =  "control_view";
 			$this->load->view('page_view', $data);

@@ -131,6 +131,14 @@
 							</div><!-- notification msgalert -->	
 						<?php }} ?>
 						
+						<?php if (!empty($alerta_persona_projecte)){ ?>
+						<?php foreach ($alerta_persona_projecte as $row){ ?>
+							<div class="notibar msgalert">
+							<a class="close"></a>
+							<p>El projecte "<a href="<?php echo base_url();?>proyecto/gestion/"><?php echo $row->titol;?></a>" no té asignat cap personal </p>
+							</div><!-- notification msgalert -->	
+						<?php }} ?>
+						
 				  
 
                         </div><!-- widgetbox -->                            
@@ -191,7 +199,11 @@
 							?>
 							<?php echo  date('d-m-Y', strtotime($inici));?>
 							<p style="margin-top:-18px;"align="right"><?php echo  date('d-m-Y', strtotime($entrega));?></p>
-							<div class="bar2"><div class="value bluebar" style="width: <?php echo $porcentaje;?>%;">Temps (<?php echo $quedan;?> dies)</div></div>
+							<?php if ($quedan != 0){ ?>
+								<div class="bar2"><div class="value bluebar" style="width: <?php echo $porcentaje;?>%;">Temps (<?php echo $quedan;?> dies)</div></div>
+							<?php }else{ ?>
+								<div class="bar2"><div class="value bluebar" style="width: <?php echo $porcentaje;?>%;"></div></div>
+							<?php } ?>
 							</div><!--progress-->
 
 
