@@ -77,7 +77,7 @@
                                 <tr>
 									 <th class="head0">Projectes</th>   
                                     <th class="head0">Serveis</th>
-                                    <th class="head0">Departaments</th>
+                                    <th class="head0">Estructures</th>
                                     <th class="head0">Persones</th>
                                         
                                     

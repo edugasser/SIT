@@ -92,11 +92,12 @@ a:hover
 		<tr>
 							<th>Titol</th>
 							<th>Data inici</th>
-							<th>Data entrega</th>
+						 
 							<th>Presupost</th>
 							<th>Prioritat</th>
 							<th style="text-align:center;" >Obj. tàctic</th>
 							<th style="text-align:center;" >Personal</th>
+							<th style="text-align:center;" >Operacions</th>
 							<th>Monotoritzacio</th> 
 							<th style="text-align:center;" >PDF</th>
 							<th style="text-align:center;" class='actions'>Acciones</th>
@@ -120,19 +121,26 @@ a:hover
 			<tr id='row-0'>
 				<td ><?php echo $row->titol;?></td>
 				<td  ><?php echo $row->data_inici;?></td>
-				<td  ><?php echo $row->data_entrega;?></td>
+ 
 				<td  ><?php echo $row->pressupost_inicial;?>€</td>
 				<td  ><?php echo $row->prioritat;?></td>
-				<td style="text-align:center; ">
+				<td style="text-align:center;">
 					<a  href="<?php echo base_url();?>proyecto/objectius_tactics/<?php echo $row->id;?>">
 					<img width="20" src="<?php echo base_url();?>assets/images/info.png">
 					</a>
 				</td>
-				<td style="text-align:center; ">
+				<td style="text-align:center; " >
 					 
 					<a  href="<?php echo base_url();?>admin/persones_projecte/edit/<?php echo $row->id_projecte;?>">
 					 
 					<img width="30" src="<?php echo base_url();?>assets/images/icons/persona.png">
+					</a>
+				</td>
+					<td style="text-align:center; ">
+					 
+					<a  href="<?php echo base_url();?>admin/operacio/<?php echo $row->id_projecte;?>">
+					 
+					<img width="30" src="<?php echo base_url();?>assets/images/icons/bosquejo.png">
 					</a>
 				</td>
 					<td style="width:80px">
@@ -156,14 +164,18 @@ a:hover
 					</a>
 				</td>
 				<td>
+				<?php  if (($this->session->userdata('Editar')) != 0 ){ ?>
+
 					<a href="<?php echo base_url();?>admin/projectes/edit/<?php echo $row->id_projecte;?>" class="edit_button ui-button ui-widget ui-state-default ui-corner-all ui-button-text-icon-primary" role="button">
 					<span class="ui-button-icon-primary ui-icon ui-icon-pencil"></span>
 					<span class="ui-button-text">&nbsp;Editar</span>
 					</a>
+					<?php }if (($this->session->userdata('Eliminar'))!= 0){ ?>
 					<a target="_parent" href="<?php echo base_url();?>proyecto/delete/<?php echo $row->id;?>" class="delete_button ui-button ui-widget ui-state-default ui-corner-all ui-button-text-icon-primary" role="button">
 							<span class="ui-button-icon-primary ui-icon ui-icon-circle-minus"></span>
 							<span class="ui-button-text">&nbsp;Borrar</span>
 					</a>
+					<?php } ?>
 				</td>
 			</tr>
 		 <?php }} ?>

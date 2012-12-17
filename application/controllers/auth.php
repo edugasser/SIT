@@ -31,7 +31,7 @@ class Auth extends CI_Controller
 	{
 		if ($this->tank_auth->is_logged_in()) {									// logged in
 		 
-			redirect('/panel/control');
+			redirect('/panel/');
 
 		} elseif ($this->tank_auth->is_logged_in(FALSE)) {						// logged in, not activated
 			 
@@ -62,7 +62,7 @@ class Auth extends CI_Controller
 						$this->form_validation->set_value('remember'),
 						$data['login_by_username'],
 						$data['login_by_email'])) {								// success
-					redirect('proposta/gestion');
+					redirect('panel');
 
 				} else {
 					$errors = $this->tank_auth->get_error_message();

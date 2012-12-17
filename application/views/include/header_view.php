@@ -42,7 +42,7 @@ style="width: 200px" onkeyup="javascript:autosuggest('proyectos','buscador','bus
 
             	<!--<img width="20"src="<?php echo base_url();?>assets/foto_perfil/496.jpg" alt="" />-->
 
-                <span>Eduardo Andrés Gasser</span>
+	                <span><?php echo $this->session->userdata('username');?></span>
 
             </div><!--userinfo-->
 
@@ -52,21 +52,20 @@ style="width: 200px" onkeyup="javascript:autosuggest('proyectos','buscador','bus
 
             	<div class="avatar">
 
-                	<!--<a href="#"><img src="<?php echo base_url();?>assets	/foto_perfil/496.jpg" alt="" /></a>-->
-
+                 <a href="#"><img src="<?php echo base_url();?>assets/images/icons/persona.png" alt="" /></a> 
                      
 
                 </div><!--avatar-->
 
                 <div class="userdata">
 
-                	<h4>Eduardo Andrés Gasser</h4>
+                	 
 
-                    <span class="email">edugasser@gmail.com</span>
+                    <span class="email"><?php echo $this->session->userdata('email');?></span>
 
                     <ul>
 
-                    	<li><a href="editprofile.html">Editar cuenta</a></li>
+                    
                         <li><a href="<?php echo base_url();?>auth/logout">Cerrar sesión</a></li>
 
                     </ul>
@@ -131,7 +130,7 @@ style="width: 200px" onkeyup="javascript:autosuggest('proyectos','buscador','bus
     <div class="vernav2 iconmenu">
 
     	<ul>
-		<?php if ($this->session->userdata('Principis') == 1){ ?>
+		<?php if ($this->session->userdata('Principis_i_objectius') == 1){ ?>
 		<li><a href="#propuesta" class="editor">Principis y objectius</a>
 			<span class="arrow"></span>
 			<ul id="propuesta">
@@ -147,6 +146,7 @@ style="width: 200px" onkeyup="javascript:autosuggest('proyectos','buscador','bus
 			<ul id="principis">
 				<li><a href="<?php echo base_url();?>proyecto/gestion">Projectes</a></li>
 				<li><a href="<?php echo base_url();?>proposta/gestion">Propostes</a></li>
+				<li><a href="<?php echo base_url();?>serveis/gestion">Serveis</a></li>
 				<li><a href="<?php echo base_url();?>tipus_projectes/gestion">Tipus projectes</a></li>
 
 			</ul>
@@ -154,16 +154,8 @@ style="width: 200px" onkeyup="javascript:autosuggest('proyectos','buscador','bus
 		 
 		 
 		 
-	 
-        <?php } if ($this->session->userdata('Serveis') == 1){ ?>
-		  <li><a href="#servicis" class="editor">Serveis</a>
-			<span class="arrow"></span>
-			<ul id="servicis">
-				<li><a href="<?php echo base_url();?>serveis/gestion">Serveis</a></li>
-				<li><a href="<?php echo base_url();?>operacio/gestion">Operacions</a></li>					
-			</ul>
-        </li>
-		<?php } if ($this->session->userdata('Persones') == 1){ ?>
+	  
+		<?php } if ($this->session->userdata('Sesions') == 1){ ?>
 		<li><a href="#persones" class="editor">Sesions</a>
 			<span class="arrow"></span>
 			<ul id="persones">
@@ -179,8 +171,8 @@ style="width: 200px" onkeyup="javascript:autosuggest('proyectos','buscador','bus
 			<span class="arrow"></span>
 			<ul id="usuarios">
 				<li><a href="<?php echo base_url();?>usuaris">Usuaris</a></li>
-				<li><a href="<?php echo base_url();?>usuaris/perfils">Perfils</a></li>
-				<li><a href="<?php echo base_url();?>usuaris/perfil_permisos">Permisos</a></li>	
+			 
+				<li><a href="<?php echo base_url();?>usuaris/perfil_permisos">Perfils</a></li>	
 			</ul>
         </li>
 		<?php } ?>

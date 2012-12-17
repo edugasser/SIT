@@ -77,7 +77,7 @@ class Admin extends CI_Controller {
             array('Alta' => 'Alta' ,'Mitja' => 'Mitja','Baixa' => 'Baixa'));
             $crud->field_type('estat','dropdown',
             array('Oberta' => 'Oberta' ,'Tancada' => 'Tancada' ));
-			
+			$crud->columns('incidencia','data','estat','prioritat');
 			 $crud->set_relation('id_servei','servicis','nom_servei');
 			 if ($id!=null){
 				 $crud->where('id_servei',$id);
@@ -248,7 +248,7 @@ class Admin extends CI_Controller {
 			show_error($e->getMessage().' --- '.$e->getTraceAsString());
 		}
 	}	
-	function operacio()
+	function operacio($id)
 	{
 		try{
 			$crud = new grocery_CRUD();
@@ -257,6 +257,9 @@ class Admin extends CI_Controller {
 			$crud->set_table('operacio');
 			$crud->set_subject('Operacions');
 			$crud->set_relation('Projecte_id','projecte','titol'); 
+			if ($id !=null){
+			$crud->where('operacio.Projecte_id',$id);
+			}
 			//GESTION PERMISOS
 			if (($this->session->userdata('Editar'))!= 1){
 				$crud->unset_edit(); 

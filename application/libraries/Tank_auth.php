@@ -75,6 +75,8 @@ class Tank_auth
 								'user_id'	=> $user->id,
 								'username'	=> $user->username,
 								'perfil'	=> $user->perfil,
+								'email' 	=> $user->email,
+						 
 								'status'	=> ($user->activated == 1) ? STATUS_ACTIVATED : STATUS_NOT_ACTIVATED);
 						foreach ($permisos as $row){
 							$array[$row->nombre_permiso] = 1;
