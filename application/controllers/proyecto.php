@@ -84,14 +84,17 @@ class proyecto extends CI_Controller {
 	}
 	public function add($id){
 		$this->mi_model->delete("objectius_tactics_has_projecte","Projecte_id", $id);
-		$mySelected=$_POST['select2']; 
-  
+		
+		
+		if (!empty($_POST['select2'])){
+		$mySelected=$_POST['select2'];
 		foreach ($mySelected as $item){
 			$informe = array (
 				"Objectius_tactics_id" => $item, 
 				"Projecte_id" => $id, 
 				);
 			$this->mi_model->add("objectius_tactics_has_projecte",$informe);
+		}
 		}
 		$ex = explode('-',$_POST["data_inici"]);
 		$fecha_inicio = $ex[2]."-".$ex[1]."-".$ex[0];
