@@ -77,7 +77,7 @@ a:hover
 <div class="datatables-add-button">
 <a role="button" class="edit_button ui-button ui-widget ui-state-default ui-corner-all ui-button-text-icon-primary" href="<?php echo base_url();?>admin/objectius_projecte/add">
 	<span class="ui-button-icon-primary ui-icon ui-icon-circle-plus"></span>
-	<span class="ui-button-text">Agregar Objectius estrategics</span>
+	<span class="ui-button-text">Afegir Objectius estrategics</span>
 </a>
 </div>
 <div style='height:10px;'></div>
@@ -86,7 +86,7 @@ a:hover
 		<tr>
 			<th>Objectiu</th>
 			<th>Descripcio</th>
-			<th class='actions'>Acciones</th>
+			<th class='actions'>Accions</th>
 		</tr>
 	</thead>
 	<tbody>

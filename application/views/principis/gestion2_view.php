@@ -77,7 +77,7 @@ a:hover
 <div class="datatables-add-button">
 <a role="button" class="edit_button ui-button ui-widget ui-state-default ui-corner-all ui-button-text-icon-primary" href="<?php echo base_url();?>admin/principis/add">
 	<span class="ui-button-icon-primary ui-icon ui-icon-circle-plus"></span>
-	<span class="ui-button-text">Agregar Principis</span>
+	<span class="ui-button-text">Afegir Principis</span>
 </a>
 </div>
 <div style='height:10px;'></div>
@@ -88,7 +88,7 @@ a:hover
 			<th>Descripcio</th>
 			<th>Data</th>
 			<th style="text-align:center;" >Obj. estrategics</th>
-			<th class='actions'>Acciones</th>
+			<th class='actions'>Accions</th>
 		</tr>
 	</thead>
 	<tbody>

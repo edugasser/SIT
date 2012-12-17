@@ -77,7 +77,7 @@ a:hover
 <div class="datatables-add-button">
 <a role="button" class="edit_button ui-button ui-widget ui-state-default ui-corner-all ui-button-text-icon-primary" href="<?php echo base_url();?>admin/serveis/add">
 	<span class="ui-button-icon-primary ui-icon ui-icon-circle-plus"></span>
-	<span class="ui-button-text">Agregar Serveis</span>
+	<span class="ui-button-text">Afegir Serveis</span>
 </a>
 </div>
 <div style='height:10px;'></div>
@@ -89,7 +89,7 @@ a:hover
 							<th>Data servei</th>
 							<th>Incidencies</th>
 							<th>Grafic</th>
-									<th class='actions'>Acciones</th>
+									<th class='actions'>Accions</th>
 					</tr>
 	</thead>
 	<tbody>
