@@ -57,7 +57,13 @@ class Admin extends CI_Controller {
 			//$crud->set_relation('id_permiso','permiso','nombre_permiso'); 
 			$crud->set_relation_n_n('usuarios','perfil_permisos','permiso','id_perfil','id_permiso','nombre_permiso',null);
     
-	 
+	 //GESTION PERMISOS
+			if (($this->session->userdata('Editar'))!= 1){
+				$crud->unset_edit(); 
+			}
+			if (($this->session->userdata('Eliminar'))!= 1){
+				$crud->unset_delete(); 
+			}
 			$output = $crud->render();
 			$this->_example_output($output);
 			
@@ -82,6 +88,13 @@ class Admin extends CI_Controller {
 			 if ($id!=null){
 				 $crud->where('id_servei',$id);
 			 }
+			 //GESTION PERMISOS
+			if (($this->session->userdata('Editar'))!= 1){
+				$crud->unset_edit(); 
+			}
+			if (($this->session->userdata('Eliminar'))!= 1){
+				$crud->unset_delete(); 
+			}
 			$output = $crud->render();
 			$this->_example_output($output);
 			
@@ -98,7 +111,13 @@ class Admin extends CI_Controller {
 			$crud->set_table('permiso');
 			$crud->set_subject('Permisos');
 			 
-			 
+			 //GESTION PERMISOS
+			if (($this->session->userdata('Editar'))!= 1){
+				$crud->unset_edit(); 
+			}
+			if (($this->session->userdata('Eliminar'))!= 1){
+				$crud->unset_delete(); 
+			}
 			$output = $crud->render();
 			$this->_example_output($output);
 			
@@ -116,8 +135,15 @@ class Admin extends CI_Controller {
 			$crud->set_subject('Usuaris');
 			$crud->columns('username','email','perfil');
 			$crud->set_relation('perfil','perfil','nombre_perfil'); 
-			
+			 //GESTION PERMISOS
+			if (($this->session->userdata('Editar'))!= 1){
+				$crud->unset_edit(); 
+			}
+			if (($this->session->userdata('Eliminar'))!= 1){
+				$crud->unset_delete(); 
+			}
 			$crud->edit_fields('username','email','perfil');
+			
 			$output = $crud->render();
 			$this->_example_output($output);
 			
@@ -134,7 +160,13 @@ class Admin extends CI_Controller {
 			$crud->set_table('perfil');
 			$crud->set_subject('Perfiles');
  
- 
+ //GESTION PERMISOS
+			if (($this->session->userdata('Editar'))!= 1){
+				$crud->unset_edit(); 
+			}
+			if (($this->session->userdata('Eliminar'))!= 1){
+				$crud->unset_delete(); 
+			}
 			$output = $crud->render();
 			
 			$this->_example_output($output);
@@ -179,8 +211,8 @@ class Admin extends CI_Controller {
 			$crud->set_table('objectius_tactics');
 			$crud->set_subject('Objectius tactics');
  
-			$crud->set_relation('Objectius_estrategics_id','objectius_estrategics','objectiu'); 
-			$output = $crud->render();
+			$crud->set_relation('Objectius_estrategics_id','objectius_estrategics','objectiu');
+			 
 			//GESTION PERMISOS
 			if (($this->session->userdata('Editar'))!= 1){
 				$crud->unset_edit(); 
@@ -189,7 +221,7 @@ class Admin extends CI_Controller {
 				$crud->unset_delete(); 
 			}
 			//FIN GESTION PERMISOS
-
+			$output = $crud->render();
 			$this->_example_output($output);
 			
 		}catch(Exception $e){
