@@ -62,6 +62,10 @@ class proposta extends CI_Controller {
 		$this->mi_model->update('proposta','id',$id_proposta,$array);
 		redirect('proposta/gestion','refresh');
 	}
+	public function evaluar(){
+		$data['contenido'] =  "proposta/gestion_evaluar_view";
+		$this->load->view('page_view', $data);
+	}
 	public function mio($success=null){
 	 
 		$sql2 = "SELECT *,proposta.id as id_proposta,DATE_FORMAT(data,'%Y-%m-%d') as data_proposta FROM proposta JOIN estat ON estat.id_estat = proposta.estat_projecte JOIN tipus_projecte ON tipus_projecte.id = proposta.tipus_projecte_id";

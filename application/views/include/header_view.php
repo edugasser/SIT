@@ -148,6 +148,7 @@ style="width: 200px" onkeyup="javascript:autosuggest('proyectos','buscador','bus
 				<li><a href="<?php echo base_url();?>proposta/gestion">Propostes</a></li>
 				<li><a href="<?php echo base_url();?>serveis/gestion">Serveis</a></li>
 				<li><a href="<?php echo base_url();?>tipus_projectes/gestion">Tipus projectes</a></li>
+				<li><a href="<?php echo base_url();?>proyecto/encuestas">Control de qualitat</a></li>
 
 			</ul>
         </li>

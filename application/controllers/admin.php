@@ -29,6 +29,44 @@ class Admin extends CI_Controller {
 	{
 		$this->_example_output((object)array('output' => '' , 'js_files' => array() , 'css_files' => array()));
 	}
+	function encuesta_admin()
+	{
+		try{
+			$crud = new grocery_CRUD();
+
+			$crud->set_theme('datatables');
+			$crud->set_table('encuesta');
+			$crud->set_subject('Enquesta');
+			$crud->set_relation('id_projecte','projecte','titol');
+			$crud->field_type('resultado','dropdown',
+            array('1' ,'2', '3','4','5','6','7','8','9','10'));
+			 $crud->add_action('Link enquesta', '', base_url().'panel/encuesta/1','ui-icon-plus'); 
+	
+			$output = $crud->render();
+			$this->_example_output($output);
+			
+		}catch(Exception $e){
+			show_error($e->getMessage().' --- '.$e->getTraceAsString());
+		}
+	}	
+	function encuesta()
+	{
+		try{
+			$crud = new grocery_CRUD();
+
+			$crud->set_theme('datatables');
+			$crud->set_table('encuesta_resultado');
+			$crud->set_subject('Enquesta');
+			$crud->set_relation('id_encuesta','encuesta','pregunta');
+			$crud->field_type('resultado','dropdown',
+            array('1' => '1','2' => '2', '3' => '3','4' => '4','5' => '5','6' => '6','7' => '7','8' => '8','9' => '9','10' => '10'));
+			$output = $crud->render();
+			$this->_example_output($output);
+			
+		}catch(Exception $e){
+			show_error($e->getMessage().' --- '.$e->getTraceAsString());
+		}
+	}	
 	function serveis()
 	{
 		try{
@@ -280,7 +318,7 @@ class Admin extends CI_Controller {
 			show_error($e->getMessage().' --- '.$e->getTraceAsString());
 		}
 	}	
-	function operacio($id)
+	function operacio($id=null)
 	{
 		try{
 			$crud = new grocery_CRUD();

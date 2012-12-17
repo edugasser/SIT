@@ -180,6 +180,17 @@ class proyecto extends CI_Controller {
 		}
 	
 	}
+	public function operaciones(){
+ 
+		if ($this->tank_auth->is_logged_in()) {	
+			
+			$data['contenido'] =  "proyecto/gestion_operacion_view"; 
+			
+			$this->load->view('page_view', $data);
+		}else{
+			redirect('auth/');
+		}
+	}
 	public function gestion($seccion=null,$id=null){
  
 		if ($this->tank_auth->is_logged_in()) {	
@@ -191,12 +202,31 @@ class proyecto extends CI_Controller {
 			redirect('auth/');
 		}
 	}
-	 
+	 public function encuestas( ){
+		if ($this->tank_auth->is_logged_in()) {	
+	
+			$data['contenido'] =  "encuestas/gestion_view"; 
+			
+			$this->load->view('page_view', $data);
+		}else{
+			redirect('auth/');
+		}
+	}
+	public function encuestas_mio(){
+				$sql2 = "SELECT *,projecte.id as id_projecte,DATE_FORMAT(data,'%d-%m-%Y') as data
+			FROM encuesta LEFT JOIN projecte ON projecte.id = encuesta.id_projecte
+			";
+			$data['data'] = $this->mi_model->get_sql($sql2);	
+					$this->load->view('encuestas/mio_view', $data);
+	}
+ 
 	 
 	public function mio( ){
- 
+  			$sql23 = "SELECT COUNT(*) as cuento,id_projecte, SUM(resultado) AS suma FROM encuesta JOIN  encuesta_resultado ON encuesta_resultado.id_encuesta = id_encuensta GROUP BY encuesta.id_projecte";
+			$data['encuestas'] = $this->mi_model->get_sql($sql23);	
 			
-			$sql2 = "SELECT *,projecte.id as id_projecte,DATE_FORMAT(data_inici,'%d-%m-%Y') as data_inici,DATE_FORMAT(data_entrega,'%d-%m-%Y') as data_entrega FROM projecte LEFT JOIN persones ON persones.id_persona = projecte.id_responsable
+			$sql2 = "SELECT *,projecte.id as id_projecte,DATE_FORMAT(data_inici,'%d-%m-%Y') as data_inici,DATE_FORMAT(data_entrega,'%d-%m-%Y') as data_entrega 
+			FROM projecte LEFT JOIN persones ON persones.id_persona = projecte.id_responsable
 			";
 			$data['data'] = $this->mi_model->get_sql($sql2);	 
 	

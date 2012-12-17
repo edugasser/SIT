@@ -24,6 +24,27 @@ class panel extends CI_Controller {
 		$this->load->model('mi_model');
 		$this->load->library('Tank_auth');
     }
+	public function dirigir()
+	{
+		if ($this->tank_auth->is_logged_in()) {	
+		$data['contenido'] =  "panel_dirigir_view";
+		
+		$this->load->view('page_view', $data);
+		}else{
+			redirect('auth/');
+		}
+	}
+	public function encuesta($id)
+	{
+		if ($this->tank_auth->is_logged_in()) {	
+		$sql4 = "SELECT * FROM encuesta WHERE id_encuensta = '$id'";
+		$data['data'] = $this->mi_model->get_sql($sql4);	
+	 
+		$this->load->view('encuestas/encuesta_view', $data);
+		}else{
+			redirect('auth/');
+		}
+	}
 	public function evaluar()
 	{
 		if ($this->tank_auth->is_logged_in()) {	

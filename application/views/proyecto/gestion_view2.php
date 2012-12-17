@@ -114,7 +114,25 @@ a:hover
 				return "verde";
 				}
 			}
+			function semaforo_calidad($s){
+				if ($s<=33){
+					return "rojo";
+				}else if ($s>=33 AND $s<=66){
+					return "amarillo";
+				}else{
+					return "verde";
+				}
+			}
+		?>
+		   <?php 
+		     if(!empty($encuestas)){ 
+				foreach($encuestas as $row3){ 
+				$porcentaje = ($row3->suma*100)/($row3->cuento*10);
+				$mono[$row3->id_projecte] = $porcentaje; 
+				}
+			} 
 			?>
+		
 		  <?php if(!empty($data)){ ?>
 		  <?php foreach($data as $row){ ?>
 		 
@@ -151,7 +169,8 @@ a:hover
 						<img title="Recursos" src="<?php echo base_url();?>assets/images/<?php echo semaforo($row->monotoritzacio_recursos)?>.png">
 					</a>
 					<a href="<?php echo base_url();?>proyecto/edit/<?php echo $row->id_projecte;?>/monotoritzacio">
-						<img title="Qualitat" src="<?php echo base_url();?>assets/images/<?php echo semaforo($row->monotoritzacio_qualitat)?>.png">
+						<?php if (empty($mono[$row->id_projecte])){ $por=0;}else{ $por=$mono[$row->id_projecte] ;}?>
+						<img title="Qualitat" src="<?php echo base_url();?>assets/images/<?php echo semaforo_calidad($por)?>.png">
 					</a>
 					
 

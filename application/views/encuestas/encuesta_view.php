@@ -3,15 +3,15 @@
 <html>
 <head>
 	<meta charset="utf-8" />
-	<link type="text/css" rel="stylesheet" href="http://localhost/igovern/assets/grocery_crud/css/jquery_plugins/chosen/chosen.css" />
-	<link type="text/css" rel="stylesheet" href="http://localhost/igovern/assets/grocery_crud/themes/datatables/css/datatables.css" />
-	<link type="text/css" rel="stylesheet" href="http://localhost/igovern/assets/grocery_crud/css/ui/simple/jquery-ui-1.9.0.custom.min.css" />
-	<script src="http://localhost/igovern/assets/grocery_crud/js/jquery-1.8.2.min.js"></script>
-	<script src="http://localhost/igovern/assets/grocery_crud/js/jquery_plugins/jquery.chosen.min.js"></script>
-	<script src="http://localhost/igovern/assets/grocery_crud/js/jquery_plugins/config/jquery.chosen.config.js"></script>
-	<script src="http://localhost/igovern/assets/grocery_crud/themes/flexigrid/js/jquery.form.js"></script>
-	<script src="http://localhost/igovern/assets/grocery_crud/themes/datatables/js/datatables-add.js"></script>
-	<script src="http://localhost/igovern/assets/grocery_crud/js/jquery_plugins/ui/jquery-ui-1.9.0.custom.min.js"></script>
+	<link type="text/css" rel="stylesheet" href="<?php echo base_url();?>assets/grocery_crud/css/jquery_plugins/chosen/chosen.css" />
+	<link type="text/css" rel="stylesheet" href="<?php echo base_url();?>assets/grocery_crud/themes/datatables/css/datatables.css" />
+	<link type="text/css" rel="stylesheet" href="<?php echo base_url();?>assets/grocery_crud/css/ui/simple/jquery-ui-1.9.0.custom.min.css" />
+	<script src="<?php echo base_url();?>assets/grocery_crud/js/jquery-1.8.2.min.js"></script>
+	<script src="<?php echo base_url();?>assets/grocery_crud/js/jquery_plugins/jquery.chosen.min.js"></script>
+	<script src="<?php echo base_url();?>assets/grocery_crud/js/jquery_plugins/config/jquery.chosen.config.js"></script>
+	<script src="<?php echo base_url();?>assets/grocery_crud/themes/flexigrid/js/jquery.form.js"></script>
+	<script src="<?php echo base_url();?>assets/grocery_crud/themes/datatables/js/datatables-add.js"></script>
+	<script src="<?php echo base_url();?>assets/grocery_crud/js/jquery_plugins/ui/jquery-ui-1.9.0.custom.min.js"></script>
 <style type='text/css'>
 body
 {
@@ -33,24 +33,27 @@ a:hover
  
     <div>
 		<script type="text/javascript">
-var ajax_relation_url = 'http://localhost/igovern/admin/encuesta/ajax_relation';
+var ajax_relation_url = '<?php echo base_url();?>admin/encuesta/ajax_relation';
 
 </script>
 <div class='ui-widget-content ui-corner-all datatables'>
 	<h3 class="ui-accordion-header ui-helper-reset ui-state-default form-title">
 		<div class='floatL form-title-left'>
-			<a href="#">Agregar Enquesta</a>
+			<a href="#">Contestar Enquesta</a>
 		</div>	
 		<div class='clear'></div>
 	</h3>
 <div class='form-content form-div'>
-	<form action="http://localhost/igovern/admin/encuesta/insert" method="post" id="crudForm" autocomplete="off" enctype="multipart/form-data" accept-charset="utf8">		<div>
+	<form action="<?php echo base_url();?>admin/encuesta/insert" method="post" id="crudForm" autocomplete="off" enctype="multipart/form-data" accept-charset="utf8">		<div>
 						<div class='form-field-box odd' id="id_encuesta_field_box">
+				<?php foreach($data as $row){ ?>
 				<div class='form-display-as-box' id="id_encuesta_display_as_box">
-					Id encuesta :
+					Pregunta :
 				</div>
 				<div class='form-input-box' id="id_encuesta_input_box">
-					<select id='field-id_encuesta'  name='id_encuesta' class='chosen-select' data-placeholder='Select Id encuesta' style='width:300px'><option value=''></option></select>				</div>
+					<input type="hidden"   name='id_encuesta' id="id_encuesta" value="<?php echo $row->id_encuensta;?>">				
+					</div>
+					<label> <?php echo $row->pregunta;?></label>
 				<div class='clear'></div>	
 			</div>
 						<div class='form-field-box even' id="resultado_field_box">
@@ -84,11 +87,12 @@ var ajax_relation_url = 'http://localhost/igovern/admin/encuesta/ajax_relation';
 			</div>
 			<div class='clear'></div>	
 		</div>
+		<?php }?>
 	</form></div>
 </div>
 <script>
-	var validation_url = 'http://localhost/igovern/admin/encuesta/insert_validation';
-	var list_url = 'http://localhost/igovern/admin/encuesta';
+	var validation_url = '<?php echo base_url();?>admin/encuesta/insert_validation';
+	var list_url = '<?php echo base_url();?>admin/encuesta';
 
 	var message_alert_add_form = "Los datos que insertaste no pueden ser guardados.\nEstas seguro que quieres regresar a la lista?";
 	var message_insert_error = "Ocurrio un error durante la insercion.";	
@@ -96,11 +100,11 @@ var ajax_relation_url = 'http://localhost/igovern/admin/encuesta/ajax_relation';
 var js_date_format = 'dd/mm/yy';
 </script>
 <script type="text/javascript">
-	var default_javascript_path = 'http://localhost/igovern/assets/grocery_crud/js';
-	var default_css_path = 'http://localhost/igovern/assets/grocery_crud/css';
-	var default_texteditor_path = 'http://localhost/igovern/assets/grocery_crud/texteditor';
-	var default_theme_path = 'http://localhost/igovern/assets/grocery_crud/themes';
-	var base_url = 'http://localhost/igovern/';
+	var default_javascript_path = '<?php echo base_url();?>assets/grocery_crud/js';
+	var default_css_path = '<?php echo base_url();?>assets/grocery_crud/css';
+	var default_texteditor_path = '<?php echo base_url();?>assets/grocery_crud/texteditor';
+	var default_theme_path = '<?php echo base_url();?>assets/grocery_crud/themes';
+	var base_url = '<?php echo base_url();?>';
 
 </script>
     </div>
