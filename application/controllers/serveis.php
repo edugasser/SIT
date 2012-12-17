@@ -44,6 +44,25 @@ class serveis extends CI_Controller {
 		}
 	
 	}
+	public function mio(){
+			$sql4 = "SELECT *,DATE_FORMAT(data_servei,'%d-%m-%Y') as data FROM servicis";
+			$data['data'] = $this->mi_model->get_sql($sql4);	
+
+			$this->load->view('servicis/gestion_view2', $data);
+	 
+	}
+	public function chart($id){
+		 
+			$sql4 = "SELECT *,
+			COUNT(*) as total,id_incidencia,date_format(incidencia.data,'%c') as num,
+			DATE_FORMAT(incidencia.data,'%d-%m-%Y') as data 
+			FROM incidencia JOIN servicis ON  incidencia.id_servei = servicis.id_servici
+			WHERE servicis.id_servici = '$id' 
+			GROUP BY MONTH(data) ";
+			$data['data'] = $this->mi_model->get_sql($sql4);
+			$this->load->view('chart_view',$data);
+	 
+	}
 	public function gestion($success=null){
 		$sql  = "SELECT COUNT(*) as total FROM projecte";
 			$data['numpro'] = $this->mi_model->get_sql($sql);

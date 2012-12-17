@@ -99,6 +99,14 @@
 						<div class="contenttitle2">
 							<h3>Alertes</h3>
 						</div><!--contenttitle-->
+						<?php if (!empty($incidencia)){ ?>
+						<?php foreach ($incidencia as $row){ ?>
+							<div class="notibar msgerror">
+							<a class="close"></a>
+							<p>La incidencia "<a href="<?php echo base_url();?>serveis/gestion"><?php echo $row->incidencia;?></a>" està oberta </p>
+							</div><!-- notification msgalert -->	
+						<?php }} ?>
+						
 						<?php if (!empty($alerta_proyectos)){ ?>
 						<?php foreach ($alerta_proyectos as $row){ ?>
 							<div class="notibar msgalert">

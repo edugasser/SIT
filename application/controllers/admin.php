@@ -37,7 +37,7 @@ class Admin extends CI_Controller {
 			$crud->set_theme('datatables');
 			$crud->set_table('servicis');
 			$crud->set_subject('Serveis');
-		 $crud->set_relation('estat_servei','estat','estat');
+		// $crud->set_relation('estat_servei','estat','estat');
 			$output = $crud->render();
 			$this->_example_output($output);
 			
@@ -64,7 +64,31 @@ class Admin extends CI_Controller {
 		}catch(Exception $e){
 			show_error($e->getMessage().' --- '.$e->getTraceAsString());
 		}
-	}	
+	}
+	function incidencias($id= null)
+	{
+		try{
+			$crud = new grocery_CRUD();
+
+			$crud->set_theme('datatables');
+			$crud->set_table('incidencia');
+			$crud->set_subject('Incidencies');
+			$crud->field_type('prioritat','dropdown',
+            array('Alta' => 'Alta' ,'Mitja' => 'Mitja','Baixa' => 'Baixa'));
+            $crud->field_type('estat','dropdown',
+            array('Oberta' => 'Oberta' ,'Tancada' => 'Tancada' ));
+			
+			 $crud->set_relation('id_servei','servicis','nom_servei');
+			 if ($id!=null){
+				 $crud->where('id_servei',$id);
+			 }
+			$output = $crud->render();
+			$this->_example_output($output);
+			
+		}catch(Exception $e){
+			show_error($e->getMessage().' --- '.$e->getTraceAsString());
+		}
+	}		
 	function permisos()
 	{
 		try{

@@ -31,7 +31,7 @@ class Auth extends CI_Controller
 	{
 		if ($this->tank_auth->is_logged_in()) {									// logged in
 		 
-			redirect('proposta/gestion');
+			redirect('/panel/control');
 
 		} elseif ($this->tank_auth->is_logged_in(FALSE)) {						// logged in, not activated
 			 

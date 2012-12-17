@@ -118,11 +118,11 @@ a:hover
 		  <?php foreach($data as $row){ ?>
 		 
 			<tr id='row-0'>
-				<td style="width:250px"><?php echo $row->titol;?></td>
-				<td style="width:90px"><?php echo $row->data_inici;?></td>
-				<td style="width:115px"><?php echo $row->data_entrega;?></td>
-				<td style="width:115px"><?php echo $row->pressupost_inicial;?>€</td>
-				<td style="width:115px"><?php echo $row->prioritat;?></td>
+				<td ><?php echo $row->titol;?></td>
+				<td  ><?php echo $row->data_inici;?></td>
+				<td  ><?php echo $row->data_entrega;?></td>
+				<td  ><?php echo $row->pressupost_inicial;?>€</td>
+				<td  ><?php echo $row->prioritat;?></td>
 				<td style="text-align:center; ">
 					<a  href="<?php echo base_url();?>proyecto/objectius_tactics/<?php echo $row->id;?>">
 					<img width="20" src="<?php echo base_url();?>assets/images/info.png">

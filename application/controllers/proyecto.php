@@ -280,12 +280,13 @@ class proyecto extends CI_Controller {
 		$this->pdf->SetXY(15, $y);
 		$this->pdf->Cell(35, 0, $titulo, 1, 1, 'C', 0, '', 0);
 	} 
-	}
+	
 	$first=false;
 
 
 	$this->pdf->SetXY(50,  $y);
 	$this->pdf->Cell(100, 0, utf8_decode($row->objectiu), 1, 1, 'C', 0, '', 0);
+	}
 	}
 	$this->pdf->Output("ficha_tesoreria.pdf", 'i');
 	}

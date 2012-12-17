@@ -59,7 +59,7 @@ class panel extends CI_Controller {
 			$data['total_ot'] = $this->mi_model->devolver_count("objectius_tactics");
 			//PROYECTOS
 			$hoy = date('Y-m-d');
-			$sql4 = "SELECT * FROM projecte WHERE data_inici <= '$hoy' OR data_entrega < '$hoy' ORDER BY data_entrega ASC";
+			$sql4 = "SELECT * FROM projecte WHERE data_inici <= '$hoy' and data_entrega >= '$hoy' ORDER BY data_entrega ASC";
 			$data['proyectos'] = $this->mi_model->get_sql($sql4);	
 			//ALERTAS
 			$sql5 = "
@@ -96,8 +96,7 @@ class panel extends CI_Controller {
 			
 			
 			$sql7 = "
-				SELECT  * FROM proposta WHERE estat_projecte = '2'
-			";
+				SELECT  titol FROM proposta WHERE estat_projecte = '2'";
 			$data['alerta_propostes'] = $this->mi_model->get_sql($sql7);
 			
 			$sql9 = "
@@ -111,6 +110,11 @@ class panel extends CI_Controller {
 					)
 			";
 			$data['alerta_persona_projecte'] = $this->mi_model->get_sql($sql9);
+			
+			$sql10 = "
+				SELECT  * FROM incidencia WHERE estat = 'Oberta'
+			";
+			$data['incidencia'] = $this->mi_model->get_sql($sql10);
 			
 			$data['contenido'] =  "control_view";
 			$this->load->view('page_view', $data);
