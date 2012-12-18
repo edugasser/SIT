@@ -218,7 +218,7 @@ var ajax_relation_url = '<?php echo base_url();?>admin/projectes/ajax_relation';
 				?>
 			<div class='form-field-box even' id="id_responsable_field_box">
 				<div class='form-display-as-box' id="id_responsable_display_as_box">
-					Monotoritzaci&oacute temps :
+					Monitoritzaci&oacute temps :
 				</div>
 				<div class='form-input-box' id="id_responsable_input_box">
 					<select id='field-id_responsable'  name='monotoritzacio_temps' class='chosen-select' data-placeholder='Select Responsable' style='width:300px'>
@@ -233,7 +233,7 @@ var ajax_relation_url = '<?php echo base_url();?>admin/projectes/ajax_relation';
 		
 			<div class='form-field-box odd' id="id_responsable_field_box">
 				<div class='form-display-as-box' id="id_responsable_display_as_box">
-					Monotoritzaci&oacute recursos :
+					Monitoritzaci&oacute recursos :
 				</div>
 				<div class='form-input-box' id="id_responsable_input_box">
 					<select id='field-id_responsable'  name='monotoritzacio_recursos' class='chosen-select' data-placeholder='Select Responsable' style='width:300px'>
@@ -245,20 +245,7 @@ var ajax_relation_url = '<?php echo base_url();?>admin/projectes/ajax_relation';
 				</div>
 				<div class='clear'></div>	
 			</div>
-			<div class='form-field-box even' id="id_responsable_field_box">
-				<div class='form-display-as-box' id="id_responsable_display_as_box">
-					Monotoritzaci&oacute qualitat :
-				</div>
-				<div class='form-input-box' id="id_responsable_input_box">
-					<select id='field-id_responsable'  name='monotoritzacio_qualitat' class='chosen-select' data-placeholder='Select Responsable' style='width:300px'>
-						<option value="<?php echo $row->monotoritzacio_qualitat;?>"><?php echo que_es($row->monotoritzacio_qualitat);?></option>	
-						<option value="3">Bona</option>
-						<option value="2">Regular</option>
-						<option value="1">Mala</option>
-					</select>
-				</div>
-				<div class='clear'></div>	
-			</div>	
+		 
 			</div>
 			
 				<!-- Start of hidden inputs -->
