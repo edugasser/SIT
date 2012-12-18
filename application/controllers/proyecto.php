@@ -107,8 +107,7 @@ class proyecto extends CI_Controller {
 			'pressupost_inicial' => $_POST["pressupost_inicial"],
 			'monotoritzacio_temps' => $_POST["monotoritzacio_temps"],
 			'monotoritzacio_recursos' => $_POST["monotoritzacio_recursos"],
-			'monotoritzacio_qualitat' => $_POST["monotoritzacio_qualitat"],
-			
+			 
 			'pressupost_final' => $_POST["pressupost_final"],
 			'data_entrega' => $data_entrega,
 			'Proposta_id' => $_POST["Proposta_id"],
