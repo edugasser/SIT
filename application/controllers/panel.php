@@ -24,6 +24,13 @@ class panel extends CI_Controller {
 		$this->load->model('mi_model');
 		$this->load->library('Tank_auth');
     }
+    public function calendar(){
+    	$sql5 = "
+				SELECT  *  FROM projecte
+			";
+			$data['data'] = $this->mi_model->get_sql($sql5);
+	    	$this->load->view('calendar_view',$data);
+    }
     	public function conformidad()
 	{
 		if ($this->tank_auth->is_logged_in()) {	

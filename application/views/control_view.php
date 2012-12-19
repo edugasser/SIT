@@ -28,75 +28,8 @@
 
                     <div class="two_third dashboard_left">
 
-                    
-
-                      <div class="contenttitle2 nomargintop">
-                            <h3>Resumen</h3>
-                        </div><!--contenttitle-->
- 
-                        <table cellpadding="0" cellspacing="0" border="0" class="stdtable overviewtable">
-                            <colgroup>
-                                <col class="con0" width="20%" />
-                                <col class="con1" width="20%" />
-                                <col class="con0" width="20%" />
-                                <col class="con1" width="20%" />
-                     
-                   
-                            </colgroup>
-                            <thead>
-                                <tr>
-                                    <th class="head0">Principis</th>
-                                    <th class="head1">Objectius estratègics</th>
-                                    <th class="head0">Objectius tàctics</th>
-                                    <th class="head1">Propostes</th>
-                              
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <tr>
-                                    <td class="center"><?php echo $total_principis;?></td>
-                                    <td><?php echo $total_oe;?></td>
-                                    <td><?php echo $total_ot;?></td>
-                                    <td class="center"><?php echo $total_propostes;?></td>
-               
-                                 
-                                    
-                                </tr>
-                            </tbody>
-                        </table>
-                          <table cellpadding="0" cellspacing="0" border="0" class="stdtable overviewtable">
-                            <colgroup>
-                                <col class="con0" width="20%" />
-                                <col class="con1" width="20%" />
-                                <col class="con0" width="20%" />
-                                <col class="con1" width="20%" />
-                                <col class="con0" width="20%" />
-           
-                            </colgroup>
-                            <thead>
-                                <tr>
-									 <th class="head0">Projectes</th>   
-                                    <th class="head0">Serveis</th>
-                                    <th class="head0">Estructures</th>
-                                    <th class="head0">Persones</th>
-                                        
-                                    
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <tr>
-                                    <td class="center"><?php echo $total_proyectos;?></td>
-                                    <td><?php echo $total_servicios;?></td>
-                                    <td><?php echo $total_departament;?></td>
-									<td><?php echo $total_persones;?></td>
-                            
-                                    
-                                </tr>
-                            </tbody>
-                        </table>
-                        
-                        <br clear="all" />
-						<div class="contenttitle2">
+        
+                       <div class="contenttitle2">
 							<h3>Alertes</h3>
 						</div><!--contenttitle-->
 						<?php if (!empty($incidencia)){ ?>
@@ -146,8 +79,13 @@
 							<p>El projecte "<a href="<?php echo base_url();?>proyecto/gestion/<?php echo $row->id;?>"><?php echo $row->titol;?></a>" no té asignat cap personal </p>
 							</div><!-- notification msgalert -->	
 						<?php }} ?>
+						<br class="clear">
+					  <div class="contenttitle2">
+							<h3>Calendari de projectes</h3>
+						</div><!--contenttitle-->
+				      <iframe src="<?php echo base_url();?>panel/calendar/" frameborder="0" width="100%" height="650">  </iframe>
+                 
 						
-				  
 
                         </div><!-- widgetbox -->                            
 
@@ -220,9 +158,74 @@
                         </ul>
                         
 						</div>
-						<br>
-                          
+  <div class="contenttitle2 nomargintop">
 
+                    	<h3>Projectes</h3>
+
+                        </div><!--contenttitle-->
+ 						<div class="widgetcontent userlistwidget nopadding">       
+ 
+                        <table cellpadding="0" cellspacing="0" border="0" class="stdtable overviewtable">
+                            <colgroup>
+                                <col class="con0" width="20%" />
+                                <col class="con1" width="20%" />
+                                <col class="con0" width="20%" />
+                                <col class="con1" width="20%" />
+                     
+                   
+                            </colgroup>
+                            <thead>
+                                <tr>
+                                    <th class="head0">Principis</th>
+                                    <th class="head1">Objectius estratègics</th>
+                                    <th class="head0">Objectius tàctics</th>
+                                    <th class="head1">Propostes</th>
+                              
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td class="center"><?php echo $total_principis;?></td>
+                                    <td><?php echo $total_oe;?></td>
+                                    <td><?php echo $total_ot;?></td>
+                                    <td class="center"><?php echo $total_propostes;?></td>
+               
+                                 
+                                    
+                                </tr>
+                            </tbody>
+                        </table>
+                          <table cellpadding="0" cellspacing="0" border="0" class="stdtable overviewtable">
+                            <colgroup>
+                                <col class="con0" width="20%" />
+                                <col class="con1" width="20%" />
+                                <col class="con0" width="20%" />
+                                <col class="con1" width="20%" />
+                                <col class="con0" width="20%" />
+           
+                            </colgroup>
+                            <thead>
+                                <tr>
+									 <th class="head0">Projectes</th>   
+                                    <th class="head0">Serveis</th>
+                                    <th class="head0">Estructures</th>
+                                    <th class="head0">Persones</th>
+                                        
+                                    
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td class="center"><?php echo $total_proyectos;?></td>
+                                    <td><?php echo $total_servicios;?></td>
+                                    <td><?php echo $total_departament;?></td>
+									<td><?php echo $total_persones;?></td>
+                            
+                                    
+                                </tr>
+                            </tbody>
+                        </table>
+ 						</div>
                     </div><!--one_third last-->
 
                     
