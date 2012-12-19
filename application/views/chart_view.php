@@ -4,10 +4,10 @@
 		<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 		<title>Gràfic d'incidències de servei</title>
 <?php  if (!empty($data)){foreach ($data as $row){			
-					$array[($row->num)-1] = $row->total;
+					$array[($row->num)] = $row->total;
 					 	 				 				 
 				}
-				for($i=0;$i<12;$i++){
+				for($i=1;$i<11;$i++){
 					if (empty($array[$i])){
 					 
 						 $array[$i] = 0;
@@ -58,7 +58,7 @@ $(function () {
             },
             series: [{
                 name: 'Servei',
-                data: [<?php for ($i=0;$i<12;$i++){echo $array[$i];echo ",";}?>]
+                data: [<?php for ($i=1;$i<11;$i++){echo $array[$i];echo ",";}?>]
             }]
         });
     });

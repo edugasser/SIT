@@ -24,6 +24,16 @@ class panel extends CI_Controller {
 		$this->load->model('mi_model');
 		$this->load->library('Tank_auth');
     }
+    	public function conformidad()
+	{
+		if ($this->tank_auth->is_logged_in()) {	
+		$data['contenido'] =  "panel_conformidad_view";
+		
+		$this->load->view('page_view', $data);
+		}else{
+			redirect('auth/');
+		}
+	}
 	public function dirigir()
 	{
 		if ($this->tank_auth->is_logged_in()) {	

@@ -109,7 +109,7 @@ a:hover
 					</a>
 				</td>
 							<td class='actions'>
-								<a target="_blank" href="<?php echo base_url();?>proyecto/chart/<?php echo $row->id_encuensta;?>" class="edit_button ui-button ui-widget ui-state-default ui-corner-all ui-button-text-icon-primary" role="button">
+								<a target="_blank" href="<?php echo base_url();?>panel/encuesta/<?php echo $row->id_encuensta;?>" class="edit_button ui-button ui-widget ui-state-default ui-corner-all ui-button-text-icon-primary" role="button">
 							<span class="ui-button-icon-primary ui-icon ui-icon-plus Lbaacc90c"></span><span class="ui-button-text">&nbsp;Link enquesta</span>
 						</a>		
 							

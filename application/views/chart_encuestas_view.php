@@ -4,12 +4,12 @@
 		<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 		<title>Gràfic resultat enquesta</title>
 <?php if (!empty($data)){ foreach ($data as $row){			
-					$array[($row->resultado)-1] = $row->total;
-					 	 				 				 
+					$array[($row->resultado)] = $row->total;
+					  				 				 
 				}
-				for($i=0;$i<12;$i++){
+				for($i=1;$i<11;$i++){
 					if (empty($array[$i])){
-					 
+					     
 						 $array[$i] = 0;
 					}
 				}
@@ -33,7 +33,7 @@ $(function () {
             },
             xAxis: {
                 categories: [
-                    '0',
+                   
                     '1',
                     '2',
                     '3',
@@ -72,7 +72,7 @@ $(function () {
             },
             series: [{
                 name: 'Resultados de las votaciones',
-                data: [<?php for ($i=0;$i<12;$i++){echo $array[$i];echo ",";}?>],
+                data: [<?php for ($i=1;$i<11;$i++){echo $array[$i];echo ",";}?>],
                 dataLabels: {
                     enabled: true,
                     rotation: -90,
