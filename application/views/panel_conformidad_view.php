@@ -13,8 +13,8 @@
         	<div id="updates" class="subcontent">
 
         	<ul class="shortcuts">
-            	<li><a href="<?php echo base_url();?>reunions/gestion" class="medal"><span>Reunions</span></a></li>
-                <li><a href="<?php echo base_url();?>proyecto/encuestas " class="integrantes"><span>Qualitat de projectes</span></a></li>
+            	<li><a href="<?php echo base_url();?>reunions/gestion" class="sofa"><span>Reunions</span></a></li>
+                <li><a href="<?php echo base_url();?>proyecto/encuestas " class="license"><span>Qualitat de projectes</span></a></li>
                      
               
             </ul>

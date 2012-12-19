@@ -655,6 +655,8 @@ background: white url(../images/search.png) no-repeat left center;
 .shortcuts li a.diayhora { background-image: url(../images/icons/formulario.png); }
 .shortcuts li a.integrantes { background-image: url(../images/icons/obj.png); }
 .shortcuts li a.medal { background-image: url(../images/icons/medal.png); }
+.shortcuts li a.sofa { background-image: url(../images/icons/sofa.png);  }
+.shortcuts li a.license { background-image: url(../images/icons/license.png); }
 .shortcuts li a.bag { background-image: url(../images/bag.png); }
 .shortcuts li a.shop { background-image: url(../images/shop.png); }
 .shortcuts li a.folder { background-image: url(../images/folder.png); }
