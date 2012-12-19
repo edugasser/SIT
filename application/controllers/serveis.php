@@ -58,7 +58,7 @@ class serveis extends CI_Controller {
 			DATE_FORMAT(incidencia.data,'%d-%m-%Y') as data 
 			FROM incidencia JOIN servicis ON  incidencia.id_servei = servicis.id_servici
 			WHERE servicis.id_servici = '$id' 
-			GROUP BY MONTH(data) ";
+			GROUP BY MONTH(incidencia.data) ";
 			$data['data'] = $this->mi_model->get_sql($sql4);
 			$this->load->view('chart_view',$data);
 	 

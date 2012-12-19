@@ -2,7 +2,7 @@
 
 <div class="left">
 
-<h1 class="logo"><img width="100" src="<?php echo base_url();?>assets/images/logo.png"></h1>
+<h1 class="logo"><a href="<?php echo base_url();?>"><img width="100" src="<?php echo base_url();?>assets/images/logo.png"></a></h1>
 
 <span class="slogan">PANEL CONTROL</span>
 
