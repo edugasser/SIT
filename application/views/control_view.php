@@ -111,7 +111,7 @@
 						<?php foreach ($alerta_proyectos as $row){ ?>
 							<div class="notibar msgalert">
 							<a class="close"></a>
-							<p>El projecte "<a href="<?php echo base_url();?>proyecto/gestion"><?php echo $row->titol;?></a>" no es troba alineat amb cap objectiu tàctic</p>
+							<p>El projecte "<a href="<?php echo base_url();?>proyecto/gestion/<?php echo $row->id;?>"><?php echo $row->titol;?></a>" no es troba alineat amb cap objectiu tàctic</p>
 							</div><!-- notification msgalert -->	
 						<?php }} ?>
 						
@@ -143,7 +143,7 @@
 						<?php foreach ($alerta_persona_projecte as $row){ ?>
 							<div class="notibar msgalert">
 							<a class="close"></a>
-							<p>El projecte "<a href="<?php echo base_url();?>proyecto/gestion/"><?php echo $row->titol;?></a>" no té asignat cap personal </p>
+							<p>El projecte "<a href="<?php echo base_url();?>proyecto/gestion/<?php echo $row->id;?>"><?php echo $row->titol;?></a>" no té asignat cap personal </p>
 							</div><!-- notification msgalert -->	
 						<?php }} ?>
 						

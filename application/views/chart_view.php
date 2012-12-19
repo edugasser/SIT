@@ -3,7 +3,7 @@
 	<head>
 		<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 		<title>Gràfic d'incidències de servei</title>
-<?php  foreach ($data as $row){			
+<?php  if (!empty($data)){foreach ($data as $row){			
 					$array[($row->num)-1] = $row->total;
 					 	 				 				 
 				}
@@ -12,6 +12,9 @@
 					 
 						 $array[$i] = 0;
 					}
+				}
+				}else{
+					echo "<h2>Encara no hi ha dades suficients per realitzar una gràfica</h2>";
 				}
 				?>
 		<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.2/jquery.min.js"></script>

@@ -25,7 +25,18 @@ class proyecto extends CI_Controller {
 		$this->load->model('mi_model');
 		$this->load->library('Tank_auth');
 	}
-
+	public function chart($id=null){
+		 
+			$sql4 = "SELECT *,
+			COUNT(*) as total
+			
+			FROM encuesta JOIN encuesta_resultado ON  encuesta_resultado.id_encuesta = encuesta.id_encuensta	
+			WHERE  id_encuensta	 = '$id' 
+			GROUP BY resultado ";
+			$data['data'] = $this->mi_model->get_sql($sql4);
+			$this->load->view('chart_encuestas_view',$data);
+	 
+	}
 	public function objectius_projecte($id_projecte)
 	{ 
 		$data['id_projecte'] = $id_projecte;
@@ -190,10 +201,10 @@ class proyecto extends CI_Controller {
 			redirect('auth/');
 		}
 	}
-	public function gestion($seccion=null,$id=null){
+	public function gestion($name_projecto=null){
  
 		if ($this->tank_auth->is_logged_in()) {	
-			
+			$data['name_projecto'] = $name_projecto;
 			$data['contenido'] =  "proyecto/gestion_view"; 
 			
 			$this->load->view('page_view', $data);
@@ -220,12 +231,15 @@ class proyecto extends CI_Controller {
 	}
  
 	 
-	public function mio( ){
+	public function mio( $name_projecto=null){
+			if ($name_projecto!=null){
+				$where = " WHERE projecte.id = $name_projecto";
+			}else{ $where = '';}
   			$sql23 = "SELECT COUNT(*) as cuento,id_projecte, SUM(resultado) AS suma FROM encuesta JOIN  encuesta_resultado ON encuesta_resultado.id_encuesta = id_encuensta GROUP BY encuesta.id_projecte";
 			$data['encuestas'] = $this->mi_model->get_sql($sql23);	
 			
 			$sql2 = "SELECT *,projecte.id as id_projecte,DATE_FORMAT(data_inici,'%d-%m-%Y') as data_inici,DATE_FORMAT(data_entrega,'%d-%m-%Y') as data_entrega 
-			FROM projecte LEFT JOIN persones ON persones.id_persona = projecte.id_responsable
+			FROM projecte LEFT JOIN persones ON persones.id_persona = projecte.id_responsable $where
 			";
 			$data['data'] = $this->mi_model->get_sql($sql2);	 
 	

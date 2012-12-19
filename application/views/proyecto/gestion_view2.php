@@ -93,7 +93,7 @@ a:hover
 							<th>Titol</th>
 							<th>Data inici</th>
 						 
-							<th>Pressupost</th>
+							<th>Pressupost </th>
 							<th>Prioritat</th>
 							<th style="text-align:center;" >Obj. tàctic</th>
 							<th style="text-align:center;" >Personal</th>
@@ -201,7 +201,7 @@ a:hover
 	</tbody>
 						<tfoot>
 							<tr>
-							<th><input type="text" name="projecte.titol" placeholder="Buscar Titol" class="search_projecte.titol" /></th>
+							<th><input type="text" name="projecte.titol" placeholder="Buscar Titol"  class="search_projecte.titol" /></th>
 							<th><input type="text" name="data_inici" placeholder="Buscar Data inici" class="search_data_inici" /></th>
 							<th><input type="text" name="data_entrega" placeholder="Buscar Data entrega" class="search_data_entrega" /></th>
 							<th><input type="text" name="s325ab8f0" placeholder="Buscar Estat projecte" class="search_s325ab8f0" /></th>
