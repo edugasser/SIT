@@ -42,7 +42,7 @@ table, caption, tbody, tfoot, thead, tr, th, td {
 /*****************************/
 
 
-body { font-size: 12px; font-family: "Helvetica Neue", Arial, Helvetica, sans-serif; color: #666; line-height: 21px; }
+body { font-size: 12px; font-family: "Helvetica Neue", Arial, Helvetica, sans-serif; color: #666;   }
 input, select, textarea, button { font-size: 12px; font-family: "Helvetica Neue", Arial, Helvetica, sans-serif; outline: none; margin: 0; }
 a { text-decoration: none; color: #666; outline: none; }
 button { outline: none; }

@@ -88,6 +88,9 @@ a:hover
 							<th>Tipus projecte</th>
 							<th>Data</th>
 							<th>Estat proposta</th>
+							<?php if (!empty( $afegir_persones)){?>
+							<th>Persones</th>
+							<?php } ?>
 							<th>Decisió</th>
 							<th class='actions'>Accions</th>
 					</tr>
@@ -99,8 +102,14 @@ a:hover
 							<td><?php echo $row->titol;?></td>
 							<td><?php echo $row->tipus;?></td>
 							<td><?php echo $row->data_proposta;?></td>
-							<td><?php echo $row->estat;?></td>
-							
+							<td><?php echo $row->estat;?> </td>
+							<?php if (!empty( $afegir_persones)){?>
+							<td style="text-align:center; " >
+								<a  href="<?php echo base_url();?>admin/persones_propostes/edit/<?php echo $row->id_proposta;?>">						 
+								<img width="30" src="<?php echo base_url();?>assets/images/icons/persona.png">
+								</a>
+							</td>
+							<?php } ?>
 							 <td >
 							<?php if ($row->estat  == 'Cancelat'){ ?>
 								<a target="_parent" href="<?php echo base_url();?>proposta/aceptar/<?php echo $row->id_proposta;?>" class="edit_button ui-button ui-widget ui-state-default ui-corner-all ui-button-text-icon-primary" style="bgcolor:#000;?>role="button">

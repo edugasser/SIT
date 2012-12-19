@@ -42,8 +42,9 @@ class proposta extends CI_Controller {
 		}
 	
 	}
-	public function gestion($success=null){
-		if ($this->tank_auth->is_logged_in()) {		
+	public function gestion($afegir_persones=null){
+		if ($this->tank_auth->is_logged_in()) {	
+			$data['afegir_persones']	=$afegir_persones;
 			$data['contenido'] =  "proposta/gestion_view";
 			$this->load->view('page_view', $data);
 		}else{
@@ -66,9 +67,15 @@ class proposta extends CI_Controller {
 		$data['contenido'] =  "proposta/gestion_evaluar_view";
 		$this->load->view('page_view', $data);
 	}
-	public function mio($success=null){
-	 
-		$sql2 = "SELECT *,proposta.id as id_proposta,DATE_FORMAT(data,'%Y-%m-%d') as data_proposta FROM proposta JOIN estat ON estat.id_estat = proposta.estat_projecte JOIN tipus_projecte ON tipus_projecte.id = proposta.tipus_projecte_id";
+	public function mio($afegir_persones=null){
+	 $data['afegir_persones']	=$afegir_persones;
+	 	if ($afegir_persones!=null){
+		 $sql2 = "SELECT *,proposta.id as id_proposta,DATE_FORMAT(data,'%Y-%m-%d') as data_proposta FROM proposta JOIN estat ON estat.id_estat = proposta.estat_projecte JOIN tipus_projecte ON tipus_projecte.id = proposta.tipus_projecte_id WHERE estat_projecte='1'";
+			
+	 	}else{
+		 	$sql2 = "SELECT *,proposta.id as id_proposta,DATE_FORMAT(data,'%Y-%m-%d') as data_proposta FROM proposta JOIN estat ON estat.id_estat = proposta.estat_projecte JOIN tipus_projecte ON tipus_projecte.id = proposta.tipus_projecte_id";
+		
+	 	}
 		$data['data'] = $this->mi_model->get_sql($sql2);	 
 
 		$data['contenido'] =  "proposta/gestion2_view";

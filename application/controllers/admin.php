@@ -518,6 +518,37 @@ class Admin extends CI_Controller {
 			show_error($e->getMessage().' --- '.$e->getTraceAsString());
 		}
 	}
+		function persones_propostes()
+	{
+		try{
+			$crud = new grocery_CRUD();
+
+			$crud->set_theme('datatables');
+			$crud->set_table('proposta');
+			$crud->set_subject('Persones');
+			
+			$crud->set_relation_n_n('persona_proposta', 'persona_proposta', 'persones', 'id_proposta','id_persona','nom_complet',null);
+			$crud->columns('titol','Persones_projecte'); 
+			 
+			$crud->edit_fields('titol','persona_proposta');
+			$crud->add_fields('titol','persona_proposta');
+			//GESTION PERMISOS
+			if (($this->session->userdata('Editar')) != 1){
+				$crud->unset_edit(); 
+			}
+			if (($this->session->userdata('Eliminar')) != 1){
+				$crud->unset_delete(); 
+			}
+			//FIN GESTION PERMISOS
+
+			$output = $crud->render();
+			
+			$this->_example_output($output);
+			
+		}catch(Exception $e){
+			show_error($e->getMessage().' --- '.$e->getTraceAsString());
+		}
+	}
 	function persones_projecte()
 	{
 		try{
