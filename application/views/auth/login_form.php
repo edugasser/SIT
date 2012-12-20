@@ -102,7 +102,7 @@ $captcha = array(
 			 
 			<?php echo anchor('/auth/forgot_password/', 'Recupera contraseña'); ?> | 
 			<?php if ($this->config->item('allow_registration', 'tank_auth')) echo anchor('/auth/register/', 'Registrar'); ?><br>
-		
+			<p style="color:white">admin / 010203</p>
                  
                 
                
