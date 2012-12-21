@@ -38,66 +38,60 @@
             </div><!--logo-->
             
             <br clear="all" /><br />
-           <?php
-           $mostrar = true;
-					if ($_SERVER['REQUEST_METHOD'] == 'POST'){
-						if (empty($_POST['password'])){
-							$password = '';
-						}else{
-							$password = $_POST['password'];
-						}
-					
-						$enlace = new mysqli('localhost', 'root', '');
+            
+            <?php
+			$mostrar=true;
+			if ($_SERVER['REQUEST_METHOD'] == 'POST'){
+			$mostrar=false;
+				if ($_POST['password'] = ""){
+					$password = '';
+				}else{
+					$password = $_POST['password'];
+				}
+				$enlace = mysql_connect('localhost', $_POST['username'], $password);
+				if (!$enlace) {
+					die('No pudo conectarse: ' . mysql_error());
+				}
+				if (@mysql_select_db("mydb")){
+				  
+			?>
+			
+			<?php } else {
+				
+				$sql = 'CREATE DATABASE mydb';
+				mysql_query($sql, $enlace);
 
-						// check connection
-						if (mysqli_connect_errno()) {
-						  exit('Connect failed: '. mysqli_connect_error());
-						}
-						
-						// sql query with CREATE DATABASE
-						$sql = "CREATE DATABASE mydb DEFAULT CHARACTER SET utf8 COLLATE utf8_general_ci";
-						
-						// Performs the $sql query on the server to create the database
-						 $enlace->query($sql);
-						 
-					
-						
-						
-						$mysqli = new mysqli('localhost', 'root',  '', 'mydb');
-					 
-						if (mysqli_connect_error()) {
-							die('Connect Error (' . mysqli_connect_errno() . ') '
-									. mysqli_connect_error());
-						}
-						 
-						 
-						$file ="mydb.sql";
-						 
-						 
-						$sql = file_get_contents($file);
-						if (!$sql){
-							die ('Error opening file');
-						}
-						 
+				$mysqli = new mysqli('localhost', $_POST['username'], $password, 'mydb');
+				 
+				if (mysqli_connect_error()) {
+					die('Connect Error (' . mysqli_connect_errno() . ') '
+							. mysqli_connect_error());
+				}
+				 
+				if ($_POST['tipo'] == 'sin'){
+					$file ="mydb_truncate.sql";
+				}else{
+					$file ="mydb.sql";
+				}
+				 
+				$sql = file_get_contents($file);
+				if (!$sql){
+					die ('Error opening file');
+				}
+				 
+
+				mysqli_multi_query($mysqli,$sql);
+				 
+
+
+				$mysqli->close();
+				//header("Location: http://localhost/igovern");
+				}
+				echo '<p style="font-size:13pt;color:red">Elimine el arxiu install.php</p><br><a style="font-size:13pt;color:white" href="http://localhost/igovern">Ir a la aplicació</a>';
+				}
+			?>
 		
-						mysqli_multi_query($mysqli,$sql);
-						 
-		
-		
-						$mysqli->close();
-						sleep(3);
-						$mostrar = false;
-						
-						?>
-							<p style="font-size:13pt;color:red">Elimine el arxiu "install.php"</p><br>
-				<a style="font-size:13pt;color:white" href="http://localhost/igovern">Ir a l'aplicació</a>
-			
-						
-				<?php	}
-		
-			?>		
-			
-          <?php if ($mostrar){ ?>
+			<?php if ($mostrar){ ?>
             <form action="install.php" method="post">
 				 
 				 <p style="font-size:13pt;color:white">Crear base de dades</p><br>
@@ -122,8 +116,7 @@
       
             
             </form>
-     
- <?php } ?>
+            <?php } ?>
         </div><!--loginboxinner-->
     </div><!--loginbox-->
 
