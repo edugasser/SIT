@@ -76,7 +76,11 @@ class Admin extends CI_Controller {
 			$crud->set_table('servicis');
 			$crud->set_subject('Serveis');
 		// $crud->set_relation('estat_servei','estat','estat');
+			$crud->unset_back_to_list();
 			$output = $crud->render();
+			
+		
+
 			$this->_example_output($output);
 			
 		}catch(Exception $e){
@@ -509,7 +513,7 @@ class Admin extends CI_Controller {
 				$crud->unset_delete(); 
 			}
 			//FIN GESTION PERMISOS
-
+	$crud->unset_back_to_list();
 			$output = $crud->render();
 			
 			$this->_example_output($output);
@@ -540,7 +544,7 @@ class Admin extends CI_Controller {
 				$crud->unset_delete(); 
 			}
 			//FIN GESTION PERMISOS
-
+	$crud->unset_back_to_list();
 			$output = $crud->render();
 			
 			$this->_example_output($output);
@@ -571,7 +575,7 @@ class Admin extends CI_Controller {
 				$crud->unset_delete(); 
 			}
 			//FIN GESTION PERMISOS
-
+	$crud->unset_back_to_list();
 			$output = $crud->render();
 			
 			$this->_example_output($output);
@@ -622,6 +626,47 @@ class Admin extends CI_Controller {
 			show_error($e->getMessage().' --- '.$e->getTraceAsString());
 		}
 	}
+	function mono_projectes()
+	{
+ 
+		try{
+			$crud = new grocery_CRUD();
+
+			$crud->set_theme('datatables');
+			$crud->set_table('projecte');
+			$crud->set_subject('Projectes');
+	
+			
+			$crud->edit_fields('monotoritzacio_temps','monotoritzacio_recursos');
+			
+			$crud->field_type('monotoritzacio_temps','dropdown',
+            array('1' => 'Mal', '2' => 'Regular','3' => 'Bé' ));
+            
+            $crud->field_type('monotoritzacio_recursos','dropdown',
+            array('1' => 'Mal', '2' => 'Regular','3' => 'Bé' ));
+            
+       
+			//GESTION PERMISOS
+		    $crud->display_as('id_responsable','Responsable');
+			if ($this->session->userdata('Editar') != 1){
+				$crud->unset_edit(); 
+			}
+			if ($this->session->userdata('Eliminar') != 1){
+				$crud->unset_delete(); 
+			}
+			//FIN GESTION PERMISOS
+			$crud->unset_back_to_list();
+
+			
+			$output = $crud->render();
+			
+			$this->_example_output($output);
+			
+		}catch(Exception $e){
+			show_error($e->getMessage().' --- '.$e->getTraceAsString());
+		}
+	}
+
 	function objectius_projecte($id=null)
 	{
  

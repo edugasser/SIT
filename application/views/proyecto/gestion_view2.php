@@ -162,16 +162,15 @@ a:hover
 					</a>
 				</td>
 					<td style="width:80px">
-					<a href="<?php echo base_url();?>proyecto/edit/<?php echo $row->id_projecte;?>/monotoritzacio">
+					<a href="<?php echo base_url();?>admin/mono_projectes/edit/<?php echo $row->id_projecte;?>/monotoritzacio">
 						<img title="Temps" src="<?php echo base_url();?>assets/images/<?php echo semaforo($row->monotoritzacio_temps)?>.png">
 					</a>
-					<a href="<?php echo base_url();?>proyecto/edit/<?php echo $row->id_projecte;?>/monotoritzacio">
+					<a href="<?php echo base_url();?>admin/mono_projectes/edit/<?php echo $row->id_projecte;?>/monotoritzacio">
 						<img title="Recursos" src="<?php echo base_url();?>assets/images/<?php echo semaforo($row->monotoritzacio_recursos)?>.png">
 					</a>
-					<a href="<?php echo base_url();?>proyecto/edit/<?php echo $row->id_projecte;?>/monotoritzacio">
-						<?php if (empty($mono[$row->id_projecte])){ $por=0;}else{ $por=$mono[$row->id_projecte] ;}?>
+					 						<?php if (empty($mono[$row->id_projecte])){ $por=0;}else{ $por=$mono[$row->id_projecte] ;}?>
 						<img title="Qualitat" src="<?php echo base_url();?>assets/images/<?php echo semaforo_calidad($por)?>.png">
-					</a>
+				 
 					
 
 				</td>

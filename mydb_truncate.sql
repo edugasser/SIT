@@ -28,8 +28,8 @@ CREATE TABLE IF NOT EXISTS `decision` (
   `alineado` varchar(100) CHARACTER SET utf8 DEFAULT NULL,
   `id_reunion` int(2) NOT NULL,
   PRIMARY KEY (`id_decision`),
-  KEY `id_reunion` (`id_reunion`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=6 ;
+  KEY `id_reunion` (`id_reunion`)                             
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=6 ;
 
 
 
@@ -40,7 +40,7 @@ CREATE TABLE IF NOT EXISTS `encuesta` (
   `id_projecte` int(2) NOT NULL,
   PRIMARY KEY (`id_encuensta`),
   KEY `id_projecte` (`id_projecte`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=3 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=3 ;
 
 
 
@@ -50,7 +50,7 @@ CREATE TABLE IF NOT EXISTS `encuesta_resultado` (
   `id_encuesta_resultado` int(2) NOT NULL AUTO_INCREMENT,
   PRIMARY KEY (`id_encuesta_resultado`),
   KEY `id_encuesta` (`id_encuesta`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=7 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=7 ;
 
 
 
@@ -58,7 +58,7 @@ CREATE TABLE IF NOT EXISTS `estat` (
   `id_estat` int(1) NOT NULL AUTO_INCREMENT,
   `estat` varchar(20) NOT NULL,
   PRIMARY KEY (`id_estat`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=5 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=5 ;
 
 
 
@@ -73,7 +73,7 @@ CREATE TABLE IF NOT EXISTS `estructures` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `dept` varchar(45) NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=7 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=7 ;
 
 
 
@@ -89,7 +89,7 @@ CREATE TABLE IF NOT EXISTS `incidencia` (
   PRIMARY KEY (`id_incidencia`),
   KEY `id_servei` (`id_servei`),
   KEY `id_servei_2` (`id_servei`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=8 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=8 ;
 
 
 
@@ -109,7 +109,7 @@ CREATE TABLE IF NOT EXISTS `objectius_estrategics` (
   `data_objectiu` date NOT NULL,
   `descripcio` text NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=7 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=7 ;
 
 
 
@@ -121,7 +121,7 @@ CREATE TABLE IF NOT EXISTS `objectius_tactics` (
   `Objectius_estrategics_id` int(2) DEFAULT NULL,
   PRIMARY KEY (`id`),
   KEY `Objectius_estrategics_id` (`Objectius_estrategics_id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=16 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=16 ;
 
 
 
@@ -133,7 +133,7 @@ CREATE TABLE IF NOT EXISTS `objectius_tactics_has_projecte` (
   UNIQUE KEY `Objectius_tactics_id_2` (`Objectius_tactics_id`,`Projecte_id`),
   KEY `Objectius_tactics_id` (`Objectius_tactics_id`),
   KEY `Projecte_id` (`Projecte_id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=81 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=81 ;
 
 
 
@@ -146,7 +146,7 @@ CREATE TABLE IF NOT EXISTS `operacio` (
   `Projecte_id` int(11) NOT NULL DEFAULT '0',
   PRIMARY KEY (`id`,`Projecte_id`),
   KEY `fk_Operacio_Projecte1_idx` (`Projecte_id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=16 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=16 ;
 
 
 
@@ -154,7 +154,7 @@ CREATE TABLE IF NOT EXISTS `perfil` (
   `id_perfil` int(11) NOT NULL AUTO_INCREMENT,
   `nombre_perfil` varchar(100) NOT NULL,
   PRIMARY KEY (`id_perfil`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=7 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=7 ;
 
 
 
@@ -171,7 +171,7 @@ CREATE TABLE IF NOT EXISTS `perfil_permisos` (
   PRIMARY KEY (`id_perfil_permisos`),
   KEY `id_permiso` (`id_permiso`,`id_perfil`),
   KEY `id_perfil` (`id_perfil`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=25 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=25 ;
 
 
 INSERT INTO `perfil_permisos` (`id_perfil_permisos`, `id_permiso`, `id_perfil`) VALUES
@@ -189,7 +189,7 @@ CREATE TABLE IF NOT EXISTS `permiso` (
   `nombre_permiso` varchar(100) NOT NULL,
   `url` varchar(100) NOT NULL,
   PRIMARY KEY (`id_permiso`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=14 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=14 ;
 
 
 INSERT INTO `permiso` (`id_permiso`, `nombre_permiso`, `url`) VALUES
@@ -211,7 +211,7 @@ CREATE TABLE IF NOT EXISTS `persona_projecte` (
   UNIQUE KEY `id_persona_2` (`id_persona`,`id_projecte`),
   KEY `id_persona` (`id_persona`,`id_projecte`),
   KEY `id_projecte` (`id_projecte`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=6 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=6 ;
 
 
 
@@ -223,7 +223,7 @@ CREATE TABLE IF NOT EXISTS `persones` (
   PRIMARY KEY (`id_persona`),
   KEY `fk_Persones_Departaments1_idx` (`estructures_id`),
   KEY `fk_Persones_Departaments1` (`estructures_id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=7 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=7 ;
 
 
 
@@ -233,7 +233,7 @@ CREATE TABLE IF NOT EXISTS `principi` (
   `descripcio` text NOT NULL,
   `data` date NOT NULL,
   PRIMARY KEY (`id_principi`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=3 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=3 ;
 
 
 
@@ -245,7 +245,7 @@ CREATE TABLE IF NOT EXISTS `principi_oestrategics` (
   UNIQUE KEY `id_principi_2` (`id_principi`,`id_objectius_estrategics`),
   KEY `id_principi` (`id_principi`,`id_objectius_estrategics`),
   KEY `id_objectius_estrategics` (`id_objectius_estrategics`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=8 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=8 ;
 
 
 
@@ -266,9 +266,9 @@ CREATE TABLE IF NOT EXISTS `projecte` (
   PRIMARY KEY (`id`),
   KEY `fk_Projecte_Proposta_idx` (`Proposta_id`),
   KEY `id_responsable` (`id_responsable`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=29 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=29 ;
 
---
+
 
 
 CREATE TABLE IF NOT EXISTS `proposta` (
@@ -283,7 +283,7 @@ CREATE TABLE IF NOT EXISTS `proposta` (
   PRIMARY KEY (`id`),
   KEY `fk_Proposta_tipus_projecte1_idx` (`tipus_projecte_id`),
   KEY `estat_projecte` (`estat_projecte`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=17 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=17 ;
 
 
 
@@ -293,7 +293,7 @@ CREATE TABLE IF NOT EXISTS `reunion` (
   `descripcion` text NOT NULL,
   `data` date NOT NULL,
   PRIMARY KEY (`id_reunion`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=4 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=4 ;
 
 
 
@@ -306,7 +306,7 @@ CREATE TABLE IF NOT EXISTS `reunion_estructura` (
   KEY `id_estructura` (`id_estructura`),
   KEY `id_estructura_2` (`id_estructura`),
   KEY `id_reunion_2` (`id_reunion`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=4 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=4 ;
 
 
 
@@ -314,7 +314,7 @@ CREATE TABLE IF NOT EXISTS `seguiment_projecte` (
   `id` int(11) NOT NULL,
   `canvi` varchar(450) DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 
 
@@ -324,7 +324,7 @@ CREATE TABLE IF NOT EXISTS `servicis` (
   `descripcio_servei` text NOT NULL,
   `data_servei` date NOT NULL,
   PRIMARY KEY (`id_servici`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=3 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=3 ;
 
 
 
@@ -333,7 +333,7 @@ CREATE TABLE IF NOT EXISTS `tipus_projecte` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `tipus` varchar(45) DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=2 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=2 ;
 
 
 
@@ -388,8 +388,9 @@ CREATE TABLE IF NOT EXISTS `user_profiles` (
 
 INSERT INTO `user_profiles` (`id`, `user_id`, `country`, `website`) VALUES
 (1, 3, NULL, NULL);
-
-
+--
+-- Filtros para la tabla `decision`
+--
 ALTER TABLE `decision`
   ADD CONSTRAINT `decision_ibfk_1` FOREIGN KEY (`id_reunion`) REFERENCES `reunion` (`id_reunion`);
 
