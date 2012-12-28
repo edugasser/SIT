@@ -159,8 +159,8 @@
                         
 						</div>
   <div class="contenttitle2 nomargintop">
-
-                    	<h3>Projectes</h3>
+<br>
+                    	<h3>Resum</h3>
 
                         </div><!--contenttitle-->
  						<div class="widgetcontent userlistwidget nopadding">       
