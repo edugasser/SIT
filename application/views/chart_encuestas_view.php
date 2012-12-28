@@ -131,7 +131,11 @@ $(function () {
                 plotBackgroundColor: null,
                 plotBorderWidth: null,
                 plotShadow: false
-            },
+            },colors: [
+				'#f50000', 
+				'#f5eb00', 
+				'#00b52f'
+			],
             title: {
                 text: 'Resultats de ses enquestes'
             },
