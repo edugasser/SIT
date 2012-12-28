@@ -58,6 +58,7 @@ class Admin extends CI_Controller {
 			$crud->set_table('encuesta_resultado');
 			$crud->set_subject('Enquesta');
 			$crud->set_relation('id_encuesta','encuesta','pregunta');
+				$crud->unset_back_to_list();
 			$crud->field_type('resultado','dropdown',
             array('1' => '1','2' => '2', '3' => '3','4' => '4','5' => '5','6' => '6','7' => '7','8' => '8','9' => '9','10' => '10'));
 			$output = $crud->render();
@@ -331,6 +332,7 @@ class Admin extends CI_Controller {
 			$crud->set_table('operacio');
 			$crud->set_subject('Operacions');
 			$crud->set_relation('Projecte_id','projecte','titol'); 
+			 
 			if ($id !=null){
 			$crud->where('operacio.Projecte_id',$id);
 			}
@@ -508,6 +510,8 @@ class Admin extends CI_Controller {
 			$crud->set_table('persones');
 			$crud->set_subject('Persones');
 			$crud->set_relation('estructures_id','estructures','dept'); 
+			$crud->set_relation_n_n('Projectes','persona_projecte', 'projecte','id_persona','id_projecte','titol',null);
+			$crud->display_as('estructures_id','Personal de');
 			//GESTION PERMISOS
 			if (($this->session->userdata('Editar')) != 1){
 				$crud->unset_edit(); 
