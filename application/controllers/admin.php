@@ -334,6 +334,9 @@ class Admin extends CI_Controller {
 			if ($id !=null){
 			$crud->where('operacio.Projecte_id',$id);
 			}
+			$crud->unset_back_to_list();
+			$crud->field_type('estat','dropdown',
+            array('En procés' => 'En procés', 'Acabada' => 'Acabada' ));
 			//GESTION PERMISOS
 			if (($this->session->userdata('Editar'))!= 1){
 				$crud->unset_edit(); 

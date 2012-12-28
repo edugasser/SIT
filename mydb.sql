@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 28-12-2012 a las 11:14:27
+-- Tiempo de generación: 28-12-2012 a las 12:52:00
 -- Versión del servidor: 5.5.27
 -- Versión de PHP: 5.4.7
 
@@ -40,7 +40,7 @@ CREATE TABLE IF NOT EXISTS `ci_sessions` (
 --
 
 INSERT INTO `ci_sessions` (`session_id`, `ip_address`, `user_agent`, `last_activity`, `user_data`) VALUES
-('26da9e0ec695dc3d33f24194f7d10364', '::1', 'Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.11 (KHTML, like Gecko) Chrome/23.0.1271.97 Safari/537.11', 1356689308, 0x613a31323a7b733a393a22757365725f64617461223b733a303a22223b733a373a22757365725f6964223b733a313a2232223b733a383a22757365726e616d65223b733a353a2261646d696e223b733a363a2270657266696c223b733a313a2231223b733a353a22656d61696c223b733a31393a2265647567617373657240676d61696c2e636f6d223b733a363a22737461747573223b733a313a2231223b733a363a22456469746172223b693a313b733a383a22456c696d696e6172223b693a313b733a393a2250726f6a6563746573223b693a313b733a373a2255737561726973223b693a313b733a32313a225072696e63697069735f695f6f626a656374697573223b693a313b733a373a22536573696f6e73223b693a313b7d);
+('6f7a485cf3c2fd4437df4c2644869de4', '::1', 'Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.11 (KHTML, like Gecko) Chrome/23.0.1271.97 Safari/537.11', 1356695460, 0x613a31323a7b733a393a22757365725f64617461223b733a303a22223b733a373a22757365725f6964223b733a313a2232223b733a383a22757365726e616d65223b733a353a2261646d696e223b733a363a2270657266696c223b733a313a2231223b733a353a22656d61696c223b733a31393a2265647567617373657240676d61696c2e636f6d223b733a363a22737461747573223b733a313a2231223b733a363a22456469746172223b693a313b733a383a22456c696d696e6172223b693a313b733a393a2250726f6a6563746573223b693a313b733a373a2255737561726973223b693a313b733a32313a225072696e63697069735f695f6f626a656374697573223b693a313b733a373a22536573696f6e73223b693a313b7d);
 
 -- --------------------------------------------------------
 
@@ -301,7 +301,7 @@ CREATE TABLE IF NOT EXISTS `operacio` (
   `nom` varchar(45) DEFAULT NULL,
   `data_inici` date DEFAULT NULL,
   `data_final` date DEFAULT NULL,
-  `cost_en_curs` float DEFAULT NULL,
+  `estat` varchar(10) NOT NULL DEFAULT 'En procés',
   `Projecte_id` int(11) NOT NULL DEFAULT '0',
   PRIMARY KEY (`id`,`Projecte_id`),
   KEY `fk_Operacio_Projecte1_idx` (`Projecte_id`)
@@ -311,14 +311,14 @@ CREATE TABLE IF NOT EXISTS `operacio` (
 -- Volcado de datos para la tabla `operacio`
 --
 
-INSERT INTO `operacio` (`id`, `nom`, `data_inici`, `data_final`, `cost_en_curs`, `Projecte_id`) VALUES
-(4, 'Una operacio', '2012-12-05', '2012-12-12', 2342, 25),
-(11, 'Nueva operació', '2012-12-10', '2012-12-19', 8681, 26),
-(13, 'Otra', '2012-12-05', '2012-12-19', 23423, 27),
-(14, 'Operacion 2', '2012-12-04', '2012-12-12', 100, 27),
-(15, 'Otra operación', '2012-12-11', '2012-12-27', NULL, 26),
-(16, 'Otra', '2012-12-17', '2012-12-04', 1231, 26),
-(17, 'Otra mas', '2012-12-05', '2012-12-12', NULL, 26);
+INSERT INTO `operacio` (`id`, `nom`, `data_inici`, `data_final`, `estat`, `Projecte_id`) VALUES
+(4, 'Una operacio', '2012-12-05', '2012-12-12', 'En procés', 25),
+(11, 'Nueva operació', '2012-12-10', '2012-12-19', 'En procés', 26),
+(13, 'Otra', '2012-12-05', '2012-12-19', 'Acabada', 27),
+(14, 'Operacion 2', '2012-12-04', '2012-12-12', 'En procés', 27),
+(15, 'Otra operación', '2012-12-11', '2012-12-27', 'Acabada', 26),
+(16, 'Otra', '2012-12-17', '2012-12-04', 'En procés', 26),
+(17, 'Otra mas', '2012-12-05', '2012-12-12', 'En procés', 26);
 
 -- --------------------------------------------------------
 
