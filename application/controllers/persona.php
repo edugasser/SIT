@@ -50,7 +50,16 @@ class persona extends CI_Controller {
 		$this->load->view('page_view', $data);
 	}
 	
-	
+	public function chart($id=null){
+		 
+			$sql4 = "SELECT *,
+			COUNT(id_persona) as total
+			FROM persones JOIN estructures ON  estructures.id = persones.estructures_id	
+			GROUP BY estructures_id ";
+			$data['data'] = $this->mi_model->get_sql($sql4);
+			$this->load->view('chart_persones_view',$data);
+	 
+	}
 	
 	 
 }	

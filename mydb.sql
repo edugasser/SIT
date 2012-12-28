@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 20-12-2012 a las 13:08:47
+-- Tiempo de generación: 28-12-2012 a las 11:14:27
 -- Versión del servidor: 5.5.27
 -- Versión de PHP: 5.4.7
 
@@ -19,7 +19,7 @@ SET time_zone = "+00:00";
 --
 -- Base de datos: `mydb`
 --
-use mydb;
+
 -- --------------------------------------------------------
 
 --
@@ -40,7 +40,7 @@ CREATE TABLE IF NOT EXISTS `ci_sessions` (
 --
 
 INSERT INTO `ci_sessions` (`session_id`, `ip_address`, `user_agent`, `last_activity`, `user_data`) VALUES
-('f085e92046c13c771329aba03ddca557', '::1', 'Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.11 (KHTML, like Gecko) Chrome/23.0.1271.97 Safari/537.11', 1355940937, 0x613a31323a7b733a393a22757365725f64617461223b733a303a22223b733a373a22757365725f6964223b733a313a2232223b733a383a22757365726e616d65223b733a353a2261646d696e223b733a363a2270657266696c223b733a313a2231223b733a353a22656d61696c223b733a31393a2265647567617373657240676d61696c2e636f6d223b733a363a22737461747573223b733a313a2231223b733a363a22456469746172223b693a313b733a383a22456c696d696e6172223b693a313b733a393a2250726f6a6563746573223b693a313b733a373a2255737561726973223b693a313b733a32313a225072696e63697069735f695f6f626a656374697573223b693a313b733a373a22536573696f6e73223b693a313b7d);
+('26da9e0ec695dc3d33f24194f7d10364', '::1', 'Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.11 (KHTML, like Gecko) Chrome/23.0.1271.97 Safari/537.11', 1356689308, 0x613a31323a7b733a393a22757365725f64617461223b733a303a22223b733a373a22757365725f6964223b733a313a2232223b733a383a22757365726e616d65223b733a353a2261646d696e223b733a363a2270657266696c223b733a313a2231223b733a353a22656d61696c223b733a31393a2265647567617373657240676d61696c2e636f6d223b733a363a22737461747573223b733a313a2231223b733a363a22456469746172223b693a313b733a383a22456c696d696e6172223b693a313b733a393a2250726f6a6563746573223b693a313b733a373a2255737561726973223b693a313b733a32313a225072696e63697069735f695f6f626a656374697573223b693a313b733a373a22536573696f6e73223b693a313b7d);
 
 -- --------------------------------------------------------
 
@@ -101,7 +101,7 @@ CREATE TABLE IF NOT EXISTS `encuesta_resultado` (
   `id_encuesta_resultado` int(2) NOT NULL AUTO_INCREMENT,
   PRIMARY KEY (`id_encuesta_resultado`),
   KEY `id_encuesta` (`id_encuesta`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=7 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=10 ;
 
 --
 -- Volcado de datos para la tabla `encuesta_resultado`
@@ -113,7 +113,10 @@ INSERT INTO `encuesta_resultado` (`id_encuesta`, `resultado`, `id_encuesta_resul
 (2, 2, 3),
 (2, 9, 4),
 (2, 9, 5),
-(2, 7, 6);
+(2, 7, 6),
+(2, 4, 7),
+(2, 5, 8),
+(2, 3, 9);
 
 -- --------------------------------------------------------
 
@@ -302,7 +305,7 @@ CREATE TABLE IF NOT EXISTS `operacio` (
   `Projecte_id` int(11) NOT NULL DEFAULT '0',
   PRIMARY KEY (`id`,`Projecte_id`),
   KEY `fk_Operacio_Projecte1_idx` (`Projecte_id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=16 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=18 ;
 
 --
 -- Volcado de datos para la tabla `operacio`
@@ -313,7 +316,9 @@ INSERT INTO `operacio` (`id`, `nom`, `data_inici`, `data_final`, `cost_en_curs`,
 (11, 'Nueva operació', '2012-12-10', '2012-12-19', 8681, 26),
 (13, 'Otra', '2012-12-05', '2012-12-19', 23423, 27),
 (14, 'Operacion 2', '2012-12-04', '2012-12-12', 100, 27),
-(15, 'Otra operación', '2012-12-11', '2012-12-27', NULL, 26);
+(15, 'Otra operación', '2012-12-11', '2012-12-27', NULL, 26),
+(16, 'Otra', '2012-12-17', '2012-12-04', 1231, 26),
+(17, 'Otra mas', '2012-12-05', '2012-12-12', NULL, 26);
 
 -- --------------------------------------------------------
 
@@ -697,7 +702,7 @@ CREATE TABLE IF NOT EXISTS `users` (
 --
 
 INSERT INTO `users` (`id`, `username`, `password`, `email`, `activated`, `banned`, `ban_reason`, `new_password_key`, `new_password_requested`, `new_email`, `new_email_key`, `last_ip`, `last_login`, `created`, `modified`, `perfil`) VALUES
-(2, 'admin', '$2a$08$Fc8ch.9YrFlD7TvlDa8u/ejOERQRjRrpxsNEgTZMponx/I6x3vW3e', 'edugasser@gmail.com', 1, 0, NULL, NULL, NULL, NULL, NULL, '::1', '2012-12-19 18:59:39', '2012-12-10 18:00:57', '2012-12-19 17:59:39', 1),
+(2, 'admin', '$2a$08$Fc8ch.9YrFlD7TvlDa8u/ejOERQRjRrpxsNEgTZMponx/I6x3vW3e', 'edugasser@gmail.com', 1, 0, NULL, NULL, NULL, NULL, NULL, '::1', '2012-12-28 11:00:24', '2012-12-10 18:00:57', '2012-12-28 10:00:24', 1),
 (3, 'becari', '$2a$08$aAZJL9JEaC9smBzHHWSwqeK.LXYZ6x3AM9tBsnVPXKEEx34rKVI8q', 'becari@gmail.com', 1, 0, NULL, NULL, NULL, NULL, NULL, '::1', '2012-12-17 13:28:23', '2012-12-17 13:13:44', '2012-12-17 13:28:23', 6);
 
 -- --------------------------------------------------------
