@@ -600,7 +600,7 @@ class Admin extends CI_Controller {
 			$crud->set_theme('datatables');
 			$crud->set_table('projecte');
 			$crud->set_subject('Projectes');
-			$crud->set_relation('Proposta_id','Proposta','titol'); 
+			$crud->set_relation('proposta_id','proposta','titol'); 
 			$crud->set_relation('id_responsable','persones','nom_complet');
 				
 			$crud->columns('titol','data_inici','data_entrega','id_responsable');

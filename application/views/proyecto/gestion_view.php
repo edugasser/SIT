@@ -12,4 +12,4 @@
 
 </div><!--contenttitle-->
 <p align="right"style="margin-top:-40px"><img  src="<?php echo base_url();?>assets/images/leyenda.png"></p>
- <iframe src="<?php echo base_url();?>proyecto/mio/<?php echo $name_projecto;?>" frameborder="0" width="100%" height="900">  </iframe>
+ <iframe id="iframe" src="<?php echo base_url();?>proyecto/mio/<?php echo $name_projecto;?>" frameborder="0" width="100%" height="900">  </iframe>
