@@ -1,3 +1,23 @@
+<html>
+<head>
+<link rel="stylesheet" href="http://localhost/igovern/assets/css/style.default.css" type="text/css" />
+ 
+<script type="text/javascript" src="http://localhost/igovern/assets/js/ajax_framework.js"></script>
+<script type="text/javascript" src="http://localhost/igovern/assets/js/plugins/jquery-1.7.min.js"></script>
+<script type="text/javascript" src="http://localhost/igovern/assets/js/plugins/jquery-ui-1.8.16.custom.min.js"></script>
+<script type="text/javascript" src="http://localhost/igovern/assets/js/plugins/jquery.cookie.js"></script>
+<script type="text/javascript" src="http://localhost/igovern/assets/js/plugins/jquery.uniform.min.js"></script>
+<script type="text/javascript" src="http://localhost/igovern/assets/js/plugins/jquery.flot.min.js"></script>
+<script type="text/javascript" src="http://localhost/igovern/assets/js/plugins/jquery.flot.resize.min.js"></script>
+<script type="text/javascript" src="http://localhost/igovern/assets/js/plugins/jquery.slimscroll.js"></script>
+<script type="text/javascript" src="http://localhost/igovern/assets/js/plugins/jquery.jgrowl.js"></script>
+<script type="text/javascript" src="http://localhost/igovern/assets/js/plugins/jquery.alerts.js"></script>
+
+<script type="text/javascript" src="http://localhost/igovern/assets/js/custom/general.js"></script>
+<script type="text/javascript" src="http://localhost/igovern//assets/js/custom/elements.js"></script>
+</head>
+<body>
+
 <?php
 if ($use_username) {
 	$username = array(
@@ -35,17 +55,18 @@ $captcha = array(
 	'maxlength'	=> 8,
 );
 ?>
+<br>
 <?php echo form_open($this->uri->uri_string()); ?>
 <table>
 	<?php if ($use_username) { ?>
 	<tr>
-		<td><?php echo form_label('Username', $username['id']); ?></td>
+		<td><?php echo form_label('Usuario', $username['id']); ?></td>
 		<td><?php echo form_input($username); ?></td>
 		<td style="color: red;"><?php echo form_error($username['name']); ?><?php echo isset($errors[$username['name']])?$errors[$username['name']]:''; ?></td>
 	</tr>
 	<?php } ?>
 	<tr>
-		<td><?php echo form_label('Email Address', $email['id']); ?></td>
+		<td><?php echo form_label('Email ', $email['id']); ?></td>
 		<td><?php echo form_input($email); ?></td>
 		<td style="color: red;"><?php echo form_error($email['name']); ?><?php echo isset($errors[$email['name']])?$errors[$email['name']]:''; ?></td>
 	</tr>
@@ -55,7 +76,7 @@ $captcha = array(
 		<td style="color: red;"><?php echo form_error($password['name']); ?></td>
 	</tr>
 	<tr>
-		<td><?php echo form_label('Confirm Password', $confirm_password['id']); ?></td>
+		<td><?php echo form_label('Confirmar password', $confirm_password['id']); ?></td>
 		<td><?php echo form_password($confirm_password); ?></td>
 		<td style="color: red;"><?php echo form_error($confirm_password['name']); ?></td>
 	</tr>
@@ -95,6 +116,8 @@ $captcha = array(
 	</tr>
 	<?php }
 	} ?>
-</table>
-<?php echo form_submit('register', 'Register'); ?>
+</table><br>
+<?php echo form_submit('register', 'Registrar'); ?>
 <?php echo form_close(); ?>
+</body>
+</html>

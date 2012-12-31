@@ -179,6 +179,7 @@ class Admin extends CI_Controller {
 			$crud->columns('username','email','perfil');
 			$crud->set_relation('perfil','perfil','nombre_perfil'); 
 			 //GESTION PERMISOS
+			 $crud->unset_add(); 
 			if (($this->session->userdata('Editar'))!= 1){
 				$crud->unset_edit(); 
 			}
@@ -394,7 +395,7 @@ class Admin extends CI_Controller {
 			$crud->set_relation('estat_projecte','estat','estat');
 			$crud->columns('titol','estat','decisio');
 			$crud->edit_fields('decisio');
-
+$crud->unset_back_to_list();
 			//GESTION PERMISOS
 			if (($this->session->userdata('Editar')) != 1){
 				$crud->unset_edit(); 
@@ -457,6 +458,7 @@ $crud->unset_back_to_list();
 			$crud->where('decision.id_reunion',$id);
 			}
 			$crud->unset_edit_fields('id_reunion');
+			$crud->unset_back_to_list();
 			//GESTION PERMISOS
 			if (($this->session->userdata('Editar')) != 1){
 				$crud->unset_edit(); 
