@@ -424,7 +424,7 @@ class Admin extends CI_Controller {
 			$crud->set_relation('estat_projecte','estat','estat');
 			$crud->columns('titol','tipus_projecte_id','data','estat_projecte');
 			$crud->edit_fields('titol','tipus_projecte_id','data');
-
+$crud->unset_back_to_list();
 			//GESTION PERMISOS
 			if (($this->session->userdata('Editar')) != 1){
 				$crud->unset_edit(); 

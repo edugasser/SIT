@@ -75,13 +75,7 @@ var ajax_relation_url = '<?php echo base_url();?>admin/encuesta/ajax_relation';
 				<input type='submit' value='Guardar' class='ui-input-button'/>
 			</div>
 				
-			<div class='form-button-box'>
-				<input type='button' value='Guardar y volver a la lista' class='ui-input-button' id="save-and-go-back-button"/>
-			</div>								
-			<div class='form-button-box'>
-				<input type='button' value='Cancelar' onclick="javascript: goToList()" class='ui-input-button' />
-			</div>
-			
+	 
 			<div class='form-button-box loading-box'>
 				<div class='small-loading' id='FormLoading'>Cargando, guardando...</div>
 			</div>
