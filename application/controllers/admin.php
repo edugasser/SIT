@@ -41,7 +41,7 @@ class Admin extends CI_Controller {
 			$crud->field_type('resultado','dropdown',
             array('1' ,'2', '3','4','5','6','7','8','9','10'));
 			 $crud->add_action('Link enquesta', '', base_url().'panel/encuesta/1','ui-icon-plus'); 
-	
+		$crud->unset_back_to_list();
 			$output = $crud->render();
 			$this->_example_output($output);
 			
@@ -485,7 +485,7 @@ $crud->unset_back_to_list();
 			$crud->set_table('reunion');
 			$crud->set_subject('Reunions');
 			$crud->set_relation_n_n('Asistents','reunion_estructura', 'estructures','id_reunion','id_estructura','dept',null);
-			 
+			 	$crud->unset_back_to_list();
 			//GESTION PERMISOS
 			if (($this->session->userdata('Editar')) != 1){
 				$crud->unset_edit(); 

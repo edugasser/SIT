@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 28-12-2012 a las 12:52:00
+-- Tiempo de generación: 31-12-2012 a las 18:37:33
 -- Versión del servidor: 5.5.27
 -- Versión de PHP: 5.4.7
 
@@ -40,7 +40,7 @@ CREATE TABLE IF NOT EXISTS `ci_sessions` (
 --
 
 INSERT INTO `ci_sessions` (`session_id`, `ip_address`, `user_agent`, `last_activity`, `user_data`) VALUES
-('6f7a485cf3c2fd4437df4c2644869de4', '::1', 'Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.11 (KHTML, like Gecko) Chrome/23.0.1271.97 Safari/537.11', 1356695460, 0x613a31323a7b733a393a22757365725f64617461223b733a303a22223b733a373a22757365725f6964223b733a313a2232223b733a383a22757365726e616d65223b733a353a2261646d696e223b733a363a2270657266696c223b733a313a2231223b733a353a22656d61696c223b733a31393a2265647567617373657240676d61696c2e636f6d223b733a363a22737461747573223b733a313a2231223b733a363a22456469746172223b693a313b733a383a22456c696d696e6172223b693a313b733a393a2250726f6a6563746573223b693a313b733a373a2255737561726973223b693a313b733a32313a225072696e63697069735f695f6f626a656374697573223b693a313b733a373a22536573696f6e73223b693a313b7d);
+('de079b349b5481cfd52b859c6b52ffc4', '::1', 'Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.11 (KHTML, like Gecko) Chrome/23.0.1271.97 Safari/537.11', 1356975262, 0x613a31333a7b733a393a22757365725f64617461223b733a303a22223b733a31313a2275726c5f686973746f7279223b613a363a7b693a303b733a32333a2261646d696e2f757375617269732f737563636573732f32223b693a313b733a32303a2261646d696e2f757375617269732f656469742f32223b693a323b733a31333a2261646d696e2f75737561726973223b693a333b733a373a2275737561726973223b693a343b733a33313a2261646d696e2f70657266696c5f7065726d69736f732f737563636573732f31223b693a353b733a32383a2261646d696e2f70657266696c5f7065726d69736f732f656469742f31223b7d733a373a22757365725f6964223b733a313a2232223b733a383a22757365726e616d65223b733a353a2261646d696e223b733a363a2270657266696c223b733a313a2231223b733a353a22656d61696c223b733a31393a2265647567617373657240676d61696c2e636f6d223b733a363a22737461747573223b733a313a2231223b733a363a22456469746172223b693a313b733a383a22456c696d696e6172223b693a313b733a393a2250726f6a6563746573223b693a313b733a373a2255737561726973223b693a313b733a32313a225072696e63697069735f695f6f626a656374697573223b693a313b733a373a22536573696f6e73223b693a313b7d);
 
 -- --------------------------------------------------------
 
@@ -536,10 +536,10 @@ CREATE TABLE IF NOT EXISTS `projecte` (
 --
 
 INSERT INTO `projecte` (`id`, `titol`, `descripcio`, `data_inici`, `pressupost_inicial`, `pressupost_final`, `data_entrega`, `Proposta_id`, `id_responsable`, `prioritat`, `monotoritzacio_temps`, `monotoritzacio_recursos`, `monotoritzacio_qualitat`) VALUES
-(25, 'Tutoria / Soporte remoto', 'El soporte remoto ¡es una solución ideal para el personal de IT que busca asistir a sus clientes remotamente y a la vez ahorrar tiempo y dinero.', '2012-12-01', '1000', '1000', '2012-12-31', 14, 3, 'Mitja', 3, 2, 2),
-(26, 'Arquitectura Moodle', 'Renovar la arquitectura Moodle.', '2012-12-13', '3000', '3000', '2012-12-16', 14, 3, 'Baixa', 2, 1, 1),
-(27, 'Control de acceso', 'Sistemas para control de acceso con lector de huella digital, clave y tarjeta inteligente', '2012-12-01', '2050', '2050', '2013-01-01', 14, 1, 'Alta', 3, 2, 1),
-(28, 'Soporte chat para la administración', 'Que el personal de administración disponga de un chat para realizar las consultas con los alumnos/profesores.', '2012-12-19', '50000', '50000', '2013-01-09', 14, 1, 'Mitja', 1, 2, 2);
+(25, 'Tutoria / Soporte remoto', 'El soporte remoto ¡es una solución ideal para el personal de IT que busca asistir a sus clientes remotamente y a la vez ahorrar tiempo y dinero.', '2012-12-01', '1000', '1000', '2012-12-31', 14, 3, 'Mitja', 3, 3, 2),
+(26, 'Arquitectura Moodle', 'Renovar la arquitectura Moodle.', '2012-12-13', '3000', '3000', '2012-12-16', 14, 3, 'Baixa', 2, 3, 1),
+(27, 'Control de acceso', 'Sistemas para control de acceso con lector de huella digital, clave y tarjeta inteligente', '2012-12-01', '2050', '2050', '2013-01-01', 14, 1, 'Alta', 3, 1, 1),
+(28, 'Soporte chat para la administración', 'Que el personal de administración disponga de un chat para realizar las consultas con los alumnos/profesores.', '2012-12-19', '50000', '50000', '2013-01-09', 14, 1, 'Mitja', 3, 3, 2);
 
 -- --------------------------------------------------------
 
@@ -692,7 +692,7 @@ CREATE TABLE IF NOT EXISTS `users` (
   `last_login` datetime NOT NULL DEFAULT '0000-00-00 00:00:00',
   `created` datetime NOT NULL DEFAULT '0000-00-00 00:00:00',
   `modified` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
-  `perfil` int(11) NOT NULL,
+  `perfil` int(11) NOT NULL DEFAULT '1',
   PRIMARY KEY (`id`),
   KEY `perfil` (`perfil`)
 ) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_bin AUTO_INCREMENT=4 ;
@@ -702,7 +702,7 @@ CREATE TABLE IF NOT EXISTS `users` (
 --
 
 INSERT INTO `users` (`id`, `username`, `password`, `email`, `activated`, `banned`, `ban_reason`, `new_password_key`, `new_password_requested`, `new_email`, `new_email_key`, `last_ip`, `last_login`, `created`, `modified`, `perfil`) VALUES
-(2, 'admin', '$2a$08$Fc8ch.9YrFlD7TvlDa8u/ejOERQRjRrpxsNEgTZMponx/I6x3vW3e', 'edugasser@gmail.com', 1, 0, NULL, NULL, NULL, NULL, NULL, '::1', '2012-12-28 11:00:24', '2012-12-10 18:00:57', '2012-12-28 10:00:24', 1),
+(2, 'admin', '$2a$08$Fc8ch.9YrFlD7TvlDa8u/ejOERQRjRrpxsNEgTZMponx/I6x3vW3e', 'edugasser@gmail.com', 1, 0, NULL, NULL, NULL, NULL, NULL, '::1', '2012-12-31 18:34:25', '2012-12-10 18:00:57', '2012-12-31 17:34:25', 1),
 (3, 'becari', '$2a$08$aAZJL9JEaC9smBzHHWSwqeK.LXYZ6x3AM9tBsnVPXKEEx34rKVI8q', 'becari@gmail.com', 1, 0, NULL, NULL, NULL, NULL, NULL, '::1', '2012-12-17 13:28:23', '2012-12-17 13:13:44', '2012-12-17 13:28:23', 6);
 
 -- --------------------------------------------------------
@@ -732,14 +732,15 @@ CREATE TABLE IF NOT EXISTS `user_profiles` (
   `country` varchar(20) COLLATE utf8_bin DEFAULT NULL,
   `website` varchar(255) COLLATE utf8_bin DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_bin AUTO_INCREMENT=2 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_bin AUTO_INCREMENT=3 ;
 
 --
 -- Volcado de datos para la tabla `user_profiles`
 --
 
 INSERT INTO `user_profiles` (`id`, `user_id`, `country`, `website`) VALUES
-(1, 3, NULL, NULL);
+(1, 3, NULL, NULL),
+(2, 4, NULL, NULL);
 
 --
 -- Restricciones para tablas volcadas
@@ -781,6 +782,12 @@ ALTER TABLE `objectius_tactics`
 ALTER TABLE `objectius_tactics_has_projecte`
   ADD CONSTRAINT `objectius_tactics_has_projecte_ibfk_3` FOREIGN KEY (`Projecte_id`) REFERENCES `projecte` (`id`) ON DELETE SET NULL ON UPDATE SET NULL,
   ADD CONSTRAINT `objectius_tactics_has_projecte_ibfk_4` FOREIGN KEY (`Objectius_tactics_id`) REFERENCES `objectius_tactics` (`id`) ON DELETE CASCADE ON UPDATE CASCADE;
+
+--
+-- Filtros para la tabla `operacio`
+--
+ALTER TABLE `operacio`
+  ADD CONSTRAINT `operacio_ibfk_1` FOREIGN KEY (`Projecte_id`) REFERENCES `projecte` (`id`);
 
 --
 -- Filtros para la tabla `persona_projecte`
