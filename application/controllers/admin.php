@@ -645,7 +645,9 @@ class Admin extends CI_Controller {
 	
 			
 			$crud->edit_fields('monotoritzacio_temps','monotoritzacio_recursos');
-			
+		$crud->display_as('monotoritzacio_temps', 'monitorització temps');
+       $crud->display_as('monotoritzacio_recursos', 'monitorització recursos');
+	
 			$crud->field_type('monotoritzacio_temps','dropdown',
             array('1' => 'Mal', '2' => 'Regular','3' => 'Bé' ));
             

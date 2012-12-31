@@ -47,7 +47,7 @@
 							$password = $_POST['password'];
 						}
 					
-						$enlace = new mysqli('localhost', 'root', '');
+						$enlace = new mysqli('localhost', $_POST['username'], $_POST['password']);
 
 						// check connection
 						if (mysqli_connect_errno()) {
@@ -63,7 +63,7 @@
 					
 						
 						
-						$mysqli = new mysqli('localhost', 'root',  '', 'mydb');
+						$mysqli = new mysqli('localhost', $_POST['username'],  $_POST['password'], 'mydb');
 					 
 						if (mysqli_connect_error()) {
 							die('Connect Error (' . mysqli_connect_errno() . ') '
