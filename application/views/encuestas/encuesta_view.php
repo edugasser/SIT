@@ -8,8 +8,6 @@
 	<script src="http://localhost/igovern/assets/grocery_crud/js/jquery-1.8.2.min.js"></script>
 	<script src="http://localhost/igovern/assets/grocery_crud/js/jquery_plugins/jquery.chosen.min.js"></script>
 	<script src="http://localhost/igovern/assets/grocery_crud/js/jquery_plugins/config/jquery.chosen.config.js"></script>
-	<script src="http://localhost/igovern/assets/grocery_crud/js/jquery_plugins/jquery.numeric.min.js"></script>
-	<script src="http://localhost/igovern/assets/grocery_crud/js/jquery_plugins/config/jquery.numeric.config.js"></script>
 	<script src="http://localhost/igovern/assets/grocery_crud/themes/flexigrid/js/jquery.form.js"></script>
 	<script src="http://localhost/igovern/assets/grocery_crud/themes/datatables/js/datatables-add.js"></script>
 	<script src="http://localhost/igovern/assets/grocery_crud/js/jquery_plugins/ui/jquery-ui-1.9.0.custom.min.js"></script>
@@ -46,14 +44,16 @@ var ajax_relation_url = 'http://localhost/igovern/admin/encuesta/ajax_relation';
 	</h3>
 <div class='form-content form-div'>
 	<form action="http://localhost/igovern/admin/encuesta/insert" method="post" id="crudForm" autocomplete="off" enctype="multipart/form-data" accept-charset="utf8"><div style="display:none">
-<input type="hidden" name="csrf_test_name" value="391f38709d07f56469e770e30c5ae409" />
+<input type="hidden" name="csrf_test_name" value="ced342770a2f4e36951b58297b4f36c3" />
 </div>		<div>
 						<div class='form-field-box odd' id="id_encuesta_field_box">
 				<div class='form-display-as-box' id="id_encuesta_display_as_box">
 					Id encuesta :
-				</div>
-				<div class='form-input-box' id="id_encuesta_input_box">
-					<select id='field-id_encuesta'  name='id_encuesta' class='chosen-select' data-placeholder='Select Id encuesta' style='width:300px'><option value=''></option><option value='2'  >¿Cree que el proyecto cumple con los requerimientos iniciales?</option><option value='1'  >¿Está conforme con los resultados del proyecto?</option></select>				</div>
+				</div><?php foreach($data as $row){ ?>
+<div class='form-input-box' id="id_encuesta_input_box">
+				<input type="hidden"   name='id_encuesta' id="id_encuesta" value="<?php echo $row->id_encuensta;?>">				
+					</div>
+					<label> <?php echo $row->pregunta;}?></label>
 				<div class='clear'></div>	
 			</div>
 						<div class='form-field-box even' id="resultado_field_box">
@@ -61,7 +61,7 @@ var ajax_relation_url = 'http://localhost/igovern/admin/encuesta/ajax_relation';
 					Resultado :
 				</div>
 				<div class='form-input-box' id="resultado_input_box">
-					<input id='field-resultado' name='resultado' type='text' value='' class='numeric' maxlength='10' />				</div>
+					<select id='field-resultado' name='resultado' class='chosen-select' data-placeholder='Select Resultado'><option value=''  ></option><option value='1'  >1</option><option value='2'  >2</option><option value='3'  >3</option><option value='4'  >4</option><option value='5'  >5</option><option value='6'  >6</option><option value='7'  >7</option><option value='8'  >8</option><option value='9'  >9</option><option value='10'  >10</option></select>				</div>
 				<div class='clear'></div>	
 			</div>
 						<!-- Start of hidden inputs -->

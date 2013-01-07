@@ -51,12 +51,19 @@ class panel extends CI_Controller {
 			redirect('auth/');
 		}
 	}
+	public function addencuesta($id){
+	echo $_POST['resultado'];
+	$sql4 = "INSERT INTO encuesta_resultado (id_encuesta, resultado) VALUES ($id, ".$_POST['resultado'].")";
+	$this->mi_model->get_sql($sql4);
+	//redirect('/encuesta/'.$id);
+	
+	}
 	public function encuesta($id)
 	{
 		if ($this->tank_auth->is_logged_in()) {	
 		$sql4 = "SELECT * FROM encuesta WHERE id_encuensta = '$id'";
 		$data['data'] = $this->mi_model->get_sql($sql4);	
-	 
+		$data['id'] = $id;
 		$this->load->view('encuestas/encuesta_view', $data);
 		}else{
 			redirect('auth/');
