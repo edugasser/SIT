@@ -104,15 +104,19 @@ a:hover
 					</a>
 				</td>
 			<td class='actions'>
+			<?php  if ($this->session->userdata('Editar') == 1){ ?>
 			<a href="<?php echo base_url();?>admin/principis/edit/<?php echo $row->id_principi;?>" class="edit_button ui-button ui-widget ui-state-default ui-corner-all ui-button-text-icon-primary" role="button">
 				<span class="ui-button-icon-primary ui-icon ui-icon-pencil"></span>
+				
 				<span class="ui-button-text">&nbsp;Editar</span>
-			</a>
+			</a>		<?php  }if ($this->session->userdata('Eliminar') == 1){ ?>
 			<a onclick = "javascript: return delete_row('<?php echo base_url();?>admin/principis/delete/<?php echo $row->id_principi;?>', '0')" 
 				href="javascript:void(0)" class="delete_button ui-button ui-widget ui-state-default ui-corner-all ui-button-text-icon-primary" role="button">
 				<span class="ui-button-icon-primary ui-icon ui-icon-circle-minus"></span>
+		
 				<span class="ui-button-text">&nbsp;Borrar</span>
-			</a>
+			
+			</a>	<?php } ?>
 			</td>
 		</tr>
 	<?php }} ?>

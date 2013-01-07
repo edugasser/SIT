@@ -62,6 +62,9 @@ class panel extends CI_Controller {
 			redirect('auth/');
 		}
 	}
+	public function probar(){
+		$this->config->set_item('username', 'item_value');
+	}
 	public function evaluar()
 	{
 		if ($this->tank_auth->is_logged_in()) {	
