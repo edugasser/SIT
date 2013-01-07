@@ -604,7 +604,8 @@ $crud->unset_back_to_list();
 			$crud->set_subject('Projectes');
 			$crud->set_relation('proposta_id','proposta','titol'); 
 			$crud->set_relation('id_responsable','persones','nom_complet');
-				
+				$crud->set_relation('id_tipus_projecte','tipus_projecte','tipus'); 
+			$crud->display_as('id_tipus_projecte','Tipus projecte');
 			$crud->columns('titol','data_inici','data_entrega','id_responsable');
 			$crud->set_relation_n_n('Objectius_tactics', 'objectius_tactics_has_projecte','objectius_tactics','Projecte_id','Objectius_tactics_id','objectiu',null);
 			
