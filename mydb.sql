@@ -1,14 +1,13 @@
 -- phpMyAdmin SQL Dump
--- version 3.5.2.2
+-- version 3.2.4
 -- http://www.phpmyadmin.net
 --
--- Servidor: 127.0.0.1
--- Tiempo de generación: 31-12-2012 a las 18:37:33
--- Versión del servidor: 5.5.27
--- Versión de PHP: 5.4.7
+-- Servidor: localhost
+-- Tiempo de generación: 07-01-2013 a las 15:21:30
+-- Versión del servidor: 5.1.44
+-- Versión de PHP: 5.3.1
 
 SET SQL_MODE="NO_AUTO_VALUE_ON_ZERO";
-SET time_zone = "+00:00";
 
 
 /*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
@@ -36,11 +35,12 @@ CREATE TABLE IF NOT EXISTS `ci_sessions` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
 
 --
--- Volcado de datos para la tabla `ci_sessions`
+-- Volcar la base de datos para la tabla `ci_sessions`
 --
 
 INSERT INTO `ci_sessions` (`session_id`, `ip_address`, `user_agent`, `last_activity`, `user_data`) VALUES
-('de079b349b5481cfd52b859c6b52ffc4', '::1', 'Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.11 (KHTML, like Gecko) Chrome/23.0.1271.97 Safari/537.11', 1356975262, 0x613a31333a7b733a393a22757365725f64617461223b733a303a22223b733a31313a2275726c5f686973746f7279223b613a363a7b693a303b733a32333a2261646d696e2f757375617269732f737563636573732f32223b693a313b733a32303a2261646d696e2f757375617269732f656469742f32223b693a323b733a31333a2261646d696e2f75737561726973223b693a333b733a373a2275737561726973223b693a343b733a33313a2261646d696e2f70657266696c5f7065726d69736f732f737563636573732f31223b693a353b733a32383a2261646d696e2f70657266696c5f7065726d69736f732f656469742f31223b7d733a373a22757365725f6964223b733a313a2232223b733a383a22757365726e616d65223b733a353a2261646d696e223b733a363a2270657266696c223b733a313a2231223b733a353a22656d61696c223b733a31393a2265647567617373657240676d61696c2e636f6d223b733a363a22737461747573223b733a313a2231223b733a363a22456469746172223b693a313b733a383a22456c696d696e6172223b693a313b733a393a2250726f6a6563746573223b693a313b733a373a2255737561726973223b693a313b733a32313a225072696e63697069735f695f6f626a656374697573223b693a313b733a373a22536573696f6e73223b693a313b7d);
+('4b5ce5bf0775a396efa0cbf9e7569601', '::1', 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_8_2) AppleWebKit/536.26.17 (KHTML, like Gecko) Version/6.0.2 Safari/536.26.17', 1357572081, 0x613a31333a7b733a393a22757365725f64617461223b733a303a22223b733a31313a2275726c5f686973746f7279223b613a363a7b693a303b733a303a22223b693a313b733a31363a2270726f796563746f2f63686172742f32223b693a323b733a31363a2270616e656c2f656e6375657374612f32223b693a333b733a32323a2270726f796563746f2f656e637565737461735f6d696f223b693a343b733a31363a2270726f796563746f2f63686172742f32223b693a353b733a31363a2270616e656c2f656e6375657374612f32223b7d733a373a22757365725f6964223b733a313a2232223b733a383a22757365726e616d65223b733a353a2261646d696e223b733a363a2270657266696c223b733a313a2231223b733a353a22656d61696c223b733a31393a2265647567617373657240676d61696c2e636f6d223b733a363a22737461747573223b733a313a2231223b733a363a22456469746172223b693a313b733a383a22456c696d696e6172223b693a313b733a393a2250726f6a6563746573223b693a313b733a373a2255737561726973223b693a313b733a32313a225072696e63697069735f695f6f626a656374697573223b693a313b733a373a22536573696f6e73223b693a313b7d),
+('558e04f042e50313949fa141e62aad60', '::1', 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_8_2) AppleWebKit/537.11 (KHTML, like Gecko) Chrome/23.0.1271.101 Safari/537.11', 1357570770, 0x613a31333a7b733a393a22757365725f64617461223b733a303a22223b733a31313a2275726c5f686973746f7279223b613a353a7b693a303b733a31363a2270616e656c2f656e6375657374612f32223b693a313b733a32323a2270726f796563746f2f656e637565737461735f6d696f223b693a323b733a31383a2270726f796563746f2f656e63756573746173223b693a333b733a353a2270616e656c223b693a343b733a31303a22617574682f6c6f67696e223b7d733a373a22757365725f6964223b733a313a2232223b733a383a22757365726e616d65223b733a353a2261646d696e223b733a363a2270657266696c223b733a313a2231223b733a353a22656d61696c223b733a31393a2265647567617373657240676d61696c2e636f6d223b733a363a22737461747573223b733a313a2231223b733a363a22456469746172223b693a313b733a383a22456c696d696e6172223b693a313b733a393a2250726f6a6563746573223b693a313b733a373a2255737561726973223b693a313b733a32313a225072696e63697069735f695f6f626a656374697573223b693a313b733a373a22536573696f6e73223b693a313b7d);
 
 -- --------------------------------------------------------
 
@@ -59,7 +59,7 @@ CREATE TABLE IF NOT EXISTS `decision` (
 ) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=6 ;
 
 --
--- Volcado de datos para la tabla `decision`
+-- Volcar la base de datos para la tabla `decision`
 --
 
 INSERT INTO `decision` (`id_decision`, `descripcion`, `data`, `alineado`, `id_reunion`) VALUES
@@ -82,7 +82,7 @@ CREATE TABLE IF NOT EXISTS `encuesta` (
 ) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=3 ;
 
 --
--- Volcado de datos para la tabla `encuesta`
+-- Volcar la base de datos para la tabla `encuesta`
 --
 
 INSERT INTO `encuesta` (`id_encuensta`, `pregunta`, `data`, `id_projecte`) VALUES
@@ -101,10 +101,10 @@ CREATE TABLE IF NOT EXISTS `encuesta_resultado` (
   `id_encuesta_resultado` int(2) NOT NULL AUTO_INCREMENT,
   PRIMARY KEY (`id_encuesta_resultado`),
   KEY `id_encuesta` (`id_encuesta`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=10 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=14 ;
 
 --
--- Volcado de datos para la tabla `encuesta_resultado`
+-- Volcar la base de datos para la tabla `encuesta_resultado`
 --
 
 INSERT INTO `encuesta_resultado` (`id_encuesta`, `resultado`, `id_encuesta_resultado`) VALUES
@@ -116,7 +116,11 @@ INSERT INTO `encuesta_resultado` (`id_encuesta`, `resultado`, `id_encuesta_resul
 (2, 7, 6),
 (2, 4, 7),
 (2, 5, 8),
-(2, 3, 9);
+(2, 3, 9),
+(2, 8, 10),
+(2, 4, 11),
+(2, 5, 12),
+(2, 6, 13);
 
 -- --------------------------------------------------------
 
@@ -131,7 +135,7 @@ CREATE TABLE IF NOT EXISTS `estat` (
 ) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=5 ;
 
 --
--- Volcado de datos para la tabla `estat`
+-- Volcar la base de datos para la tabla `estat`
 --
 
 INSERT INTO `estat` (`id_estat`, `estat`) VALUES
@@ -152,7 +156,7 @@ CREATE TABLE IF NOT EXISTS `estructures` (
 ) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=7 ;
 
 --
--- Volcado de datos para la tabla `estructures`
+-- Volcar la base de datos para la tabla `estructures`
 --
 
 INSERT INTO `estructures` (`id`, `dept`) VALUES
@@ -181,7 +185,7 @@ CREATE TABLE IF NOT EXISTS `incidencia` (
 ) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=8 ;
 
 --
--- Volcado de datos para la tabla `incidencia`
+-- Volcar la base de datos para la tabla `incidencia`
 --
 
 INSERT INTO `incidencia` (`id_incidencia`, `incidencia`, `descripcion`, `data`, `estat`, `prioritat`, `solucion`, `id_servei`) VALUES
@@ -207,6 +211,11 @@ CREATE TABLE IF NOT EXISTS `login_attempts` (
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin AUTO_INCREMENT=1 ;
 
+--
+-- Volcar la base de datos para la tabla `login_attempts`
+--
+
+
 -- --------------------------------------------------------
 
 --
@@ -222,7 +231,7 @@ CREATE TABLE IF NOT EXISTS `objectius_estrategics` (
 ) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=7 ;
 
 --
--- Volcado de datos para la tabla `objectius_estrategics`
+-- Volcar la base de datos para la tabla `objectius_estrategics`
 --
 
 INSERT INTO `objectius_estrategics` (`id`, `objectiu`, `data_objectiu`, `descripcio`) VALUES
@@ -248,7 +257,7 @@ CREATE TABLE IF NOT EXISTS `objectius_tactics` (
 ) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=16 ;
 
 --
--- Volcado de datos para la tabla `objectius_tactics`
+-- Volcar la base de datos para la tabla `objectius_tactics`
 --
 
 INSERT INTO `objectius_tactics` (`id`, `objectiu`, `descripcio`, `fecha`, `Objectius_estrategics_id`) VALUES
@@ -275,7 +284,7 @@ CREATE TABLE IF NOT EXISTS `objectius_tactics_has_projecte` (
 ) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=81 ;
 
 --
--- Volcado de datos para la tabla `objectius_tactics_has_projecte`
+-- Volcar la base de datos para la tabla `objectius_tactics_has_projecte`
 --
 
 INSERT INTO `objectius_tactics_has_projecte` (`Objectius_tactics_id`, `id_ot`, `Projecte_id`) VALUES
@@ -308,7 +317,7 @@ CREATE TABLE IF NOT EXISTS `operacio` (
 ) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=18 ;
 
 --
--- Volcado de datos para la tabla `operacio`
+-- Volcar la base de datos para la tabla `operacio`
 --
 
 INSERT INTO `operacio` (`id`, `nom`, `data_inici`, `data_final`, `estat`, `Projecte_id`) VALUES
@@ -333,7 +342,7 @@ CREATE TABLE IF NOT EXISTS `perfil` (
 ) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=7 ;
 
 --
--- Volcado de datos para la tabla `perfil`
+-- Volcar la base de datos para la tabla `perfil`
 --
 
 INSERT INTO `perfil` (`id_perfil`, `nombre_perfil`) VALUES
@@ -356,7 +365,7 @@ CREATE TABLE IF NOT EXISTS `perfil_permisos` (
 ) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=25 ;
 
 --
--- Volcado de datos para la tabla `perfil_permisos`
+-- Volcar la base de datos para la tabla `perfil_permisos`
 --
 
 INSERT INTO `perfil_permisos` (`id_perfil_permisos`, `id_permiso`, `id_perfil`) VALUES
@@ -391,7 +400,7 @@ CREATE TABLE IF NOT EXISTS `permiso` (
 ) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=14 ;
 
 --
--- Volcado de datos para la tabla `permiso`
+-- Volcar la base de datos para la tabla `permiso`
 --
 
 INSERT INTO `permiso` (`id_permiso`, `nombre_permiso`, `url`) VALUES
@@ -420,7 +429,7 @@ CREATE TABLE IF NOT EXISTS `persona_projecte` (
 ) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=6 ;
 
 --
--- Volcado de datos para la tabla `persona_projecte`
+-- Volcar la base de datos para la tabla `persona_projecte`
 --
 
 INSERT INTO `persona_projecte` (`id_persona_projecte`, `id_persona`, `id_projecte`, `data`) VALUES
@@ -447,7 +456,7 @@ CREATE TABLE IF NOT EXISTS `persones` (
 ) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=7 ;
 
 --
--- Volcado de datos para la tabla `persones`
+-- Volcar la base de datos para la tabla `persones`
 --
 
 INSERT INTO `persones` (`id_persona`, `nom_complet`, `email`, `estructures_id`) VALUES
@@ -473,7 +482,7 @@ CREATE TABLE IF NOT EXISTS `principi` (
 ) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=3 ;
 
 --
--- Volcado de datos para la tabla `principi`
+-- Volcar la base de datos para la tabla `principi`
 --
 
 INSERT INTO `principi` (`id_principi`, `titol`, `descripcio`, `data`) VALUES
@@ -497,7 +506,7 @@ CREATE TABLE IF NOT EXISTS `principi_oestrategics` (
 ) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=8 ;
 
 --
--- Volcado de datos para la tabla `principi_oestrategics`
+-- Volcar la base de datos para la tabla `principi_oestrategics`
 --
 
 INSERT INTO `principi_oestrategics` (`id_po`, `id_principi`, `id_objectius_estrategics`) VALUES
@@ -515,6 +524,7 @@ INSERT INTO `principi_oestrategics` (`id_po`, `id_principi`, `id_objectius_estra
 CREATE TABLE IF NOT EXISTS `projecte` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `titol` varchar(100) NOT NULL,
+  `id_tipus_projecte` int(2) NOT NULL,
   `descripcio` text NOT NULL,
   `data_inici` date DEFAULT NULL,
   `pressupost_inicial` varchar(45) DEFAULT NULL,
@@ -528,18 +538,19 @@ CREATE TABLE IF NOT EXISTS `projecte` (
   `monotoritzacio_qualitat` int(1) NOT NULL DEFAULT '1',
   PRIMARY KEY (`id`),
   KEY `fk_Projecte_Proposta_idx` (`Proposta_id`),
-  KEY `id_responsable` (`id_responsable`)
+  KEY `id_responsable` (`id_responsable`),
+  KEY `id_tipus_projecte` (`id_tipus_projecte`)
 ) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=29 ;
 
 --
--- Volcado de datos para la tabla `projecte`
+-- Volcar la base de datos para la tabla `projecte`
 --
 
-INSERT INTO `projecte` (`id`, `titol`, `descripcio`, `data_inici`, `pressupost_inicial`, `pressupost_final`, `data_entrega`, `Proposta_id`, `id_responsable`, `prioritat`, `monotoritzacio_temps`, `monotoritzacio_recursos`, `monotoritzacio_qualitat`) VALUES
-(25, 'Tutoria / Soporte remoto', 'El soporte remoto ¡es una solución ideal para el personal de IT que busca asistir a sus clientes remotamente y a la vez ahorrar tiempo y dinero.', '2012-12-01', '1000', '1000', '2012-12-31', 14, 3, 'Mitja', 3, 3, 2),
-(26, 'Arquitectura Moodle', 'Renovar la arquitectura Moodle.', '2012-12-13', '3000', '3000', '2012-12-16', 14, 3, 'Baixa', 2, 3, 1),
-(27, 'Control de acceso', 'Sistemas para control de acceso con lector de huella digital, clave y tarjeta inteligente', '2012-12-01', '2050', '2050', '2013-01-01', 14, 1, 'Alta', 3, 1, 1),
-(28, 'Soporte chat para la administración', 'Que el personal de administración disponga de un chat para realizar las consultas con los alumnos/profesores.', '2012-12-19', '50000', '50000', '2013-01-09', 14, 1, 'Mitja', 3, 3, 2);
+INSERT INTO `projecte` (`id`, `titol`, `id_tipus_projecte`, `descripcio`, `data_inici`, `pressupost_inicial`, `pressupost_final`, `data_entrega`, `Proposta_id`, `id_responsable`, `prioritat`, `monotoritzacio_temps`, `monotoritzacio_recursos`, `monotoritzacio_qualitat`) VALUES
+(25, 'Tutoria / Soporte remoto', 1, 'El soporte remoto ¡es una solución ideal para el personal de IT que busca asistir a sus clientes remotamente y a la vez ahorrar tiempo y dinero.', '2012-12-01', '1000', '1000', '2012-12-31', 14, 3, 'Mitja', 3, 3, 2),
+(26, 'Arquitectura Moodle', 1, 'Renovar la arquitectura Moodle.', '2012-12-13', '3000', '3000', '2012-12-16', 14, 3, 'Baixa', 2, 3, 1),
+(27, 'Control de acceso', 1, 'Sistemas para control de acceso con lector de huella digital, clave y tarjeta inteligente', '2012-12-01', '2050', '2050', '2013-01-01', 14, 1, 'Alta', 3, 1, 1),
+(28, 'Soporte chat para la administración', 1, 'Que el personal de administración disponga de un chat para realizar las consultas con los alumnos/profesores.', '2012-12-19', '50000', '50000', '2013-01-09', 14, 1, 'Mitja', 3, 3, 2);
 
 -- --------------------------------------------------------
 
@@ -562,7 +573,7 @@ CREATE TABLE IF NOT EXISTS `proposta` (
 ) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=17 ;
 
 --
--- Volcado de datos para la tabla `proposta`
+-- Volcar la base de datos para la tabla `proposta`
 --
 
 INSERT INTO `proposta` (`id`, `titol`, `descripcio`, `riscs`, `data`, `tipus_projecte_id`, `estat_projecte`, `decisio`) VALUES
@@ -585,7 +596,7 @@ CREATE TABLE IF NOT EXISTS `reunion` (
 ) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=4 ;
 
 --
--- Volcado de datos para la tabla `reunion`
+-- Volcar la base de datos para la tabla `reunion`
 --
 
 INSERT INTO `reunion` (`titol`, `id_reunion`, `descripcion`, `data`) VALUES
@@ -610,7 +621,7 @@ CREATE TABLE IF NOT EXISTS `reunion_estructura` (
 ) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=4 ;
 
 --
--- Volcado de datos para la tabla `reunion_estructura`
+-- Volcar la base de datos para la tabla `reunion_estructura`
 --
 
 INSERT INTO `reunion_estructura` (`id_reunion_estructura`, `id_reunion`, `id_estructura`) VALUES
@@ -629,6 +640,11 @@ CREATE TABLE IF NOT EXISTS `seguiment_projecte` (
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
+--
+-- Volcar la base de datos para la tabla `seguiment_projecte`
+--
+
+
 -- --------------------------------------------------------
 
 --
@@ -644,7 +660,7 @@ CREATE TABLE IF NOT EXISTS `servicis` (
 ) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=3 ;
 
 --
--- Volcado de datos para la tabla `servicis`
+-- Volcar la base de datos para la tabla `servicis`
 --
 
 INSERT INTO `servicis` (`id_servici`, `nom_servei`, `descripcio_servei`, `data_servei`) VALUES
@@ -664,7 +680,7 @@ CREATE TABLE IF NOT EXISTS `tipus_projecte` (
 ) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=2 ;
 
 --
--- Volcado de datos para la tabla `tipus_projecte`
+-- Volcar la base de datos para la tabla `tipus_projecte`
 --
 
 INSERT INTO `tipus_projecte` (`id`, `tipus`) VALUES
@@ -698,12 +714,12 @@ CREATE TABLE IF NOT EXISTS `users` (
 ) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_bin AUTO_INCREMENT=4 ;
 
 --
--- Volcado de datos para la tabla `users`
+-- Volcar la base de datos para la tabla `users`
 --
 
 INSERT INTO `users` (`id`, `username`, `password`, `email`, `activated`, `banned`, `ban_reason`, `new_password_key`, `new_password_requested`, `new_email`, `new_email_key`, `last_ip`, `last_login`, `created`, `modified`, `perfil`) VALUES
-(2, 'admin', '$2a$08$Fc8ch.9YrFlD7TvlDa8u/ejOERQRjRrpxsNEgTZMponx/I6x3vW3e', 'edugasser@gmail.com', 1, 0, NULL, NULL, NULL, NULL, NULL, '::1', '2012-12-31 18:34:25', '2012-12-10 18:00:57', '2012-12-31 17:34:25', 1),
-(3, 'becari', '$2a$08$aAZJL9JEaC9smBzHHWSwqeK.LXYZ6x3AM9tBsnVPXKEEx34rKVI8q', 'becari@gmail.com', 1, 0, NULL, NULL, NULL, NULL, NULL, '::1', '2012-12-17 13:28:23', '2012-12-17 13:13:44', '2012-12-17 13:28:23', 6);
+(2, 'admin', '$2a$08$Fc8ch.9YrFlD7TvlDa8u/ejOERQRjRrpxsNEgTZMponx/I6x3vW3e', 'edugasser@gmail.com', 1, 0, NULL, NULL, NULL, NULL, NULL, '::1', '2013-01-07 15:59:33', '2012-12-10 18:00:57', '2013-01-07 15:59:33', 1),
+(3, 'becari', '$2a$08$aAZJL9JEaC9smBzHHWSwqeK.LXYZ6x3AM9tBsnVPXKEEx34rKVI8q', 'becari@gmail.com', 1, 0, NULL, NULL, NULL, NULL, NULL, '::1', '2012-12-17 13:28:23', '2012-12-17 13:13:44', '2012-12-17 14:28:23', 6);
 
 -- --------------------------------------------------------
 
@@ -720,6 +736,11 @@ CREATE TABLE IF NOT EXISTS `user_autologin` (
   PRIMARY KEY (`key_id`,`user_id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
 
+--
+-- Volcar la base de datos para la tabla `user_autologin`
+--
+
+
 -- --------------------------------------------------------
 
 --
@@ -735,7 +756,7 @@ CREATE TABLE IF NOT EXISTS `user_profiles` (
 ) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_bin AUTO_INCREMENT=3 ;
 
 --
--- Volcado de datos para la tabla `user_profiles`
+-- Volcar la base de datos para la tabla `user_profiles`
 --
 
 INSERT INTO `user_profiles` (`id`, `user_id`, `country`, `website`) VALUES
@@ -743,7 +764,7 @@ INSERT INTO `user_profiles` (`id`, `user_id`, `country`, `website`) VALUES
 (2, 4, NULL, NULL);
 
 --
--- Restricciones para tablas volcadas
+-- Filtros para las tablas descargadas (dump)
 --
 
 --
@@ -804,6 +825,12 @@ ALTER TABLE `principi_oestrategics`
   ADD CONSTRAINT `principi_oestrategics_ibfk_3` FOREIGN KEY (`id_objectius_estrategics`) REFERENCES `objectius_estrategics` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION;
 
 --
+-- Filtros para la tabla `projecte`
+--
+ALTER TABLE `projecte`
+  ADD CONSTRAINT `projecte_ibfk_1` FOREIGN KEY (`id_tipus_projecte`) REFERENCES `tipus_projecte` (`id`);
+
+--
 -- Filtros para la tabla `proposta`
 --
 ALTER TABLE `proposta`
@@ -815,7 +842,3 @@ ALTER TABLE `proposta`
 ALTER TABLE `reunion_estructura`
   ADD CONSTRAINT `reunion_estructura_ibfk_1` FOREIGN KEY (`id_reunion`) REFERENCES `reunion` (`id_reunion`),
   ADD CONSTRAINT `reunion_estructura_ibfk_2` FOREIGN KEY (`id_estructura`) REFERENCES `estructures` (`id`);
-
-/*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
-/*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
-/*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
