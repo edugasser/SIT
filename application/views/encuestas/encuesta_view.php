@@ -38,7 +38,7 @@ var ajax_relation_url = '<?php echo base_url();?>admin/encuesta/ajax_relation';
 <div class='ui-widget-content ui-corner-all datatables'>
 	<h3 class="ui-accordion-header ui-helper-reset ui-state-default form-title">
 		<div class='floatL form-title-left'>
-			<a href="#">Agregar Enquesta</a>
+			<a href="#">Afegir Enquesta</a>
 		</div>	
 		<div class='clear'></div>
 	</h3>
