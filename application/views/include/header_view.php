@@ -9,9 +9,9 @@
 
 
 <div class="chatsearch">   
-<input   value="Buscador de proyectos" 
-onfocus="if (this.value == 'Buscador de proyectos') this.value = '';" onblur="if (this.value == '')
-this.value = 'Buscador de proyectos';" name="proyectos-q" id="proyectos-q" type="text" 
+<input   value="Cercador de projectes" 
+onfocus="if (this.value == 'Cercador de projectes') this.value = '';" onblur="if (this.value == '')
+this.value = 'Cercador de projectes';" name="proyectos-q" id="proyectos-q" type="text" 
 style="width: 200px" onkeyup="javascript:autosuggest('proyectos','buscador','buscador')"/>
 <div class="autosuggest"  id="proyectos"></div> 
 </div><!--search-->

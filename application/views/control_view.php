@@ -143,8 +143,8 @@
 							 $porcentaje = (($quedan*100)/$total);
 							
 							?>
-							<?php echo  date('d-m-Y', strtotime($inici));?>
-							<p style="margin-top:-18px;"align="right"><?php echo  date('d-m-Y', strtotime($entrega));?></p>
+							<?php echo  date('d-m-Y', strtotime($entrega));?>
+							<p style="margin-top:-18px;"align="right"><?php echo  date('d-m-Y', strtotime($inici));?></p>
 							<?php if ($quedan != 0){ ?>
 								<div class="bar2"><div class="value bluebar" style="width: <?php echo $porcentaje;?>%;">Temps (<?php echo $quedan;?> dies)</div></div>
 							<?php }else{ ?>
