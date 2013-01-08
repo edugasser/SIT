@@ -69,9 +69,11 @@
 							die('Connect Error (' . mysqli_connect_errno() . ') '
 									. mysqli_connect_error());
 						}
-						 
-						 
-						$file ="mydb.sql";
+						 $file ="mydb.sql";
+						if ($_POST['tipo'] == 'sin'){
+							$file ="mydb_truncate.sql";
+						}
+						
 						 
 						 
 						$sql = file_get_contents($file);
