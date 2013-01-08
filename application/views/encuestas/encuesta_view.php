@@ -49,9 +49,11 @@ var ajax_relation_url = '<?php echo base_url();?>admin/encuesta/ajax_relation';
 						<div class='form-field-box odd' id="id_encuesta_field_box">
 				<div class='form-display-as-box' id="id_encuesta_display_as_box">
 					Id encuesta :
-				</div>
-				<div class='form-input-box' id="id_encuesta_input_box">
-					<select id='field-id_encuesta'  name='id_encuesta' class='chosen-select' data-placeholder='Select Id encuesta' style='width:300px'><option value=''></option><option value='2'  >¿Cree que el proyecto cumple con los requerimientos iniciales?</option><option value='1'  >¿Está conforme con los resultados del proyecto?</option></select>				</div>
+				</div><?php foreach($data as $row){ ?>
+<div class='form-input-box' id="id_encuesta_input_box">
+				<input type="hidden"   name='id_encuesta' id="id_encuesta" value="<?php echo $row->id_encuensta;?>">				
+					</div>
+					<label> <?php echo $row->pregunta;}?></label>
 				<div class='clear'></div>	
 			</div>
 						<div class='form-field-box even' id="resultado_field_box">

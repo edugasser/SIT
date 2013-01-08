@@ -59,8 +59,8 @@ class Admin extends CI_Controller {
 			$crud->set_subject('Enquesta');
 			$crud->set_relation('id_encuesta','encuesta','pregunta');
 				$crud->unset_back_to_list();
-			$crud->field_type('resultado','dropdown',
-            array('1' => '1','2' => '2', '3' => '3','4' => '4','5' => '5','6' => '6','7' => '7','8' => '8','9' => '9','10' => '10'));
+			//$crud->field_type('resultado','dropdown',
+           // array('1' => '1','2' => '2', '3' => '3','4' => '4','5' => '5','6' => '6','7' => '7','8' => '8','9' => '9','10' => '10'));
 			$output = $crud->render();
 			$this->_example_output($output);
 			
@@ -98,7 +98,7 @@ class Admin extends CI_Controller {
 			$crud->set_subject('Permisos');	 
 			//$crud->set_relation('id_perfil','perfil','nombre_perfil'); 
 			//$crud->set_relation('id_permiso','permiso','nombre_permiso'); 
-			$crud->set_relation_n_n('usuarios','perfil_permisos','permiso','id_perfil','id_permiso','nombre_permiso',null);
+			$crud->set_relation_n_n('permisos','perfil_permisos','permiso','id_perfil','id_permiso','nombre_permiso',null);
     
 	 //GESTION PERMISOS
 			if (($this->session->userdata('Editar'))!= 1){
