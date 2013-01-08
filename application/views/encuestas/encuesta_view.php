@@ -2,15 +2,15 @@
 <html>
 <head>
 	<meta charset="utf-8" />
-	<link type="text/css" rel="stylesheet" href="http://localhost/igovern/assets/grocery_crud/css/jquery_plugins/chosen/chosen.css" />
-	<link type="text/css" rel="stylesheet" href="http://localhost/igovern/assets/grocery_crud/themes/datatables/css/datatables.css" />
-	<link type="text/css" rel="stylesheet" href="http://localhost/igovern/assets/grocery_crud/css/ui/simple/jquery-ui-1.9.0.custom.min.css" />
-	<script src="http://localhost/igovern/assets/grocery_crud/js/jquery-1.8.2.min.js"></script>
-	<script src="http://localhost/igovern/assets/grocery_crud/js/jquery_plugins/jquery.chosen.min.js"></script>
-	<script src="http://localhost/igovern/assets/grocery_crud/js/jquery_plugins/config/jquery.chosen.config.js"></script>
-	<script src="http://localhost/igovern/assets/grocery_crud/themes/flexigrid/js/jquery.form.js"></script>
-	<script src="http://localhost/igovern/assets/grocery_crud/themes/datatables/js/datatables-add.js"></script>
-	<script src="http://localhost/igovern/assets/grocery_crud/js/jquery_plugins/ui/jquery-ui-1.9.0.custom.min.js"></script>
+	<link type="text/css" rel="stylesheet" href="<?php echo base_url();?>assets/grocery_crud/css/jquery_plugins/chosen/chosen.css" />
+	<link type="text/css" rel="stylesheet" href="<?php echo base_url();?>assets/grocery_crud/themes/datatables/css/datatables.css" />
+	<link type="text/css" rel="stylesheet" href="<?php echo base_url();?>assets/grocery_crud/css/ui/simple/jquery-ui-1.9.0.custom.min.css" />
+	<script src="<?php echo base_url();?>assets/grocery_crud/js/jquery-1.8.2.min.js"></script>
+	<script src="<?php echo base_url();?>assets/grocery_crud/js/jquery_plugins/jquery.chosen.min.js"></script>
+	<script src="<?php echo base_url();?>assets/grocery_crud/js/jquery_plugins/config/jquery.chosen.config.js"></script>
+	<script src="<?php echo base_url();?>assets/grocery_crud/themes/flexigrid/js/jquery.form.js"></script>
+	<script src="<?php echo base_url();?>assets/grocery_crud/themes/datatables/js/datatables-add.js"></script>
+	<script src="<?php echo base_url();?>assets/grocery_crud/js/jquery_plugins/ui/jquery-ui-1.9.0.custom.min.js"></script>
 <style type='text/css'>
 body
 {
@@ -32,7 +32,7 @@ a:hover
  
     <div>
 		<script type="text/javascript">
-var ajax_relation_url = 'http://localhost/igovern/admin/encuesta/ajax_relation';
+var ajax_relation_url = '<?php echo base_url();?>admin/encuesta/ajax_relation';
 
 </script>
 <div class='ui-widget-content ui-corner-all datatables'>
@@ -43,7 +43,7 @@ var ajax_relation_url = 'http://localhost/igovern/admin/encuesta/ajax_relation';
 		<div class='clear'></div>
 	</h3>
 <div class='form-content form-div'>
-	<form action="http://localhost/igovern/admin/encuesta/insert" method="post" id="crudForm" autocomplete="off" enctype="multipart/form-data" accept-charset="utf8"><div style="display:none">
+	<form action="<?php echo base_url();?>admin/encuesta/insert" method="post" id="crudForm" autocomplete="off" enctype="multipart/form-data" accept-charset="utf8"><div style="display:none">
 <input type="hidden" name="csrf_test_name" value="ced342770a2f4e36951b58297b4f36c3" />
 </div>		<div>
 						<div class='form-field-box odd' id="id_encuesta_field_box">
@@ -81,8 +81,8 @@ var ajax_relation_url = 'http://localhost/igovern/admin/encuesta/ajax_relation';
 	</form></div>
 </div>
 <script>
-	var validation_url = 'http://localhost/igovern/admin/encuesta/insert_validation';
-	var list_url = 'http://localhost/igovern/admin/encuesta';
+	var validation_url = '<?php echo base_url();?>admin/encuesta/insert_validation';
+	var list_url = '<?php echo base_url();?>admin/encuesta';
 
 	var message_alert_add_form = "Los datos que insertaste no pueden ser guardados.\nEstas seguro que quieres regresar a la lista?";
 	var message_insert_error = "Ocurrio un error durante la insercion.";	
@@ -90,11 +90,11 @@ var ajax_relation_url = 'http://localhost/igovern/admin/encuesta/ajax_relation';
 var js_date_format = 'dd/mm/yy';
 </script>
 <script type="text/javascript">
-	var default_javascript_path = 'http://localhost/igovern/assets/grocery_crud/js';
-	var default_css_path = 'http://localhost/igovern/assets/grocery_crud/css';
-	var default_texteditor_path = 'http://localhost/igovern/assets/grocery_crud/texteditor';
-	var default_theme_path = 'http://localhost/igovern/assets/grocery_crud/themes';
-	var base_url = 'http://localhost/igovern/';
+	var default_javascript_path = '<?php echo base_url();?>assets/grocery_crud/js';
+	var default_css_path = '<?php echo base_url();?>assets/grocery_crud/css';
+	var default_texteditor_path = '<?php echo base_url();?>assets/grocery_crud/texteditor';
+	var default_theme_path = '<?php echo base_url();?>assets/grocery_crud/themes';
+	var base_url = '<?php echo base_url();?>';
 
 </script>
     </div>
