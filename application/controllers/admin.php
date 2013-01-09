@@ -423,8 +423,9 @@ $crud->unset_back_to_list();
 			$crud->set_subject('Propostes');
 			$crud->set_relation('tipus_projecte_id','tipus_projecte','tipus'); 
 			$crud->set_relation('estat_projecte','estat','estat');
-			$crud->columns('titol','tipus_projecte_id','data','estat_projecte');
-			$crud->edit_fields('titol','tipus_projecte_id','data');
+			$crud->set_relation('id_responsable','persones','nom_complet');
+			$crud->columns('titol','tipus_projecte_id','data','estat_projecte','id_responsable');
+			$crud->edit_fields('titol','tipus_projecte_id','data','id_responsable','presupost');
 $crud->unset_back_to_list();
 			//GESTION PERMISOS
 			if (($this->session->userdata('Editar')) != 1){
