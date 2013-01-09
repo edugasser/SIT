@@ -114,7 +114,7 @@
 						<?php foreach ($proyectos as $row){ ?>
 							<li>
 							<div class="info">
-								<a href="#"><?php echo $row->titol;?><a>  
+								<a href="<?php echo base_url();?>proyecto/gestion/<?php echo $row->id;?>"><?php echo $row->titol;?><a>  
 							</div><!--info-->
 							<div class="progress">
 								<?php 
