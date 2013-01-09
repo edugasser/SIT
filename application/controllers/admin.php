@@ -395,7 +395,7 @@ class Admin extends CI_Controller {
 			$crud->set_relation('estat_projecte','estat','estat');
 			$crud->columns('titol','estat','decisio');
 			$crud->edit_fields('decisio');
-$crud->unset_back_to_list();
+			$crud->unset_back_to_list();
 			//GESTION PERMISOS
 			if (($this->session->userdata('Editar')) != 1){
 				$crud->unset_edit(); 
@@ -435,6 +435,7 @@ $crud->unset_back_to_list();
 			$crud->display_as('estat_projecte','Estat');
 			$crud->display_as('id_responsable','Responsable');
 			$crud->display_as('presupost','Pressupost');
+			$crud->where('estat_projecte','2');
 			$crud->unset_back_to_list();
 			//GESTION PERMISOS
 			if (($this->session->userdata('Editar')) != 1){
