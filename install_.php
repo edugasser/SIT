@@ -30,7 +30,7 @@
 <body class="loginpage">
 
 	<div class="loginbox">
-    	<div class="loginboxinner">
+    	<div class="loginboxinner-install">
         	
             <div class="logo">
             	<h1><img width="200"src="assets/images/logo.png"></h1>
@@ -91,7 +91,7 @@
 						$mostrar = false;
 						
 						?>
-							<p style="font-size:13pt;color:red">Elimine el arxiu "install.php"</p><br>
+							<p style="font-size:13pt;color:yellow">Elimine el arxiu "install.php"</p><br>
 				<a style="font-size:13pt;color:white" href="http://localhost/igovern">Ir a l'aplicació</a>
 			
 						

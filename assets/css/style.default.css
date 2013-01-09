@@ -182,6 +182,10 @@ div.autosuggest ul li a:hover
 	padding: 20px; background: #32415a url(../images/patternbg.png); -moz-border-radius: 0 2px 2px 0; 
 	-webkit-border-radius: 0 0 2px 2px; border-radius: 0 0 2px 2px;
 }
+.loginboxinner-install { 
+	padding: 20px; background: #007c46 url(../images/patternbg.png); -moz-border-radius: 0 2px 2px 0; 
+	-webkit-border-radius: 0 0 2px 2px; border-radius: 0 0 2px 2px;
+}
 .loginbox .logo { text-align: center; }
 .loginbox .logo h1 { 
 	font-family: 'RobotoCondensed', Arial, Helvetica, sans-serif; font-size: 32px; color: #fff; border-bottom: 1px solid #56647d; 
