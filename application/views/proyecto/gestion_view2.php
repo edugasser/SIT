@@ -198,22 +198,7 @@ a:hover
 			</tr>
 		 <?php }} ?>
 	</tbody>
-						<tfoot>
-							<tr>
-							<th><input type="text" name="projecte.titol" placeholder="Buscar Titol"  class="search_projecte.titol" /></th>
-							<th><input type="text" name="data_inici" placeholder="Buscar Data inici" class="search_data_inici" /></th>
-							<th><input type="text" name="data_entrega" placeholder="Buscar Data entrega" class="search_data_entrega" /></th>
-							<th><input type="text" name="s325ab8f0" placeholder="Buscar Estat projecte" class="search_s325ab8f0" /></th>
-							<th><input type="text" name="s017ef000" placeholder="Buscar Responsable" class="search_s017ef000" /></th>
-							<th colspan="6">
-								<a href="javascript:void(0)" role="button" class="clear-filtering ui-button ui-widget ui-state-default ui-corner-all ui-button-text-icon-primary floatR">
-									<span class="ui-button-icon-primary ui-icon ui-icon-arrowrefresh-1-e"></span>
-									<span class="ui-button-text">Limpiar filtrados</span>
-								</a>
-							</th>
-					</tr>
-					
-	</tfoot>
+						 
 </table><script type="text/javascript">
 	var default_javascript_path = '<?php echo base_url();?>/assets/grocery_crud/js';
 	var default_css_path = '<?php echo base_url();?>/assets/grocery_crud/css';

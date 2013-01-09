@@ -70,10 +70,10 @@ class proposta extends CI_Controller {
 	public function mio($afegir_persones=null){
 	 $data['afegir_persones']	=$afegir_persones;
 	 	if ($afegir_persones!=null){
-		 $sql2 = "SELECT *,proposta.id as id_proposta,DATE_FORMAT(data,'%Y-%m-%d') as data_proposta FROM proposta JOIN estat ON estat.id_estat = proposta.estat_projecte JOIN tipus_projecte ON tipus_projecte.id = proposta.tipus_projecte_id WHERE estat_projecte='1'";
+		 $sql2 = "SELECT *,proposta.id as id_proposta,DATE_FORMAT(data,'%d-%m-%Y') as data_proposta FROM proposta JOIN estat ON estat.id_estat = proposta.estat_projecte JOIN tipus_projecte ON tipus_projecte.id = proposta.tipus_projecte_id WHERE estat_projecte='1'";
 			
 	 	}else{
-		 	$sql2 = "SELECT *,proposta.id as id_proposta,DATE_FORMAT(data,'%Y-%m-%d') as data_proposta FROM proposta JOIN estat ON estat.id_estat = proposta.estat_projecte JOIN tipus_projecte ON tipus_projecte.id = proposta.tipus_projecte_id";
+		 	$sql2 = "SELECT *,proposta.id as id_proposta,DATE_FORMAT(data,'%d-%m-%Y') as data_proposta FROM proposta JOIN estat ON estat.id_estat = proposta.estat_projecte JOIN tipus_projecte ON tipus_projecte.id = proposta.tipus_projecte_id";
 		
 	 	}
 		$data['data'] = $this->mi_model->get_sql($sql2);	 
