@@ -116,8 +116,8 @@
                 </div>
                 
 
-				 <input type="radio" name="tipo" id="1" value="con" checked> <label  for="1" style="color:white;font-size:11pt"> Amb dades d'exemple</label><br>
-				 <input type="radio" name="tipo" id="2 " value="sin"> <label for="2"style="color:white;font-size:11pt"> Sense dades</label> 
+				 <input type="radio" name="tipo" id="con" value="con" checked> <label  for="con" style="color:white;font-size:11pt"> Amb dades d'exemple</label><br>
+				 <input type="radio" name="tipo" id="sin" value="sin"> <label for="sin"style="color:white;font-size:11pt"> Sense dades</label> 
 				 <br><br>
                 <button>Instal·lar</button>
                 

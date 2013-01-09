@@ -511,8 +511,10 @@ $crud->unset_back_to_list();
 			$crud->set_theme('datatables');
 			$crud->set_table('persones');
 			$crud->set_subject('Persones');
-			$crud->set_relation('estructures_id','estructures','dept'); 
+			//$crud->set_relation('estructures_id','estructures','dept'); 
 			$crud->set_relation_n_n('Projectes','persona_projecte', 'projecte','id_persona','id_projecte','titol',null);
+			$crud->set_relation_n_n('Estructures','persona_estructura', 'estructures','id_persona','id_estructura','dept',null);
+			
 			$crud->display_as('estructures_id','Personal de');
 			//GESTION PERMISOS
 			if (($this->session->userdata('Editar')) != 1){
@@ -604,7 +606,8 @@ $crud->unset_back_to_list();
 			$crud->set_subject('Projectes');
 			$crud->set_relation('proposta_id','proposta','titol'); 
 			$crud->set_relation('id_responsable','persones','nom_complet');
-				$crud->set_relation('id_tipus_projecte','tipus_projecte','tipus'); 
+			$crud->set_relation('id_tipus_projecte','tipus_projecte','tipus'); 
+			$crud->set_relation('Proposta_id','proposta','titol'); 
 			$crud->display_as('id_tipus_projecte','Tipus projecte');
 			$crud->columns('titol','data_inici','data_entrega','id_responsable');
 			$crud->set_relation_n_n('Objectius_tactics', 'objectius_tactics_has_projecte','objectius_tactics','Projecte_id','Objectius_tactics_id','objectiu',null);

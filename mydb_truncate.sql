@@ -275,7 +275,21 @@ CREATE TABLE `objectius_tactics_has_projecte` (
 --
 -- Dumping data for table `objectius_tactics_has_projecte`
 --
- 
+ DROP TABLE IF EXISTS `persona_estructura`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `persona_estructura` (
+  `id_persona_estructura` int(2) NOT NULL AUTO_INCREMENT,
+  `id_persona` int(2) NOT NULL,
+  `id_estructura` int(2) NOT NULL,
+  PRIMARY KEY (`id_persona_estructura`),
+  KEY `id_persona` (`id_persona`),
+  KEY `id_estructura` (`id_estructura`),
+  CONSTRAINT `persona_estructura_ibfk_1` FOREIGN KEY (`id_persona`) REFERENCES `persones` (`id_persona`),
+  CONSTRAINT `persona_estructura_ibfk_2` FOREIGN KEY (`id_estructura`) REFERENCES `estructures` (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=12 DEFAULT CHARSET=latin1;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
 --
 -- Table structure for table `operacio`
 --
@@ -410,10 +424,7 @@ CREATE TABLE `persones` (
   `id_persona` int(2) NOT NULL AUTO_INCREMENT,
   `nom_complet` varchar(100) DEFAULT NULL,
   `email` varchar(100) DEFAULT NULL,
-  `estructures_id` int(11) DEFAULT NULL,
-  PRIMARY KEY (`id_persona`),
-  KEY `fk_Persones_Departaments1_idx` (`estructures_id`),
-  KEY `fk_Persones_Departaments1` (`estructures_id`)
+  PRIMARY KEY (`id_persona`)
 ) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 

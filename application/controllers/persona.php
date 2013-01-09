@@ -54,8 +54,8 @@ class persona extends CI_Controller {
 		 
 			$sql4 = "SELECT *,
 			COUNT(id_persona) as total
-			FROM persones JOIN estructures ON  estructures.id = persones.estructures_id	
-			GROUP BY estructures_id ";
+			FROM persona_estructura JOIN estructures ON  estructures.id = persona_estructura.id_estructura	
+			GROUP BY id_estructura ";
 			$data['data'] = $this->mi_model->get_sql($sql4);
 			$this->load->view('chart_persones_view',$data);
 	 

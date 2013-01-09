@@ -48,7 +48,7 @@ CREATE TABLE `ci_sessions` (
 
 LOCK TABLES `ci_sessions` WRITE;
 /*!40000 ALTER TABLE `ci_sessions` DISABLE KEYS */;
-INSERT INTO `ci_sessions` VALUES ('81f6a9a037e6d7f17522e0fbc4f2c5bb','127.0.0.1','Mozilla/5.0 (Macintosh; Intel Mac OS X 10_8_2) AppleWebKit/536.26.17 (KHTML, like Gecko) Version/6.0.2 Safari/536.26.17',1357664216,'a:13:{s:9:\"user_data\";s:0:\"\";s:11:\"url_history\";a:6:{i:0;s:0:\"\";i:1;s:19:\"admin/incidencias/1\";i:2;s:11:\"serveis/mio\";i:3;s:15:\"serveis/gestion\";i:4;s:11:\"serveis/mio\";i:5;s:17:\"admin/serveis/add\";}s:7:\"user_id\";s:1:\"2\";s:8:\"username\";s:5:\"admin\";s:6:\"perfil\";s:1:\"1\";s:5:\"email\";s:19:\"edugasser@gmail.com\";s:6:\"status\";s:1:\"1\";s:6:\"Editar\";i:1;s:8:\"Eliminar\";i:1;s:9:\"Projectes\";i:1;s:7:\"Usuaris\";i:1;s:21:\"Principis_i_objectius\";i:1;s:7:\"Sesions\";i:1;}');
+INSERT INTO `ci_sessions` VALUES ('4ec296af551228b30c5b485ab955fd4b','fe80::1','Mozilla/5.0 (Macintosh; Intel Mac OS X 10_8_2) AppleWebKit/536.26.17 (KHTML, like Gecko) Version/6.0.2 Safari/536.26.17',1357719428,'a:13:{s:9:\"user_data\";s:0:\"\";s:11:\"url_history\";a:6:{i:0;s:13:\"persona/chart\";i:1;s:14:\"admin/persones\";i:2;s:13:\"persona/chart\";i:3;s:14:\"admin/persones\";i:4;s:21:\"admin/persones/edit/2\";i:5;s:13:\"persona/chart\";}s:7:\"user_id\";s:1:\"2\";s:8:\"username\";s:5:\"admin\";s:6:\"perfil\";s:1:\"1\";s:5:\"email\";s:19:\"edugasser@gmail.com\";s:6:\"status\";s:1:\"1\";s:6:\"Editar\";i:1;s:8:\"Eliminar\";i:1;s:9:\"Projectes\";i:1;s:7:\"Usuaris\";i:1;s:21:\"Principis_i_objectius\";i:1;s:7:\"Sesions\";i:1;}');
 /*!40000 ALTER TABLE `ci_sessions` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -437,6 +437,35 @@ INSERT INTO `permiso` VALUES (1,'Editar',''),(2,'Eliminar',''),(3,'Projectes',''
 UNLOCK TABLES;
 
 --
+-- Table structure for table `persona_estructura`
+--
+
+DROP TABLE IF EXISTS `persona_estructura`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `persona_estructura` (
+  `id_persona_estructura` int(2) NOT NULL AUTO_INCREMENT,
+  `id_persona` int(2) NOT NULL,
+  `id_estructura` int(2) NOT NULL,
+  PRIMARY KEY (`id_persona_estructura`),
+  KEY `id_persona` (`id_persona`),
+  KEY `id_estructura` (`id_estructura`),
+  CONSTRAINT `persona_estructura_ibfk_1` FOREIGN KEY (`id_persona`) REFERENCES `persones` (`id_persona`),
+  CONSTRAINT `persona_estructura_ibfk_2` FOREIGN KEY (`id_estructura`) REFERENCES `estructures` (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=12 DEFAULT CHARSET=latin1;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `persona_estructura`
+--
+
+LOCK TABLES `persona_estructura` WRITE;
+/*!40000 ALTER TABLE `persona_estructura` DISABLE KEYS */;
+INSERT INTO `persona_estructura` VALUES (4,1,6),(5,1,2),(6,6,2),(7,3,6),(8,5,5),(9,5,2),(10,4,2),(11,2,6);
+/*!40000 ALTER TABLE `persona_estructura` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
 -- Table structure for table `persona_projecte`
 --
 
@@ -478,10 +507,7 @@ CREATE TABLE `persones` (
   `id_persona` int(2) NOT NULL AUTO_INCREMENT,
   `nom_complet` varchar(100) DEFAULT NULL,
   `email` varchar(100) DEFAULT NULL,
-  `estructures_id` int(11) DEFAULT NULL,
-  PRIMARY KEY (`id_persona`),
-  KEY `fk_Persones_Departaments1_idx` (`estructures_id`),
-  KEY `fk_Persones_Departaments1` (`estructures_id`)
+  PRIMARY KEY (`id_persona`)
 ) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
@@ -491,7 +517,7 @@ CREATE TABLE `persones` (
 
 LOCK TABLES `persones` WRITE;
 /*!40000 ALTER TABLE `persones` DISABLE KEYS */;
-INSERT INTO `persones` VALUES (1,'Eduardo Gasser','edugasser@gmail.com',2),(2,'Vicenç Juan Monserrat Tomàs','vtomasr5@gmail.com',2),(3,'Juan José Pol Fuentes','juanjopol@gmail.com',5),(4,'Pepe Gomez',NULL,5),(5,'Juanita Lopez',NULL,5),(6,'Juan Hidalgo',NULL,6);
+INSERT INTO `persones` VALUES (1,'Eduardo Gasser','edugasser@gmail.com'),(2,'Vicenç Juan Monserrat Tomàs','vtomasr5@gmail.com'),(3,'Juan José Pol Fuentes','juanjopol@gmail.com'),(4,'Pepe Gomez',NULL),(5,'Juanita Lopez',NULL),(6,'Juan Hidalgo',NULL);
 /*!40000 ALTER TABLE `persones` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -589,7 +615,7 @@ CREATE TABLE `projecte` (
 
 LOCK TABLES `projecte` WRITE;
 /*!40000 ALTER TABLE `projecte` DISABLE KEYS */;
-INSERT INTO `projecte` VALUES (25,'Tutoria / Soporte remoto',1,'El soporte remoto ¡es una solución ideal para el personal de IT que busca asistir a sus clientes remotamente y a la vez ahorrar tiempo y dinero.','2012-12-01','1000','1000','2012-12-31',14,3,'Mitja',3,3,2),(26,'Arquitectura Moodle',1,'Renovar la arquitectura Moodle.','2012-12-13','3000','3000','2012-12-16',14,3,'Baixa',2,3,1),(27,'Control de acceso',1,'Sistemas para control de acceso con lector de huella digital, clave y tarjeta inteligente','2012-12-01','2050','2050','2013-01-01',14,1,'Alta',3,1,1),(28,'Soporte chat para la administración',1,'Que el personal de administración disponga de un chat para realizar las consultas con los alumnos/profesores.','2012-12-19','50000','50000','2013-01-09',14,1,'Mitja',3,3,2);
+INSERT INTO `projecte` VALUES (25,'Tutoria / Soporte remoto',1,'<p>\n	El&nbsp;soporte remoto&nbsp;&iexcl;es una soluci&oacute;n ideal para el personal de IT que busca asistir a sus clientes remotamente y a la vez ahorrar tiempo y dinero.</p>\n','2012-12-01','1000','1000','2013-01-22',14,3,'Mitja',3,3,2),(26,'Arquitectura Moodle',1,'Renovar la arquitectura Moodle.','2012-12-13','3000','3000','2012-12-16',14,3,'Baixa',2,3,1),(27,'Control de acceso',1,'<p>\n	Sistemas para&nbsp;control de acceso&nbsp;con lector de huella digital, clave y tarjeta inteligente</p>\n','2012-12-01','2050','2050','2013-01-31',14,1,'Alta',3,1,1),(28,'Soporte chat para la administración',1,'<p>\n	Que el personal de administraci&oacute;n disponga de un chat para realizar las consultas con los alumnos/profesores.</p>\n','2012-12-19','50000','50000','2013-02-01',14,1,'Mitja',3,3,2);
 /*!40000 ALTER TABLE `projecte` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -846,7 +872,7 @@ CREATE TABLE `users` (
 
 LOCK TABLES `users` WRITE;
 /*!40000 ALTER TABLE `users` DISABLE KEYS */;
-INSERT INTO `users` VALUES (2,'admin','$2a$08$Fc8ch.9YrFlD7TvlDa8u/ejOERQRjRrpxsNEgTZMponx/I6x3vW3e','edugasser@gmail.com',1,0,NULL,NULL,NULL,NULL,NULL,'127.0.0.1','2013-01-08 17:45:38','2012-12-10 18:00:57','2013-01-08 16:45:38',1),(3,'becari','$2a$08$aAZJL9JEaC9smBzHHWSwqeK.LXYZ6x3AM9tBsnVPXKEEx34rKVI8q','becari@gmail.com',1,0,NULL,NULL,NULL,NULL,NULL,'::1','2013-01-07 22:50:31','2012-12-17 13:13:44','2013-01-07 21:50:31',6);
+INSERT INTO `users` VALUES (2,'admin','$2a$08$Fc8ch.9YrFlD7TvlDa8u/ejOERQRjRrpxsNEgTZMponx/I6x3vW3e','edugasser@gmail.com',1,0,NULL,NULL,NULL,NULL,NULL,'fe80::1','2013-01-09 08:51:51','2012-12-10 18:00:57','2013-01-09 07:51:51',1),(3,'becari','$2a$08$aAZJL9JEaC9smBzHHWSwqeK.LXYZ6x3AM9tBsnVPXKEEx34rKVI8q','becari@gmail.com',1,0,NULL,NULL,NULL,NULL,NULL,'::1','2013-01-07 22:50:31','2012-12-17 13:13:44','2013-01-07 21:50:31',6);
 /*!40000 ALTER TABLE `users` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
@@ -859,4 +885,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2013-01-08 18:03:36
+-- Dump completed on 2013-01-09  9:19:11
