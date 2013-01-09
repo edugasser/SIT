@@ -413,6 +413,10 @@ $crud->unset_back_to_list();
 			show_error($e->getMessage().' --- '.$e->getTraceAsString());
 		}
 	}
+	function valueToEuro($value, $row)
+{
+    return $value.' &euro;';
+}
 	function propostes()
 	{
 		try{
@@ -424,9 +428,14 @@ $crud->unset_back_to_list();
 			$crud->set_relation('tipus_projecte_id','tipus_projecte','tipus'); 
 			$crud->set_relation('estat_projecte','estat','estat');
 			$crud->set_relation('id_responsable','persones','nom_complet');
-			$crud->columns('titol','tipus_projecte_id','data','estat_projecte','id_responsable');
+			$crud->columns('titol','tipus_projecte_id','data','estat_projecte','id_responsable','presupost');
 			$crud->edit_fields('titol','tipus_projecte_id','data','id_responsable','presupost');
-$crud->unset_back_to_list();
+			$crud->callback_column('presupost',array($this,'valueToEuro'));
+			$crud->display_as('tipus_projecte_id','Tipus projecte');
+			$crud->display_as('estat_projecte','Estat');
+			$crud->display_as('id_responsable','Responsable');
+			$crud->display_as('presupost','Pressupost');
+			$crud->unset_back_to_list();
 			//GESTION PERMISOS
 			if (($this->session->userdata('Editar')) != 1){
 				$crud->unset_edit(); 

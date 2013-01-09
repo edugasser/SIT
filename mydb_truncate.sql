@@ -45,6 +45,7 @@ CREATE TABLE `ci_sessions` (
 --
 -- Dumping data for table `ci_sessions`
 --
+
  
 
 --
@@ -69,6 +70,7 @@ CREATE TABLE `decision` (
 --
 -- Dumping data for table `decision`
 --
+
  
 --
 -- Table structure for table `encuesta`
@@ -91,9 +93,7 @@ CREATE TABLE `encuesta` (
 --
 -- Dumping data for table `encuesta`
 --
-
  
-
 --
 -- Table structure for table `encuesta_resultado`
 --
@@ -116,7 +116,6 @@ CREATE TABLE `encuesta_resultado` (
 --
 
  
-
 --
 -- Table structure for table `estat`
 --
@@ -155,7 +154,6 @@ CREATE TABLE `estructures` (
 --
 -- Dumping data for table `estructures`
 --
-
  
 
 --
@@ -184,8 +182,8 @@ CREATE TABLE `incidencia` (
 --
 -- Dumping data for table `incidencia`
 --
-
  
+
 --
 -- Table structure for table `login_attempts`
 --
@@ -205,7 +203,6 @@ CREATE TABLE `login_attempts` (
 --
 -- Dumping data for table `login_attempts`
 --
-
  
 --
 -- Table structure for table `objectius_estrategics`
@@ -226,7 +223,9 @@ CREATE TABLE `objectius_estrategics` (
 --
 -- Dumping data for table `objectius_estrategics`
 --
+
  
+
 --
 -- Table structure for table `objectius_tactics`
 --
@@ -275,20 +274,8 @@ CREATE TABLE `objectius_tactics_has_projecte` (
 --
 -- Dumping data for table `objectius_tactics_has_projecte`
 --
- DROP TABLE IF EXISTS `persona_estructura`;
-/*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!40101 SET character_set_client = utf8 */;
-CREATE TABLE `persona_estructura` (
-  `id_persona_estructura` int(2) NOT NULL AUTO_INCREMENT,
-  `id_persona` int(2) NOT NULL,
-  `id_estructura` int(2) NOT NULL,
-  PRIMARY KEY (`id_persona_estructura`),
-  KEY `id_persona` (`id_persona`),
-  KEY `id_estructura` (`id_estructura`),
-  CONSTRAINT `persona_estructura_ibfk_1` FOREIGN KEY (`id_persona`) REFERENCES `persones` (`id_persona`),
-  CONSTRAINT `persona_estructura_ibfk_2` FOREIGN KEY (`id_estructura`) REFERENCES `estructures` (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=12 DEFAULT CHARSET=latin1;
-/*!40101 SET character_set_client = @saved_cs_client */;
+
+ 
 
 --
 -- Table structure for table `operacio`
@@ -314,7 +301,7 @@ CREATE TABLE `operacio` (
 -- Dumping data for table `operacio`
 --
 
-  
+ 
 --
 -- Table structure for table `perfil`
 --
@@ -333,6 +320,7 @@ CREATE TABLE `perfil` (
 --
 -- Dumping data for table `perfil`
 --
+
  
 
 --
@@ -355,13 +343,11 @@ CREATE TABLE `perfil_permisos` (
 --
 -- Dumping data for table `perfil_permisos`
 --
-
  LOCK TABLES `perfil_permisos` WRITE;
 /*!40000 ALTER TABLE `perfil_permisos` DISABLE KEYS */;
 INSERT INTO `perfil_permisos` VALUES (1,1,1),(3,1,3),(26,1,6),(2,2,1),(8,3,1),(5,3,3),(19,3,4),(21,3,5),(6,4,3),(4,6,3),(11,7,1),(17,12,1),(25,12,6),(18,13,1),(20,13,4),(22,13,5);
 /*!40000 ALTER TABLE `perfil_permisos` ENABLE KEYS */;
 UNLOCK TABLES;
-
 
 --
 -- Table structure for table `permiso`
@@ -381,12 +367,36 @@ CREATE TABLE `permiso` (
 --
 -- Dumping data for table `permiso`
 --
-LOCK TABLES `permiso` WRITE;
+ LOCK TABLES `permiso` WRITE;
 /*!40000 ALTER TABLE `permiso` DISABLE KEYS */;
-INSERT INTO `permiso` VALUES (1,'Editar',''),(2,'Eliminar',''),(3,'Projectes',''),(7,'Usuaris',''),(12,'Principis_i_objectius',''),(13,'Sesions',''),(14,'Serveis','');
+INSERT INTO `permiso` VALUES (1,'Editar',''),(2,'Eliminar',''),(3,'Projectes',''),(7,'Usuaris',''),(12,'Principis_i_objectius',''),(13,'Sesions','');
 /*!40000 ALTER TABLE `permiso` ENABLE KEYS */;
 UNLOCK TABLES;
+--
+-- Table structure for table `persona_estructura`
+--
+
+DROP TABLE IF EXISTS `persona_estructura`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `persona_estructura` (
+  `id_persona_estructura` int(2) NOT NULL AUTO_INCREMENT,
+  `id_persona` int(2) NOT NULL,
+  `id_estructura` int(2) NOT NULL,
+  PRIMARY KEY (`id_persona_estructura`),
+  KEY `id_persona` (`id_persona`),
+  KEY `id_estructura` (`id_estructura`),
+  CONSTRAINT `persona_estructura_ibfk_1` FOREIGN KEY (`id_persona`) REFERENCES `persones` (`id_persona`),
+  CONSTRAINT `persona_estructura_ibfk_2` FOREIGN KEY (`id_estructura`) REFERENCES `estructures` (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=12 DEFAULT CHARSET=latin1;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `persona_estructura`
+--
+
  
+
 --
 -- Table structure for table `persona_projecte`
 --
@@ -411,6 +421,7 @@ CREATE TABLE `persona_projecte` (
 --
 -- Dumping data for table `persona_projecte`
 --
+
  
 
 --
@@ -431,6 +442,7 @@ CREATE TABLE `persones` (
 --
 -- Dumping data for table `persones`
 --
+
  
 
 --
@@ -478,8 +490,8 @@ CREATE TABLE `principi_oestrategics` (
 --
 -- Dumping data for table `principi_oestrategics`
 --
-
  
+
 --
 -- Table structure for table `projecte`
 --
@@ -516,6 +528,7 @@ CREATE TABLE `projecte` (
 --
 
  
+
 --
 -- Table structure for table `proposta`
 --
@@ -532,11 +545,15 @@ CREATE TABLE `proposta` (
   `tipus_projecte_id` int(11) DEFAULT NULL,
   `estat_projecte` int(2) NOT NULL,
   `decisio` text,
+  `id_responsable` int(2) DEFAULT NULL,
+  `presupost` varchar(20) DEFAULT NULL,
   PRIMARY KEY (`id`),
   UNIQUE KEY `titol` (`titol`),
   KEY `fk_Proposta_tipus_projecte1_idx` (`tipus_projecte_id`),
   KEY `estat_projecte` (`estat_projecte`),
-  CONSTRAINT `proposta_ibfk_1` FOREIGN KEY (`estat_projecte`) REFERENCES `estat` (`id_estat`)
+  KEY `id_responsable` (`id_responsable`),
+  CONSTRAINT `proposta_ibfk_1` FOREIGN KEY (`estat_projecte`) REFERENCES `estat` (`id_estat`),
+  CONSTRAINT `proposta_ibfk_2` FOREIGN KEY (`id_responsable`) REFERENCES `persones` (`id_persona`)
 ) ENGINE=InnoDB AUTO_INCREMENT=17 DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
@@ -565,7 +582,9 @@ CREATE TABLE `reunion` (
 --
 -- Dumping data for table `reunion`
 --
+
  
+
 --
 -- Table structure for table `reunion_estructura`
 --
@@ -590,6 +609,7 @@ CREATE TABLE `reunion_estructura` (
 --
 -- Dumping data for table `reunion_estructura`
 --
+
  
 
 --
@@ -610,10 +630,7 @@ CREATE TABLE `seguiment_projecte` (
 -- Dumping data for table `seguiment_projecte`
 --
 
-LOCK TABLES `seguiment_projecte` WRITE;
-/*!40000 ALTER TABLE `seguiment_projecte` DISABLE KEYS */;
-/*!40000 ALTER TABLE `seguiment_projecte` ENABLE KEYS */;
-UNLOCK TABLES;
+ 
 
 --
 -- Table structure for table `servicis`
@@ -635,7 +652,6 @@ CREATE TABLE `servicis` (
 --
 -- Dumping data for table `servicis`
 --
-
  
 
 --
@@ -680,10 +696,7 @@ CREATE TABLE `user_autologin` (
 -- Dumping data for table `user_autologin`
 --
 
-LOCK TABLES `user_autologin` WRITE;
-/*!40000 ALTER TABLE `user_autologin` DISABLE KEYS */;
-/*!40000 ALTER TABLE `user_autologin` ENABLE KEYS */;
-UNLOCK TABLES;
+ 
 
 --
 -- Table structure for table `user_profiles`
@@ -746,7 +759,7 @@ CREATE TABLE `users` (
 
 LOCK TABLES `users` WRITE;
 /*!40000 ALTER TABLE `users` DISABLE KEYS */;
-INSERT INTO `users` VALUES (2,'admin','$2a$08$Fc8ch.9YrFlD7TvlDa8u/ejOERQRjRrpxsNEgTZMponx/I6x3vW3e','edugasser@gmail.com',1,0,NULL,NULL,NULL,NULL,NULL,'127.0.0.1','2013-01-08 17:45:38','2012-12-10 18:00:57','2013-01-08 16:45:38',1),(3,'becari','$2a$08$aAZJL9JEaC9smBzHHWSwqeK.LXYZ6x3AM9tBsnVPXKEEx34rKVI8q','becari@gmail.com',1,0,NULL,NULL,NULL,NULL,NULL,'::1','2013-01-07 22:50:31','2012-12-17 13:13:44','2013-01-07 21:50:31',6);
+INSERT INTO `users` VALUES (2,'admin','$2a$08$Fc8ch.9YrFlD7TvlDa8u/ejOERQRjRrpxsNEgTZMponx/I6x3vW3e','edugasser@gmail.com',1,0,NULL,NULL,NULL,NULL,NULL,'::1','2013-01-09 10:18:12','2012-12-10 18:00:57','2013-01-09 09:18:12',1),(3,'becari','$2a$08$aAZJL9JEaC9smBzHHWSwqeK.LXYZ6x3AM9tBsnVPXKEEx34rKVI8q','becari@gmail.com',1,0,NULL,NULL,NULL,NULL,NULL,'::1','2013-01-07 22:50:31','2012-12-17 13:13:44','2013-01-07 21:50:31',6);
 /*!40000 ALTER TABLE `users` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
@@ -759,4 +772,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2013-01-08 18:03:36
+-- Dump completed on 2013-01-09 10:39:29
