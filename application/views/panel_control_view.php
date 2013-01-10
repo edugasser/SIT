@@ -3,12 +3,12 @@
 <map id="_Image-Maps_3201212121014062" name="Image-Maps_3201212121014062">
 <?php if ($this->session->userdata('Projectes') == 1){ ?>
 <area shape="rect" coords="87,146,207,188" href="<?php echo base_url();?>panel/dirigir" alt="Dirigir" title="Dirigir"    />
-<area shape="rect" coords="237,100,357,142" href="<?php echo base_url();?>proposta/evaluar" alt="Evaluar" title="Evaluar"    />
+<area shape="rect" coords="237,100,357,142" href="<?php echo base_url();?>proposta/gestion" alt="Evaluar" title="Evaluar"    />
 
 <area shape="rect" coords="375,144,495,186" href="<?php echo base_url();?>panel/control" alt="Controlar" title="Controlar"    />
 
 
-<area shape="rect" coords="245,185,339,360" href="<?php echo base_url();?>proposta/gestion" alt="Usos de IT" title="Usos de IT"    />
+<area shape="rect" coords="245,185,339,360" href="<?php echo base_url();?>proposta/evaluar" alt="Usos de IT" title="Usos de IT"    />
 <?php }?>
 <?php if ($this->session->userdata('Principis_i_objectius') == 1){ ?>
 <area shape="rect" coords="94,186,198,324" href="<?php echo base_url();?>panel/evaluar" alt="Planes" title="Planes"    />

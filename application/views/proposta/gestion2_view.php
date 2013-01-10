@@ -74,12 +74,7 @@ a:hover
 </script>
 <div id='report-error' class='report-div error report-list'></div>
 <div id='report-success' class='report-div success report-list' ></div>	
-<div class="datatables-add-button">
-<a role="button" class="edit_button ui-button ui-widget ui-state-default ui-corner-all ui-button-text-icon-primary" href="<?php echo base_url();?>admin/propostes/add">
-	<span class="ui-button-icon-primary ui-icon ui-icon-circle-plus"></span>
-	<span class="ui-button-text">Afegir Propostes</span>
-</a>
-</div>
+ 
 <div style='height:10px;'></div>
 <table cellpadding="0" cellspacing="0" border="0" class="display" id="groceryCrudTable">
 	<thead>
