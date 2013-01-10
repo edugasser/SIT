@@ -46,7 +46,22 @@ CREATE TABLE `ci_sessions` (
 -- Dumping data for table `ci_sessions`
 --
 
- 
+ --
+-- Table structure for table `persona_proposta`
+--
+
+DROP TABLE IF EXISTS `persona_proposta`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `persona_proposta` (
+  `id_persona` int(2) DEFAULT NULL,
+  `id_proposta` int(2) DEFAULT NULL,
+  KEY `id_persona` (`id_persona`),
+  KEY `id_proposta` (`id_proposta`),
+  CONSTRAINT `persona_propost2` FOREIGN KEY (`id_persona`) REFERENCES `persones` (`id_persona`),
+  CONSTRAINT `persona_proposta4` FOREIGN KEY (`id_proposta`) REFERENCES `proposta` (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+/*!40101 SET character_set_client = @saved_cs_client */;
 
 --
 -- Table structure for table `decision`
