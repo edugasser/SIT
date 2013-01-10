@@ -48,7 +48,7 @@ CREATE TABLE `ci_sessions` (
 
 LOCK TABLES `ci_sessions` WRITE;
 /*!40000 ALTER TABLE `ci_sessions` DISABLE KEYS */;
-INSERT INTO `ci_sessions` VALUES ('24a38f8403626ee5a288a8095bb30ed9','::1','Mozilla/5.0 (Macintosh; Intel Mac OS X 10_8_2) AppleWebKit/536.26.17 (KHTML, like Gecko) Version/6.0.2 Safari/536.26.17',1357719787,'a:13:{s:9:\"user_data\";s:0:\"\";s:11:\"url_history\";a:6:{i:0;s:0:\"\";i:1;s:15:\"proyecto/pdf/26\";i:2;s:12:\"proyecto/mio\";i:3;s:16:\"proyecto/gestion\";i:4;s:0:\"\";i:5;s:22:\"proyecto/encuestas_mio\";}s:7:\"user_id\";s:1:\"2\";s:8:\"username\";s:5:\"admin\";s:6:\"perfil\";s:1:\"1\";s:5:\"email\";s:19:\"edugasser@gmail.com\";s:6:\"status\";s:1:\"1\";s:6:\"Editar\";i:1;s:8:\"Eliminar\";i:1;s:9:\"Projectes\";i:1;s:7:\"Usuaris\";i:1;s:21:\"Principis_i_objectius\";i:1;s:7:\"Sesions\";i:1;}'),('4ec296af551228b30c5b485ab955fd4b','fe80::1','Mozilla/5.0 (Macintosh; Intel Mac OS X 10_8_2) AppleWebKit/536.26.17 (KHTML, like Gecko) Version/6.0.2 Safari/536.26.17',1357719428,'a:13:{s:9:\"user_data\";s:0:\"\";s:11:\"url_history\";a:6:{i:0;s:13:\"persona/chart\";i:1;s:14:\"admin/persones\";i:2;s:13:\"persona/chart\";i:3;s:14:\"admin/persones\";i:4;s:21:\"admin/persones/edit/2\";i:5;s:13:\"persona/chart\";}s:7:\"user_id\";s:1:\"2\";s:8:\"username\";s:5:\"admin\";s:6:\"perfil\";s:1:\"1\";s:5:\"email\";s:19:\"edugasser@gmail.com\";s:6:\"status\";s:1:\"1\";s:6:\"Editar\";i:1;s:8:\"Eliminar\";i:1;s:9:\"Projectes\";i:1;s:7:\"Usuaris\";i:1;s:21:\"Principis_i_objectius\";i:1;s:7:\"Sesions\";i:1;}'),('71eddd781220643b236dc277638f431c','::1','Mozilla/5.0 (Macintosh; Intel Mac OS X 10_8_2) AppleWebKit/536.26.17 (KHTML, like Gecko) Version/6.0.2 Safari/536.26.17',1357724182,'a:13:{s:9:\"user_data\";s:0:\"\";s:11:\"url_history\";a:6:{i:0;s:12:\"proposta/mio\";i:1;s:23:\"admin/propostes/edit/16\";i:2;s:12:\"proposta/mio\";i:3;s:23:\"admin/propostes/edit/15\";i:4;s:12:\"proposta/mio\";i:5;s:23:\"admin/propostes/edit/14\";}s:7:\"user_id\";s:1:\"2\";s:8:\"username\";s:5:\"admin\";s:6:\"perfil\";s:1:\"1\";s:5:\"email\";s:19:\"edugasser@gmail.com\";s:6:\"status\";s:1:\"1\";s:6:\"Editar\";i:1;s:8:\"Eliminar\";i:1;s:9:\"Projectes\";i:1;s:7:\"Usuaris\";i:1;s:21:\"Principis_i_objectius\";i:1;s:7:\"Sesions\";i:1;}'),('7c9c57b73900806ba5352a98c3c08d49','::1','Mozilla/5.0 (Macintosh; Intel Mac OS X 10_8_2) AppleWebKit/536.26.17 (KHTML, like Gecko) Version/6.0.2 Safari/536.26.17',1357725028,'a:13:{s:9:\"user_data\";s:0:\"\";s:11:\"url_history\";a:6:{i:0;s:15:\"admin/propostes\";i:1;s:23:\"admin/propostes/edit/14\";i:2;s:15:\"admin/propostes\";i:3;s:16:\"proposta/evaluar\";i:4;s:0:\"\";i:5;s:15:\"admin/propostes\";}s:7:\"user_id\";s:1:\"2\";s:8:\"username\";s:5:\"admin\";s:6:\"perfil\";s:1:\"1\";s:5:\"email\";s:19:\"edugasser@gmail.com\";s:6:\"status\";s:1:\"1\";s:6:\"Editar\";i:1;s:8:\"Eliminar\";i:1;s:9:\"Projectes\";i:1;s:7:\"Usuaris\";i:1;s:21:\"Principis_i_objectius\";i:1;s:7:\"Sesions\";i:1;}'),('bb0ee16f5de6bd7cfc07a6327f566f5d','::1','Mozilla/5.0 (Macintosh; Intel Mac OS X 10_8_2) AppleWebKit/536.26.17 (KHTML, like Gecko) Version/6.0.2 Safari/536.26.17',1357722204,'a:13:{s:9:\"user_data\";s:0:\"\";s:11:\"url_history\";a:6:{i:0;s:12:\"proyecto/mio\";i:1;s:31:\"admin/persones_projecte/edit/28\";i:2;s:12:\"proyecto/mio\";i:3;s:16:\"proyecto/gestion\";i:4;s:13:\"principis/mio\";i:5;s:29:\"admin/principis_estrategies/1\";}s:7:\"user_id\";s:1:\"2\";s:8:\"username\";s:5:\"admin\";s:6:\"perfil\";s:1:\"1\";s:5:\"email\";s:19:\"edugasser@gmail.com\";s:6:\"status\";s:1:\"1\";s:6:\"Editar\";i:1;s:8:\"Eliminar\";i:1;s:9:\"Projectes\";i:1;s:7:\"Usuaris\";i:1;s:21:\"Principis_i_objectius\";i:1;s:7:\"Sesions\";i:1;}');
+INSERT INTO `ci_sessions` VALUES ('2582977bd065d6033ad19b5d9f01b106','::1','Mozilla/5.0 (Macintosh; Intel Mac OS X 10_8_2) AppleWebKit/536.26.17 (KHTML, like Gecko) Version/6.0.2 Safari/536.26.17',1357815410,'a:13:{s:9:\"user_data\";s:0:\"\";s:11:\"url_history\";a:6:{i:0;s:28:\"proposta/mio/asinar_persones\";i:1;s:32:\"admin/persones_propostes/edit/15\";i:2;s:28:\"proposta/mio/asinar_persones\";i:3;s:32:\"proposta/gestion/asinar_persones\";i:4;s:13:\"panel/dirigir\";i:5;s:12:\"proposta/mio\";}s:7:\"user_id\";s:1:\"2\";s:8:\"username\";s:5:\"admin\";s:6:\"perfil\";s:1:\"1\";s:5:\"email\";s:19:\"edugasser@gmail.com\";s:6:\"status\";s:1:\"1\";s:6:\"Editar\";i:1;s:8:\"Eliminar\";i:1;s:9:\"Projectes\";i:1;s:7:\"Usuaris\";i:1;s:21:\"Principis_i_objectius\";i:1;s:7:\"Sesions\";i:1;}'),('672c7f1fe15757ea17900ce29ef67fec','::1','Mozilla/5.0 (Macintosh; Intel Mac OS X 10_8_2) AppleWebKit/536.26.17 (KHTML, like Gecko) Version/6.0.2 Safari/536.26.17',1357810484,'a:13:{s:9:\"user_data\";s:0:\"\";s:11:\"url_history\";a:5:{i:0;s:0:\"\";i:1;s:14:\"admin/operacio\";i:2;s:20:\"proyecto/operaciones\";i:3;s:5:\"panel\";i:4;s:10:\"auth/login\";}s:7:\"user_id\";s:1:\"2\";s:8:\"username\";s:5:\"admin\";s:6:\"perfil\";s:1:\"1\";s:5:\"email\";s:19:\"edugasser@gmail.com\";s:6:\"status\";s:1:\"1\";s:6:\"Editar\";i:1;s:8:\"Eliminar\";i:1;s:9:\"Projectes\";i:1;s:7:\"Usuaris\";i:1;s:21:\"Principis_i_objectius\";i:1;s:7:\"Sesions\";i:1;}'),('c8508668557b4cbb2e1145ede6e80f2d','::1','Mozilla/5.0 (Macintosh; Intel Mac OS X 10_8_2) AppleWebKit/536.26.17 (KHTML, like Gecko) Version/6.0.2 Safari/536.26.17',1357810297,'a:2:{s:9:\"user_data\";s:0:\"\";s:11:\"url_history\";a:1:{i:0;s:10:\"auth/login\";}}'),('def48074b4da94afdfa426df5d5d2a7b','::1','Mozilla/5.0 (Macintosh; Intel Mac OS X 10_8_2) AppleWebKit/536.26.17 (KHTML, like Gecko) Version/6.0.2 Safari/536.26.17',1357811901,'a:2:{s:9:\"user_data\";s:0:\"\";s:11:\"url_history\";a:1:{i:0;s:10:\"auth/login\";}}');
 /*!40000 ALTER TABLE `ci_sessions` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -123,7 +123,7 @@ CREATE TABLE `encuesta_resultado` (
   PRIMARY KEY (`id_encuesta_resultado`),
   KEY `id_encuesta` (`id_encuesta`),
   CONSTRAINT `encuesta_resultado_ibfk_1` FOREIGN KEY (`id_encuesta`) REFERENCES `encuesta` (`id_encuensta`)
-) ENGINE=InnoDB AUTO_INCREMENT=37 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=38 DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -132,7 +132,7 @@ CREATE TABLE `encuesta_resultado` (
 
 LOCK TABLES `encuesta_resultado` WRITE;
 /*!40000 ALTER TABLE `encuesta_resultado` DISABLE KEYS */;
-INSERT INTO `encuesta_resultado` VALUES (1,5,1),(1,7,2),(2,2,3),(2,9,4),(2,9,5),(2,7,6),(2,4,7),(2,5,8),(2,3,9),(2,8,10),(2,4,11),(2,5,12),(2,6,13),(1,3,14),(1,5,15),(1,5,16),(2,6,17),(2,6,18),(2,5,19),(2,8,20),(1,5,21),(1,5,22),(1,5,23),(2,5,24),(2,5,25),(1,3,26),(2,4,27),(1,1,28),(2,2,29),(2,2,30),(2,2,31),(1,3,32),(1,3,33),(1,2,34),(2,34,36);
+INSERT INTO `encuesta_resultado` VALUES (1,5,1),(1,7,2),(2,2,3),(2,9,4),(2,9,5),(2,7,6),(2,4,7),(2,5,8),(2,3,9),(2,8,10),(2,4,11),(2,5,12),(2,6,13),(1,3,14),(1,5,15),(1,5,16),(2,6,17),(2,6,18),(2,5,19),(2,8,20),(1,5,21),(1,5,22),(1,5,23),(2,5,24),(2,5,25),(1,3,26),(2,4,27),(1,1,28),(2,2,29),(2,2,30),(2,2,31),(1,3,32),(1,3,33),(1,2,34),(2,34,36),(2,6,37);
 /*!40000 ALTER TABLE `encuesta_resultado` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -232,7 +232,7 @@ CREATE TABLE `login_attempts` (
   `login` varchar(50) COLLATE utf8_bin NOT NULL,
   `time` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -423,7 +423,7 @@ CREATE TABLE `permiso` (
   `nombre_permiso` varchar(100) NOT NULL,
   `url` varchar(100) NOT NULL,
   PRIMARY KEY (`id_permiso`)
-) ENGINE=InnoDB AUTO_INCREMENT=15 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=14 DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -494,6 +494,33 @@ LOCK TABLES `persona_projecte` WRITE;
 /*!40000 ALTER TABLE `persona_projecte` DISABLE KEYS */;
 INSERT INTO `persona_projecte` VALUES (1,1,26,'0000-00-00'),(2,2,26,'0000-00-00'),(3,3,28,'0000-00-00'),(4,3,27,'0000-00-00'),(5,6,28,'0000-00-00');
 /*!40000 ALTER TABLE `persona_projecte` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `persona_proposta`
+--
+
+DROP TABLE IF EXISTS `persona_proposta`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `persona_proposta` (
+  `id_persona` int(2) DEFAULT NULL,
+  `id_proposta` int(2) DEFAULT NULL,
+  KEY `id_persona` (`id_persona`),
+  KEY `id_proposta` (`id_proposta`),
+  CONSTRAINT `persona_propost2` FOREIGN KEY (`id_persona`) REFERENCES `persones` (`id_persona`),
+  CONSTRAINT `persona_proposta4` FOREIGN KEY (`id_proposta`) REFERENCES `proposta` (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `persona_proposta`
+--
+
+LOCK TABLES `persona_proposta` WRITE;
+/*!40000 ALTER TABLE `persona_proposta` DISABLE KEYS */;
+INSERT INTO `persona_proposta` VALUES (1,15),(2,15);
+/*!40000 ALTER TABLE `persona_proposta` ENABLE KEYS */;
 UNLOCK TABLES;
 
 --
@@ -630,10 +657,9 @@ CREATE TABLE `proposta` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `titol` varchar(100) NOT NULL,
   `descripcio` text,
-  `riscs` varchar(300) DEFAULT NULL,
   `data` date DEFAULT NULL,
   `tipus_projecte_id` int(11) DEFAULT NULL,
-  `estat_projecte` int(2) NOT NULL,
+  `estat_projecte` int(2) NOT NULL DEFAULT '2',
   `decisio` text,
   `id_responsable` int(2) DEFAULT NULL,
   `presupost` varchar(20) DEFAULT NULL,
@@ -644,7 +670,7 @@ CREATE TABLE `proposta` (
   KEY `id_responsable` (`id_responsable`),
   CONSTRAINT `proposta_ibfk_1` FOREIGN KEY (`estat_projecte`) REFERENCES `estat` (`id_estat`),
   CONSTRAINT `proposta_ibfk_2` FOREIGN KEY (`id_responsable`) REFERENCES `persones` (`id_persona`)
-) ENGINE=InnoDB AUTO_INCREMENT=17 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=19 DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -653,7 +679,7 @@ CREATE TABLE `proposta` (
 
 LOCK TABLES `proposta` WRITE;
 /*!40000 ALTER TABLE `proposta` DISABLE KEYS */;
-INSERT INTO `proposta` VALUES (14,'Terminar la practica','<p>\n	Descripcion</p>\n','Riesgos','2012-12-11',1,4,'<p>\n	Holasds sd</p>\n',1,'180.000'),(15,'Propuesta 2',' bla bla bla','Riesgos','2012-12-12',1,4,'<p>\n	asd asdfasdasd asd asds</p>\n',1,'200.000'),(16,'Propuesta 3',' balba lba l','asdf','2012-12-18',1,1,NULL,3,'1.000.000');
+INSERT INTO `proposta` VALUES (14,'Terminar la practica','<p>\n	Descripcion</p>\n','2012-12-11',1,4,'<p>\n	Holasds sd</p>\n',1,'180.000'),(15,'Propuesta 2',' bla bla bla','2012-12-12',1,1,'<p>\n	asd asdfasdasd asd asds</p>\n',2,'200.000'),(16,'Propuesta 3',' balba lba l','2012-12-18',1,1,NULL,3,'1.000.000'),(17,'Otra propuesta','<p>\n	 </p>\n<p style=\"margin: 0px 0px 10px; padding: 0px; border: 0px; outline: 0px; font-size: 14px; vertical-align: baseline; line-height: 25px; font-family: Helvetica, Arial, sans-serif; max-width: 720px; color: rgb(0, 0, 0); \">\n	<code class=\"literal\" style=\"margin: 0px; padding: 0px; border: 0px; outline: 0px; font-size: 13px; vertical-align: baseline; background-color: white; color: rgb(2, 103, 137); font-weight: bold; font-family: \'Courier New\', Courier, fixed, monospace; background-position: initial initial; background-repeat: initial initial; \">ALTER TABLE</code> funciona creando una copia temporal de la tabla original. La alteración se realiza en la copia, luego la tabla original se borra y se renombra la nueva. Mientras se ejecuta <code class=\"literal\" style=\"margin: 0px; padding: 0px; border: 0px; outline: 0px; font-size: 13px; vertical-align: baseline; background-color: white; color: rgb(2, 103, 137); font-weight: bold; font-family: \'Courier New\', Courier, fixed, monospace; background-position: initial initial; background-repeat: initial initial; \">ALTER TABLE</code> la tabla original es legible por otros clientes. Las actualizaciones y escrituras en la tabla se esperan hasta que la nueva tabla esté lista, luego se redirigen automáticamente a la nueva tabla sin ninguna actualización fallida.</p>\n<p style=\"margin: 0px 0px 10px; padding: 0px; border: 0px; outline: 0px; font-size: 14px; vertical-align: baseline; line-height: 25px; font-family: Helvetica, Arial, sans-serif; max-width: 720px; color: rgb(0, 0, 0); \">\n	Tenga en cuenta que si usa cualquier otra opción en <code class=\"literal\" style=\"margin: 0px; padding: 0px; border: 0px; outline: 0px; font-size: 13px; vertical-align: baseline; background-color: white; color: rgb(2, 103, 137); font-weight: bold; font-family: \'Courier New\', Courier, fixed, monospace; background-position: initial initial; background-repeat: initial initial; \">ALTER TABLE</code> distinta a <code class=\"literal\" style=\"margin: 0px; padding: 0px; border: 0px; outline: 0px; font-size: 13px; vertical-align: baseline; background-color: white; color: rgb(2, 103, 137); font-weight: bold; font-family: \'Courier New\', Courier, fixed, monospace; background-position: initial initial; background-repeat: initial initial; \">RENAME</code>, MySQL siempre crea una tabla temporal, incluso si los datos no necesitan ser copiados (tales como cuando cambia el nombre de una columna). Planeamos arreglar esto en el futuro, pero debido a que <code class=\"literal\" style=\"margin: 0px; padding: 0px; border: 0px; outline: 0px; font-size: 13px; vertical-align: baseline; background-color: white; color: rgb(2, 103, 137); font-weight: bold; font-family: \'Courier New\', Courier, fixed, monospace; background-position: initial initial; background-repeat: initial initial; \">ALTER TABLE</code> no es un comando que se use frecuentemente, no es un tema demasiado urgente. Para tablas <code class=\"literal\" style=\"margin: 0px; padding: 0px; border: 0px; outline: 0px; font-size: 13px; vertical-align: baseline; background-color: white; color: rgb(2, 103, 137); font-weight: bold; font-family: \'Courier New\', Courier, fixed, monospace; background-position: initial initial; background-repeat: initial initial; \">MyISAM</code> puede incrementar la velocidad de la operación de recrear índices (que es la parte más lenta del proceso de alteración) mediante la variable de sistema <code class=\"literal\" style=\"margin: 0px; padding: 0px; border: 0px; outline: 0px; font-size: 13px; vertical-align: baseline; background-color: white; color: rgb(2, 103, 137); font-weight: bold; font-family: \'Courier New\', Courier, fixed, monospace; background-position: initial initial; background-repeat: initial initial; \">myisam_sort_buffer_size</code> poniendo un valor alto.</p>\n','2013-01-02',1,2,'<p>\n	sddf</p>\n',1,'12312'),(18,'Nueva propuesta','<p>\n	asdfs sdsd</p>\n','2013-01-08',1,2,NULL,6,'12312');
 /*!40000 ALTER TABLE `proposta` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -751,7 +777,7 @@ CREATE TABLE `servicis` (
   `data_servei` date NOT NULL,
   PRIMARY KEY (`id_servici`),
   UNIQUE KEY `nom_servei` (`nom_servei`)
-) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -876,7 +902,7 @@ CREATE TABLE `users` (
 
 LOCK TABLES `users` WRITE;
 /*!40000 ALTER TABLE `users` DISABLE KEYS */;
-INSERT INTO `users` VALUES (2,'admin','$2a$08$Fc8ch.9YrFlD7TvlDa8u/ejOERQRjRrpxsNEgTZMponx/I6x3vW3e','edugasser@gmail.com',1,0,NULL,NULL,NULL,NULL,NULL,'::1','2013-01-09 10:44:55','2012-12-10 18:00:57','2013-01-09 09:44:55',1),(3,'becari','$2a$08$aAZJL9JEaC9smBzHHWSwqeK.LXYZ6x3AM9tBsnVPXKEEx34rKVI8q','becari@gmail.com',1,0,NULL,NULL,NULL,NULL,NULL,'::1','2013-01-07 22:50:31','2012-12-17 13:13:44','2013-01-07 21:50:31',6);
+INSERT INTO `users` VALUES (2,'admin','$2a$08$Fc8ch.9YrFlD7TvlDa8u/ejOERQRjRrpxsNEgTZMponx/I6x3vW3e','edugasser@gmail.com',1,0,NULL,NULL,NULL,NULL,NULL,'::1','2013-01-10 10:58:59','2012-12-10 18:00:57','2013-01-10 09:58:59',1),(3,'becari','$2a$08$aAZJL9JEaC9smBzHHWSwqeK.LXYZ6x3AM9tBsnVPXKEEx34rKVI8q','becari@gmail.com',1,0,NULL,NULL,NULL,NULL,NULL,'::1','2013-01-07 22:50:31','2012-12-17 13:13:44','2013-01-07 21:50:31',6);
 /*!40000 ALTER TABLE `users` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
@@ -889,4 +915,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2013-01-09 10:52:29
+-- Dump completed on 2013-01-10 11:57:21

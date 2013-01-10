@@ -32,6 +32,84 @@ class proposta extends CI_Controller {
 		$this->load->view('page_view', $data);
 	
 	}
+	function pdf($id){
+	$this->load->library('pdf');
+	
+		$sql2 = "SELECT * FROM proposta JOIN persones ON proposta.id_responsable = persones.id_persona JOIN tipus_projecte ON proposta.tipus_projecte_id = tipus_projecte.id WHERE proposta.id = '$id'";
+		$data =  $this->mi_model->get_sql($sql2);
+ 
+	// set document information
+	$this->pdf->SetSubject('Fitxa proposta');
+
+
+	// set font
+	$this->pdf->SetFont('helvetica', '', 16);
+
+	// add a page
+	$this->pdf->AddPage();
+	foreach ($data as $row) {
+	// print a line using Cell()
+
+	$this->pdf->SetXY(20, 25);
+	$this->pdf->Cell(150, 0, 'Proposta '.utf8_decode($row->titol), 0, 1, 'C');
+
+	$this->pdf->SetFont('helvetica', '', 11);
+	$this->pdf->setCellPaddings(1, 1, 1, 1);
+	
+	$this->pdf->SetXY(15, 39);
+	$this->pdf->Cell(35, 0, 'Proposta', 1, 1, 'C', 0, '', 0);
+
+	$this->pdf->SetXY(50, 39);
+	$this->pdf->Cell(100, 0, utf8_decode($row->titol), 1, 1, 'C', 0, '', 0); 
+	$y = 39;
+			$y = $y + 8;
+	$this->pdf->SetXY(15, $y);
+	$this->pdf->Cell(35, 0, utf8_decode('Descripció'), 1, 1, 'C', 0, '', 0);
+	$this->pdf->SetXY(50,  $y);
+
+	$this->pdf->Cell(100, 0, utf8_decode(strip_tags($row->descripcio)), 1, 1, 'C', 0, '', 0);	
+	$y = $y + 8;
+	$this->pdf->SetXY(15, $y);
+	$this->pdf->Cell(35, 0, 'Data inici', 1, 1, 'C', 0, '', 0);
+	$this->pdf->SetXY(50,  $y);
+	$this->pdf->Cell(100, 0, $row->data, 1, 1, 'C', 0, '', 0);
+	
+
+
+	
+	$y = $y + 8;
+	$this->pdf->SetXY(15, $y);
+	$this->pdf->Cell(35, 0, 'Tipus projecte', 1, 1, 'C', 0, '', 0);
+	$this->pdf->SetXY(50,  $y);
+	$this->pdf->Cell(100, 0, $row->tipus, 1, 1, 'C', 0, '', 0);
+	
+	$y = $y + 8;
+	$this->pdf->SetXY(15, $y);
+	$this->pdf->Cell(35, 0, 'Estat', 1, 1, 'C', 0, '', 0);
+	$this->pdf->SetXY(50,  $y);
+	$this->pdf->Cell(100, 0, $row->estat_projecte, 1, 1, 'C', 0, '', 0);
+	
+	$y = $y + 8;
+	$this->pdf->SetXY(15, $y);
+	$this->pdf->Cell(35, 0, 'Pressupost', 1, 1, 'C', 0, '', 0);
+	$this->pdf->SetXY(50,  $y);
+	$this->pdf->Cell(100, 0, $row->presupost, 1, 1, 'C', 0, '', 0);
+
+	$y = $y + 8;
+	$this->pdf->SetXY(15, $y);
+	$this->pdf->Cell(35, 0, utf8_decode('Decisió'), 1, 1, 'C', 0, '', 0);
+	$this->pdf->SetXY(50,  $y);
+	$this->pdf->Cell(100, 0, $row->decisio, 1, 1, 'C', 0, '', 0);
+	$html = $row->descripcio;
+
+	// output the HTML content
+	$this->pdf->writeHTML($html, true, false, true, false, '');
+
+
+	$this->pdf->Output("proposta.pdf", 'i');
+	}
+
+}
 	public function add()
 	{ 
 		if ($this->tank_auth->is_logged_in()) {		

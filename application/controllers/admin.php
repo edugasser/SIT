@@ -428,14 +428,15 @@ class Admin extends CI_Controller {
 			$crud->set_relation('tipus_projecte_id','tipus_projecte','tipus'); 
 			$crud->set_relation('estat_projecte','estat','estat');
 			$crud->set_relation('id_responsable','persones','nom_complet');
-			$crud->columns('titol','tipus_projecte_id','data','estat_projecte','id_responsable','presupost');
-			$crud->edit_fields('titol','tipus_projecte_id','data','id_responsable','presupost');
+			$crud->columns('titol','tipus_projecte_id','data','descripcio','estat_projecte','id_responsable','presupost');
+			$crud->edit_fields('titol','tipus_projecte_id','data','descripcio','estat_projecte','id_responsable','presupost');
 			$crud->callback_column('presupost',array($this,'valueToEuro'));
 			$crud->display_as('tipus_projecte_id','Tipus projecte');
 			$crud->display_as('estat_projecte','Estat');
 			$crud->display_as('id_responsable','Responsable');
 			$crud->display_as('presupost','Pressupost');
-			$crud->where('estat_projecte','2');
+			$crud->unset_add_fields('decisio','estat_projecte');
+			//$crud->where('estat_projecte','2');
 			$crud->unset_back_to_list();
 			//GESTION PERMISOS
 			if (($this->session->userdata('Editar')) != 1){
