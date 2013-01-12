@@ -1,3 +1,4 @@
+
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html>
 <head>
@@ -16,50 +17,63 @@
 		var y = date.getFullYear();
 		
 		$('#calendar').fullCalendar({
-		
+			header: {
+				left: 'prev,next today',
+				center: 'title',
+				right: 'month,basicWeek,basicDay'
+			},
 			editable: true,
 			events: [
 				{
-					title: 'Tutoria / Soporte remoto',
-					start: '2012-12-01',
-					end: '2012-12-31',
-					url: 'http://localhost/igovern/proyecto/gestion/25',
-					target: '_blank'
+					title: 'All Day Event',
+					start: new Date(y, m, 1)
 				},
 				{
-					title: 'Arquitectura Moodle',
-					start: '2012-12-13',
-					end: '2012-12-16',
-					url: 'http://localhost/igovern/proyecto/gestion/26',
-					target: '_blank'
+					title: 'Long Event',
+					start: new Date(y, m, d-5),
+					end: new Date(y, m, d-2)
 				},
 				{
-					title: 'Control de acceso',
-					start: '2012-12-01',
-					end: '2013-01-01',
-					url: 'http://localhost/igovern/proyecto/gestion/27',
-					target: '_blank'
+					id: 999,
+					title: 'Repeating Event',
+					start: new Date(y, m, d-3, 16, 0),
+					allDay: false
 				},
 				{
-					title: 'Soporte chat para la administración',
-					start: '2012-12-19',
-					end: '2013-01-09',
-					url: 'http://localhost/igovern/proyecto/gestion/28',
-					target: '_blank'
-				}				 
-			],
-			eventClick: function(event) {
-			if (event.url) {
-            window.open(event.url,'_parent');
-            return false;
-        }
-    }
+					id: 999,
+					title: 'Repeating Event',
+					start: new Date(y, m, d+4, 16, 0),
+					allDay: false
+				},
+				{
+					title: 'Meeting',
+					start: new Date(y, m, d, 10, 30),
+					allDay: false
+				},
+				{
+					title: 'Lunch',
+					start: new Date(y, m, d, 12, 0),
+					end: new Date(y, m, d, 14, 0),
+					allDay: false
+				},
+				{
+					title: 'Birthday Party',
+					start: new Date(y, m, d+1, 19, 0),
+					end: new Date(y, m, d+1, 22, 30),
+					allDay: false
+				},
+				{
+					title: 'Click for Google',
+					start: new Date(y, m, 28),
+					end: new Date(y, m, 29),
+					url: 'http://google.com/'
+				}
+			]
 		});
 		
 	});
 
 </script>
-
 <style type='text/css'>
 
 	body {
@@ -70,7 +84,7 @@
 		}
 
 	#calendar {
-		width:100%;
+		width: 900px;
 		margin: 0 auto;
 		}
 
