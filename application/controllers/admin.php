@@ -339,7 +339,7 @@ class Admin extends CI_Controller {
 			}
 			$crud->unset_back_to_list();
 			$crud->field_type('estat','dropdown',
-            array('En procés' => 'En procés', 'Acabada' => 'Acabada' ));
+            array('En procés' => 'En procés', 'Acabada' => 'Acabada','Pendent' => 'Pendent' ));
 			//GESTION PERMISOS
 			if (($this->session->userdata('Editar'))!= 1){
 				$crud->unset_edit(); 
