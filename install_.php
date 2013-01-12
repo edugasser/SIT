@@ -91,8 +91,8 @@
 						$mostrar = false;
 						
 						?>
-							<p style="font-size:13pt;color:yellow">Elimine el arxiu "install.php"</p><br>
-				<a style="font-size:13pt;color:white" href="http://localhost/igovern">Ir a l'aplicació</a>
+							<p style="font-size:13pt;color:yellow">Elimini l'arxiu "install.php"</p><br>
+				<a style="font-size:13pt;color:white" href="http://localhost/igovern">Anar a l'aplicació</a>
 			
 						
 				<?php	}
