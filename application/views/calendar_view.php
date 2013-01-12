@@ -19,35 +19,15 @@
 		
 			editable: true,
 			events: [
-				{
-					title: 'Tutoria / Soporte remoto',
-					start: '2012-12-01',
-					end: '2012-12-31',
-					url: 'http://localhost/igovern/proyecto/gestion/25',
+				<?php $i=0;foreach ($data as $row){ ?>
+{
+					title: '<?php $i++;echo $row->titol;?>',
+					start: '<?php echo $row->data_inici;?>',
+					end: '<?php echo $row->data_entrega;?>',
+					url: '<?php echo base_url();?>proyecto/gestion/<?php echo $row->id;?>',
 					target: '_blank'
-				},
-				{
-					title: 'Arquitectura Moodle',
-					start: '2012-12-13',
-					end: '2012-12-16',
-					url: 'http://localhost/igovern/proyecto/gestion/26',
-					target: '_blank'
-				},
-				{
-					title: 'Control de acceso',
-					start: '2012-12-01',
-					end: '2013-01-01',
-					url: 'http://localhost/igovern/proyecto/gestion/27',
-					target: '_blank'
-				},
-				{
-					title: 'Soporte chat para la administración',
-					start: '2012-12-19',
-					end: '2013-01-09',
-					url: 'http://localhost/igovern/proyecto/gestion/28',
-					target: '_blank'
-				}				 
-			],
+				}<?php if ($count_projectes != $i){ ?>,
+				<?php }} ?>],
 			eventClick: function(event) {
 			if (event.url) {
             window.open(event.url,'_parent');
@@ -76,7 +56,7 @@
 
 </style>
 </head>
-<body>
+<body> 
 <div id='calendar'></div>
 </body>
 </html>

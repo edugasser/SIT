@@ -26,10 +26,9 @@ class panel extends CI_Controller {
     }
     public function calendar(){
     	$now = date('Y-m-d');
-		$sql5 = "
-				SELECT  *  FROM projecte  
-			";
+		$sql5 = "SELECT  * FROM projecte;";
 			$data['data'] = $this->mi_model->get_sql($sql5);
+			$data['count_projectes'] = $this->mi_model->devolver_count("projecte");
 	    	$this->load->view('calendar_view',$data);
     }
     	public function conformidad()
