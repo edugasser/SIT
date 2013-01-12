@@ -1,6 +1,6 @@
   
 	<div class="pageheader">
-<h1 class="pagetitle">Desempeño / Conformidad</h1>
+<h1 class="pagetitle">Control de qualitat</h1>
 <span class="pagedesc"></span>
 
 </div><!--pageheader-->

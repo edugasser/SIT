@@ -1,6 +1,6 @@
 <?php  
 /* Translated by Hector Cyc */
-	$lang['list_add']				= 'Agregar';
+	$lang['list_add']				= 'Afegir';
 	$lang['list_actions']			= 'Acciones';
 	$lang['list_page']				= 'Pagina';  
 	$lang['list_paging_of']			= 'de';
@@ -28,7 +28,7 @@
 	$lang['update_success_message']	= 'Los cambios fueron aplicados correctamente.';                
 	$lang['form_go_back_to_list']	= 'Regresar a la lista';
 
-	$lang['form_add']				= 'Agregar';
+	$lang['form_add']				= 'Afegir';
 	$lang['insert_success_message']	= 'Los datos fueron insertados correctamente en la Base de datos.';
 	$lang['form_or']				= 'o';
 	$lang['form_save']				= 'Guardar';
