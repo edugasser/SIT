@@ -1,4 +1,5 @@
-<html lang="es">
+<!DOCTYPE html>
+<html>
 <head>
 	<meta charset="utf-8" />
 	<link type="text/css" rel="stylesheet" href="<?php echo base_url();?>assets/grocery_crud/css/jquery_plugins/chosen/chosen.css" />
@@ -30,7 +31,10 @@ a:hover
 <body>
  
     <div>
- 
+		<script type="text/javascript">
+var ajax_relation_url = '<?php echo base_url();?>admin/encuesta/ajax_relation';
+
+</script>
 <div class='ui-widget-content ui-corner-all datatables'>
 	<h3 class="ui-accordion-header ui-helper-reset ui-state-default form-title">
 		<div class='floatL form-title-left'>
@@ -39,7 +43,7 @@ a:hover
 		<div class='clear'></div>
 	</h3>
 <div class='form-content form-div'>
-	<form action="<?php echo base_url();?>panel/addencuesta/<?php echo $id;?>" method="post" id="crudForm" autocomplete="off" enctype="multipart/form-data" accept-charset="utf8"><div style="display:none">
+	<form action="<?php echo base_url();?>admin/encuesta/insert" method="post" id="crudForm" autocomplete="off" enctype="multipart/form-data" accept-charset="utf8"><div style="display:none">
 <input type="hidden" name="csrf_test_name" value="ced342770a2f4e36951b58297b4f36c3" />
 </div>		
 <?php foreach($data as $row){ ?>
@@ -81,7 +85,23 @@ a:hover
 				<?php }?>
 	</form></div>
 </div>
+<script>
+	var validation_url = '<?php echo base_url();?>admin/encuesta/insert_validation';
+	var list_url = '<?php echo base_url();?>admin/encuesta';
 
+	var message_alert_add_form = "Los datos que insertaste no pueden ser guardados.\nEstas seguro que quieres regresar a la lista?";
+	var message_insert_error = "Ocurrio un error durante la insercion.";	
+</script><script type="text/javascript">
+var js_date_format = 'dd/mm/yy';
+</script>
+<script type="text/javascript">
+	var default_javascript_path = '<?php echo base_url();?>assets/grocery_crud/js';
+	var default_css_path = '<?php echo base_url();?>assets/grocery_crud/css';
+	var default_texteditor_path = '<?php echo base_url();?>assets/grocery_crud/texteditor';
+	var default_theme_path = '<?php echo base_url();?>assets/grocery_crud/themes';
+	var base_url = '<?php echo base_url();?>';
+
+</script>
     </div>
 </body>
 </html>
